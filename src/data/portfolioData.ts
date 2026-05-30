@@ -16,7 +16,7 @@ export const portfolioData: PortfolioData = {
   photos: [
     "https://files.bitqai.com/portfolio/self-pic1.jpg?auto=format&fit=crop&w=600&h=800&q=80",
     "https://files.bitqai.com/portfolio/self-pic2.jpg?auto=format&fit=crop&w=600&h=800&q=80",
-    "https://files.bitqai.com/portfolio/self-pic8.jpg?auto=format&fit=crop&w=600&h=800&q=80",
+    "https://files.bitqai.com/portfolio/self-pic9.jpg?auto=format&fit=crop&w=600&h=800&q=80",
     "https://files.bitqai.com/portfolio/self-pic7.jpg?auto=format&fit=crop&w=600&h=800&q=80",
     "https://files.bitqai.com/portfolio/self-pic6.jpg?auto=format&fit=crop&w=600&h=800&q=80",
     "https://files.bitqai.com/portfolio/self-pic5.jpg?auto=format&fit=crop&w=600&h=800&q=80",

@@ -64,8 +64,8 @@ ${skillsText}
    - Bachelor's Degree in Software Engineering (国家双一流理工大学软件工程学士), Period: 2014.09 - 2018.06. 
 
 8. Location & Contacts:
-   - Living in Shanghai, Xuhui (上海徐汇). Available for both on-site key opportunities and worldwide remote collaborations.
-   - Professional Email: guoxin199604@gmail.com / guoxin@bitqai.com
+   - Living in Guangdong, Shenzhen Nanshan / Yunnan Puer (深圳南山/云南普洱). Available for both on-site key opportunities and worldwide remote collaborations.
+   - Professional Email: guoxin@bitqai.com
 
 Communication Tone Guidelines:
 - Professional, objective, helpful, friendly, and structured.
@@ -212,7 +212,7 @@ app.post('/api/contact', async (req, res) => {
       },
       body: JSON.stringify({
         from: `Portfolio Contact <${resendFrom}>`,
-        to: ['guoxin199604@gmail.com', 'guoxin@bitqai.com'],
+        to: ['guoxin@bitqai.com'],
         subject: `[Portfolio Collaboration Idea] ${subject} - from ${name}`,
         html: `
           <h3>New Contact Request from Portfolio Website</h3>
@@ -277,7 +277,7 @@ BT
 0 -35 Td
 (Contact Phone / WeChat: +86 15323411996) Tj
 0 -25 Td
-(Email Address: guoxin@bitqai.com / guoxin199604@gmail.com) Tj
+(Email Address: guoxin@bitqai.com) Tj
 0 -40 Td
 (Core Stacks: React, Node.js, AI Agents Orchestration, Gemini API, WebGL) Tj
 0 -45 Td
@@ -334,7 +334,7 @@ BT
 0 -35 Td
 (Contact Phone / WeChat: +86 15323411996) Tj
 0 -25 Td
-(Email Address: guoxin@bitqai.com / guoxin199604@gmail.com) Tj
+(Email Address: guoxin@bitqai.com) Tj
 0 -40 Td
 (Core Stacks: React, Node.js, AI Agents Orchestration, Gemini API, WebGL) Tj
 0 -45 Td

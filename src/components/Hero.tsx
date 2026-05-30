@@ -47,7 +47,6 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
 
   const ctaText = currentLang === 'zh' ? '联系我' : 'Get in Touch';
   const exploreProjects = currentLang === 'zh' ? '探索项目' : 'View Projects';
-  const downloadText = currentLang === 'zh' ? '下载 PDF 简历' : 'Download CV (PDF)';
 
   return (
     <section
@@ -157,15 +156,6 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
             >
               <span>{exploreProjects}</span>
             </button>
-
-            <a
-              href={`/api/download-resume?lang=${currentLang}`}
-              download
-              className="px-8 py-4 rounded-full bg-black/50 hover:bg-orange-500 border border-white/20 hover:border-orange-500 font-sans font-semibold text-white transition-all duration-300 active:scale-[0.98] text-sm md:text-base flex items-center gap-2 group cursor-pointer"
-            >
-              <Download className="w-4 h-4 text-orange-400 group-hover:text-white" />
-              <span>{downloadText}</span>
-            </a>
           </motion.div>
         </div>
       </div>

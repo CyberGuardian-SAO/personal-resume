@@ -9,6 +9,7 @@ import AIChatbot from './components/AIChatbot';
 import Contact from './components/Contact';
 import MouseFollower from './components/MouseFollower';
 import WeChatWidget from './components/WeChatWidget';
+import Footer from './components/Footer';
 import { portfolioData } from './data/portfolioData';
 
 export default function App() {
@@ -93,22 +94,11 @@ export default function App() {
         />
       </main>
 
-      {/* Footer credits */}
-      <footer className="bg-zinc-900 border-t border-zinc-850 text-zinc-400 py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <span className="font-sans font-bold text-lg text-white select-none">
-              {portfolioData.name[currentLang]}
-              <span className="text-orange-500">.</span>
-            </span>
-          </div>
-
-          <p className="font-sans text-xs text-zinc-500 select-none">
-            &copy; {currentYear} {portfolioData.name[currentLang]}. 
-            {currentLang === 'zh' ? ' 橙白极简品牌设计 · 像素级追求' : ' Premium minimalist styling in Orange-white.'}
-          </p>
-        </div>
-      </footer>
+      {/* High-fidelity Footer Coordinates */}
+      <Footer
+        currentLang={currentLang}
+        onScrollTo={handleScrollTo}
+      />
       <WeChatWidget />
     </div>
   );

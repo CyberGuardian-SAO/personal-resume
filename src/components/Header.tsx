@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Globe, Menu, X, Terminal } from 'lucide-react';
+import { Globe, Menu, X, Terminal, Download } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 interface HeaderProps {
@@ -128,19 +128,19 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
 
         {/* Global Controls */}
         <div className="flex items-center gap-3">
-          {/* Dynamic PDF Export Link */}
-          <a
-            href={`/api/download-resume?lang=${currentLang}`}
-            download
-            className={`hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-semibold transition-all duration-300 focus:outline-none ${
+          {/* Dynamic PDF Export Link via Native Print */}
+          <button
+            onClick={() => window.print()}
+            className={`hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-semibold transition-all duration-300 focus:outline-none cursor-pointer ${
               isScrolled
                 ? 'border-orange-500/20 text-orange-600 hover:bg-orange-500 hover:text-white hover:border-orange-500'
                 : 'border-white/20 text-white hover:bg-white/10'
             }`}
-            title={currentLang === 'zh' ? '下载 PDF 简历' : 'Download CV (PDF)'}
+            title={currentLang === 'zh' ? '触发打印/另存为 PDF 简历' : 'Trigger Print / Save CV as PDF'}
           >
-            <span>{currentLang === 'zh' ? '下载简历' : 'Download CV'}</span>
-          </a>
+            <Download className="w-3.5 h-3.5 shrink-0" />
+            <span>{currentLang === 'zh' ? '简历下载' : 'Resume Download'}</span>
+          </button>
 
           {/* Language Switch */}
           <button

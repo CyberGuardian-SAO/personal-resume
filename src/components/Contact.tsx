@@ -28,12 +28,12 @@ export default function Contact({ currentLang }: ContactProps) {
     typeFulltime: currentLang === 'zh' ? '全职契机' : 'Full-time Opportunities',
     typeSaaS: currentLang === 'zh' ? 'AI Agent 定制开发' : 'AI Agent Solutions',
     message: currentLang === 'zh' ? '留言内容' : 'Detailed Message',
-    placeholderMsg: currentLang === 'zh' ? '写下您的项目大纲、预算周期，郭鑫会尽快与您汇合。' : 'Explain requirements, timeline, stack details, etc. Bill Guo will connect soon.',
-    submit: currentLang === 'zh' ? '发送邮件联络' : 'Dispatch Intent',
+    placeholderMsg: currentLang === 'zh' ? '写下您的项目大纲、预算周期，我会尽快与您联系。' : 'Explain requirements, timeline, stack details, etc. Bill Guo will connect soon.',
+    submit: currentLang === 'zh' ? '发送邮件' : 'Dispatch Intent',
     sending: currentLang === 'zh' ? '投递中...' : 'Dispatching...',
     successTitle: currentLang === 'zh' ? '意向投递成功！' : 'Message Dispatched!',
     successDesc: currentLang === 'zh' ? '感谢您的联络。合作信息已被安全发送，我将尽快回复您。' : 'Thank you for your contact. Your collaboration details have been sent securely via Resend and I will get back to you soon.',
-    location: currentLang === 'zh' ? '中国 上海 徐汇区' : 'Xuhui District, Shanghai, China'
+    location: currentLang === 'zh' ? '中国 广东省 深圳市/ 云南省 普洱市' : 'Nanshan District, Guangdong Shenzhen, China'
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -147,7 +147,7 @@ export default function Contact({ currentLang }: ContactProps) {
                       {currentLang === 'zh' ? '直联邮箱' : 'DIRECT EMAIL'}
                     </p>
                     <p className="font-sans font-bold text-zinc-800 text-sm mt-0.5 hover:text-orange-600 transition-colors">
-                      guoxin199604@gmail.com
+                      guoxin@bitqai.com
                     </p>
                   </div>
                 </div>
@@ -204,11 +204,11 @@ export default function Contact({ currentLang }: ContactProps) {
             {/* Social handles links */}
             <div className="border-t border-zinc-100 pt-8 mt-12 md:mt-0">
               <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-4">
-                {currentLang === 'zh' ? '社区与网络' : 'COMMUNITY NETWORKS'}
+                {currentLang === 'zh' ? '社交媒体' : 'COMMUNITY NETWORKS'}
               </p>
               <div className="flex gap-3">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/BitQAI"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-zinc-200 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 transition-colors duration-300"

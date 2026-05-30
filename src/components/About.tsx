@@ -37,7 +37,6 @@ export default function About({ currentLang }: AboutProps) {
     sectionTitle: currentLang === 'zh' ? '关于我' : 'About Me',
     sectionSubtitle: currentLang === 'zh' ? '探寻技术与生活中的美学交界' : 'Seeking the intersection of tech & life aesthetics',
     statsHeading: currentLang === 'zh' ? '' : '',
-    bulletsHeading: currentLang === 'zh' ? '核心工程哲学' : 'CORE PHILOSOPHY',
   };
 
   // Assign distinct representative icons to bento statistics cards
@@ -100,9 +99,6 @@ export default function About({ currentLang }: AboutProps) {
               </div>
 
               <div className="border-t border-zinc-100 pt-3.5 mt-1">
-                <h4 className="font-sans font-bold text-[10px] md:text-xs text-zinc-900 mb-2 tracking-wider uppercase">
-                  {t.bulletsHeading}
-                </h4>
                 <ul className="space-y-1.5">
                   {bullets.map((bullet, idx) => (
                     <li key={idx} className="font-sans text-xs text-zinc-650 leading-relaxed flex items-start gap-2">
@@ -221,9 +217,6 @@ export default function About({ currentLang }: AboutProps) {
                 {/* Decorative spotlight border effect */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-orange-500/5 rounded-full blur-xl pointer-events-none" />
 
-                <span className="text-[9px] font-extrabold tracking-widest text-orange-600 uppercase block mb-2 font-mono">
-                  {currentLang === 'zh' ? '核心工程哲学' : 'CORE PHILOSOPHY'}
-                </span>
                 <p className="font-sans font-medium text-xs leading-relaxed text-zinc-800 mb-4">
                   {currentLang === 'zh' 
                     ? "“先创造让用户惊艳的精美产品，再用绝对的技术能力去捍卫它的平稳落地。”"
@@ -246,9 +239,6 @@ export default function About({ currentLang }: AboutProps) {
 
               {/* Mobile-only responsive fallback philosophy block rendering cleanly under the card */}
               <div className="md:hidden mt-4 bg-white border border-zinc-200 p-5 rounded-2xl shadow-md w-full">
-                <span className="text-[9px] font-extrabold tracking-widest text-orange-600 uppercase block mb-1 font-mono">
-                  {currentLang === 'zh' ? '核心工程哲学' : 'CORE PHILOSOPHY'}
-                </span>
                 <p className="font-sans font-medium text-xs leading-relaxed text-zinc-800">
                   {currentLang === 'zh' 
                     ? "“先创造让用户惊艳的精美产品，再用绝对的技术能力去捍卫它的平稳落地。”"
