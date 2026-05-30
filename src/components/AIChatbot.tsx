@@ -51,7 +51,9 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
   ];
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messages.length > 1) {
+      chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [messages, loading]);
 
   const handleSendMessage = async (textToSend: string) => {

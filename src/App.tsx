@@ -16,6 +16,13 @@ export default function App() {
   const [currentLang, setCurrentLang] = useState<'zh' | 'en'>('zh');
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+    }
+
     if (typeof navigator !== 'undefined') {
       const locale = navigator.language.toLowerCase();
       if (locale.includes('zh')) {

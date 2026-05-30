@@ -19,3 +19,13 @@ html {
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.35);
 }
 
+/* Cursor custom blinking keyframes and animation: 0 opacity provides a highly crisp full blink cycle */
+@keyframes custom-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-custom-blink {
+  animation: custom-blink 1.2s ease-in-out infinite;
+}
+

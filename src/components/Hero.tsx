@@ -14,22 +14,28 @@ function Typewriter({ text }: { text: string; key?: string }) {
   useEffect(() => {
     let index = 0;
     setDisplayedText('');
-    const timer = setInterval(() => {
-      // Safely append characters based on current index
-      setDisplayedText((prev) => prev + text.charAt(index));
-      index++;
-      if (index >= text.length) {
-        clearInterval(timer);
-      }
-    }, 100); // 100ms per character typing speed
     
-    return () => clearInterval(timer);
+    const delayTimer = setTimeout(() => {
+      const timer = setInterval(() => {
+        index++;
+        setDisplayedText(text.slice(0, index));
+        if (index >= text.length) {
+          clearInterval(timer);
+        }
+      }, 100); // 100ms per character typing speed
+      
+      return () => clearInterval(timer);
+    }, 1000); // 1s start delay to ensure fully mounted and visible
+
+    return () => {
+      clearTimeout(delayTimer);
+    };
   }, [text]);
 
   return (
     <span className="font-sans text-sm md:text-base text-orange-400 font-semibold tracking-wide flex items-center gap-1">
       <span>{displayedText}</span>
-      <span className="w-1.5 h-4 bg-orange-500 animate-pulse inline-block" />
+      <span className="w-1.5 h-4 bg-orange-500 animate-custom-blink inline-block" />
     </span>
   );
 }
@@ -126,7 +132,7 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
           >
             <Typewriter 
               key={currentLang}
-              text={currentLang === 'zh' ? '无法重来的一生，请你尽量自由' : 'Live as freely as possible in this life that can never be replayed.'}
+              text={currentLang === 'zh' ? '无法重来的一生，请你尽量自由' : 'Live as freely as possible in this life that can never be replayed'}
             />
           </motion.div>
 
