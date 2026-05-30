@@ -185,7 +185,7 @@ export default function About({ currentLang }: AboutProps) {
                 <div className="absolute top-4 left-4 z-20 flex gap-1.5 items-center bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                   <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
                   <span className="text-[10px] font-extrabold uppercase text-orange-200 font-sans tracking-widest">
-                    {currentLang === 'zh' ? '个人剪影' : 'Personal Pics'}
+                    {currentLang === 'zh' ? '生活剪影' : 'Life Pics'}
                   </span>
                 </div>
 

@@ -178,7 +178,7 @@ export default function Contact({ currentLang }: ContactProps) {
                       <div className="w-24 h-24 bg-white border border-dashed border-zinc-200 rounded flex items-center justify-center overflow-hidden">
                         {!wechatError ? (
                           <img
-                            src="/wechat-qrcode.jpg"
+                            src="/https://files.bitqai.com/website/wechat-qrcode.jpg"
                             alt="微信二维码"
                             referrerPolicy="no-referrer"
                             onError={() => setWechatError(true)}

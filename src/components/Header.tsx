@@ -102,11 +102,11 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
           <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-md transition-all duration-300 group-hover:rotate-6 group-hover:scale-105">
             <Terminal className="w-4.5 h-4.5" />
           </div>
-          <span className={`font-sans font-extrabold text-xl tracking-tight transition-colors duration-300 flex items-center select-none ${
+          <span className={`font-sans font-extrabold text-xl tracking-tight transition-colors duration-300 flex items-center select-none w-24 sm:w-28 shrink-0 ${
             isScrolled ? 'text-zinc-950' : 'text-white drop-shadow-md'
           }`}>
-            <span>{displayText}</span>
-            <span className="w-1 h-4 ml-1 bg-orange-500 animate-pulse rounded-full" />
+            <span className="inline-block truncate">{displayText}</span>
+            <span className="w-1 h-4 ml-1 bg-orange-500 animate-pulse rounded-full shrink-0" />
           </span>
         </button>
 

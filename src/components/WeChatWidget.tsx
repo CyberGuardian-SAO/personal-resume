@@ -44,7 +44,7 @@ export default function WeChatWidget() {
                 <div className="w-full h-full border border-dashed border-zinc-200 rounded flex items-center justify-center overflow-hidden bg-white">
                   {!imgError ? (
                     <img
-                      src="/wechat-qrcode.jpg"
+                      src="https://files.bitqai.com/website/wechat-qrcode.jpg"
                       alt="微信二维码"
                       referrerPolicy="no-referrer"
                       onError={() => setImgError(true)}
