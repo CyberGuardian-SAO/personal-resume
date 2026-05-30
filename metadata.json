@@ -1,0 +1,6 @@
+{
+  "name": "Personal Portfolio",
+  "description": "An elegant, Apple and Linear inspired multilingual personal portfolio featuring clean typography, a beautiful full-screen video hero, and a smart interactive AI chat assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
