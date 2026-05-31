@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Globe, Menu, X, Terminal, Download } from 'lucide-react';
+import { Globe, Menu, X, Terminal, Download, Moon, Sun } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 interface HeaderProps {
   currentLang: 'zh' | 'en';
   setLang: (lang: 'zh' | 'en') => void;
   onScrollTo: (sectionId: string) => void;
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
 }
 
-export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps) {
+export default function Header({ currentLang, setLang, onScrollTo, theme, toggleTheme }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [displayText, setDisplayText] = useState('');
@@ -89,35 +91,37 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
       id="app-header"
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/80 backdrop-blur-md border-b border-orange-500/10 py-3 shadow-sm'
+          ? 'bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-orange-500/10 dark:border-white/10 py-3 shadow-sm'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <button
-          onClick={() => onScrollTo('hero')}
-          className="flex items-center gap-2.5 group focus:outline-none"
-        >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-md transition-all duration-300 group-hover:rotate-6 group-hover:scale-105">
-            <Terminal className="w-4.5 h-4.5" />
-          </div>
-          <span className={`font-sans font-extrabold text-xl tracking-tight transition-colors duration-300 flex items-center select-none w-24 sm:w-28 shrink-0 ${
-            isScrolled ? 'text-zinc-950' : 'text-white drop-shadow-md'
-          }`}>
-            <span className="inline-block truncate">{displayText}</span>
-            <span className="w-1 h-4 ml-1 bg-orange-500 animate-pulse rounded-full shrink-0" />
-          </span>
-        </button>
+        <div className="flex-1 flex justify-start">
+          <button
+            onClick={() => onScrollTo('hero')}
+            className="flex items-center gap-2.5 group focus:outline-none shrink-0"
+          >
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-md transition-all duration-300 group-hover:rotate-6 group-hover:scale-105 shrink-0">
+              <Terminal className="w-4.5 h-4.5" />
+            </div>
+            <span className={`font-sans font-bold text-lg sm:text-xl tracking-tight transition-colors duration-300 flex items-center justify-start select-none whitespace-nowrap overflow-hidden min-w-[120px] sm:min-w-[140px] text-left ${
+              isScrolled ? 'text-zinc-800 dark:text-white' : 'text-white drop-shadow-md'
+            }`}>
+              {displayText}
+              <span className="w-1 h-5 ml-1 bg-orange-500 animate-pulse rounded-full shrink-0 inline-block" />
+            </span>
+          </button>
+        </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center justify-center gap-6 lg:gap-10 shrink-0">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => onScrollTo(item.id)}
-              className={`relative font-sans font-medium text-sm transition-colors duration-300 hover:text-orange-500 focus:outline-none py-1 group/item ${
-                isScrolled ? 'text-gray-700' : 'text-white hover:text-orange-400 drop-shadow-sm'
+              className={`relative font-sans font-bold text-sm sm:text-[15px] transition-colors duration-300 focus:outline-none py-1 group/item ${
+                isScrolled ? 'text-zinc-700 dark:text-white hover:text-orange-500' : 'text-white hover:text-orange-200 drop-shadow-md'
               }`}
             >
               {item.label}
@@ -127,28 +131,42 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
         </nav>
 
         {/* Global Controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-end gap-3 flex-1">
           {/* Dynamic PDF Export Link via Native Print */}
           <button
-            onClick={() => window.print()}
-            className={`hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-semibold transition-all duration-300 focus:outline-none cursor-pointer ${
-              isScrolled
-                ? 'border-orange-500/20 text-orange-600 hover:bg-orange-500 hover:text-white hover:border-orange-500'
-                : 'border-white/20 text-white hover:bg-white/10'
+            onClick={() => {
+              const url = currentLang === 'zh'
+                ? '/AI应用架构师_郭鑫_15323411996（微信同号）.pdf'
+                : '/Senior_Full-Stack_Engineer_Bill_Guo_guoxin@bitqai.com.pdf';
+              window.open(url, '_blank');
+            }}
+            className={`hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full border text-xs sm:text-sm font-bold transition-all duration-300 focus:outline-none cursor-pointer hover:bg-white/10 ${
+              isScrolled ? 'border-zinc-200 text-zinc-800 dark:border-white/20 dark:text-white dark:hover:bg-white/10' : 'border-white/30 text-white shadow-sm hover:bg-white/20 backdrop-blur-md drop-shadow-md'
             }`}
-            title={currentLang === 'zh' ? '触发打印/另存为 PDF 简历' : 'Trigger Print / Save CV as PDF'}
+            title={currentLang === 'zh' ? '简历' : 'Resume'}
           >
             <Download className="w-3.5 h-3.5 shrink-0" />
-            <span>{currentLang === 'zh' ? '下载简历' : 'Download Resume'}</span>
+            <span>{currentLang === 'zh' ? '简历' : 'Resume'}</span>
+          </button>
+
+          <button
+            onClick={toggleTheme}
+            className={`clickable flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 pointer-events-auto focus:outline-none ${
+              isScrolled
+                ? 'border-zinc-200 text-zinc-800 hover:bg-zinc-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10'
+                : 'border-white/30 text-white shadow-sm hover:bg-white/20 backdrop-blur-md drop-shadow-md'
+            }`}
+          >
+            {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
           </button>
 
           {/* Language Switch */}
           <button
             onClick={() => setLang(currentLang === 'zh' ? 'en' : 'zh')}
-            className={`clickable flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-300 pointer-events-auto hover:bg-orange-550 focus:outline-none ${
+            className={`clickable flex items-center gap-1.5 px-4 py-2 rounded-full border text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 pointer-events-auto focus:outline-none ${
               isScrolled
-                ? 'border-orange-500/20 text-orange-600 hover:bg-orange-50'
-                : 'border-white/20 text-white hover:bg-white/10 drop-shadow-md'
+                ? 'border-zinc-200 text-zinc-800 hover:bg-zinc-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10'
+                : 'border-white/30 text-white shadow-sm hover:bg-white/20 backdrop-blur-md drop-shadow-md'
             }`}
           >
             <Globe className="w-3.5 h-3.5" />
@@ -160,8 +178,8 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`md:hidden p-2 rounded-full border focus:outline-none transition-colors ${
               isScrolled
-                ? 'border-orange-500/10 text-gray-800 hover:bg-orange-50'
-                : 'border-white/10 text-white hover:bg-white/10'
+                ? 'border-zinc-200 text-zinc-800 hover:bg-zinc-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10'
+                : 'border-white/30 text-white shadow-sm hover:bg-white/20 backdrop-blur-md drop-shadow-md'
             }`}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -177,7 +195,7 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 w-full bg-white border-b border-orange-500/10 shadow-lg md:hidden z-50 py-4 px-6 flex flex-col gap-4"
+            className="absolute top-full left-0 w-full bg-white dark:bg-zinc-900 border-b border-orange-500/10 dark:border-white/10 shadow-lg md:hidden z-50 py-4 px-6 flex flex-col gap-4"
           >
             {navItems.map((item) => (
               <button
@@ -186,7 +204,7 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
                   setMobileMenuOpen(false);
                   onScrollTo(item.id);
                 }}
-                className="w-full text-left py-2 border-b border-gray-100 font-sans font-semibold text-gray-700 hover:text-orange-500 hover:pl-2 transition-all duration-300"
+                className="w-full text-left py-2 border-b border-gray-100 dark:border-zinc-800 font-sans font-semibold text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 hover:pl-2 transition-all duration-300"
               >
                 {item.label}
               </button>
@@ -196,12 +214,15 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                window.print();
+                const url = currentLang === 'zh'
+                  ? '/AI应用架构师_郭鑫_15323411996（微信同号）.pdf'
+                  : '/Senior_Full-Stack_Engineer_Bill_Guo_guoxin@bitqai.com.pdf';
+                window.open(url, '_blank');
               }}
-              className="w-full flex items-center justify-center gap-2 mt-2 py-3 px-4 rounded-xl border border-orange-500/20 bg-orange-50 text-orange-600 font-sans font-bold text-sm hover:bg-orange-500 hover:text-white transition-all duration-300 cursor-pointer pointer-events-auto z-[9999]"
+              className="w-full flex items-center justify-center gap-2 mt-2 py-3 px-4 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-white font-sans font-bold text-sm hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-all duration-300 cursor-pointer pointer-events-auto z-[9999]"
             >
               <Download className="w-4 h-4 shrink-0" />
-              <span>{currentLang === 'zh' ? '下载简历' : 'Download Resume'}</span>
+              <span>{currentLang === 'zh' ? '简历' : 'Resume'}</span>
             </button>
           </motion.div>
         )}

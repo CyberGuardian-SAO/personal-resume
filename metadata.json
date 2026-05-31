@@ -1,6 +1,6 @@
 {
-  "name": "Personal Portfolio",
-  "description": "An elegant, Apple and Linear inspired multilingual personal portfolio featuring clean typography, a beautiful full-screen video hero, and a smart interactive AI chat assistant.",
+  "name": "Bill Guo | Senior Full-Stack Engineer & AI Architect",
+  "description": "Portfolio of Bill Guo (郭鑫), a Senior Full-Stack Engineer and AI Application Architect specializing in Next.js, React, Node.js, and GenAI integrations. Explore my projects, skills, and interactive AI chatbot.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

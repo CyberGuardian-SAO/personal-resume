@@ -82,7 +82,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
   }, []);
 
   return (
-    <section id="projects" className="py-24 bg-white border-b border-orange-500/5">
+    <section id="projects" className="py-24 border-b border-white/20 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-16">
@@ -101,7 +101,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 tracking-tight"
+            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100 tracking-tight"
           >
             {t.subtitle}
           </motion.h2>
@@ -121,7 +121,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
               className={`clickable relative px-5.5 py-2.5 rounded-full font-sans text-xs font-bold uppercase tracking-wider transition-colors duration-300 focus:outline-none ${
                 activeTab === tab.id
                   ? 'text-white'
-                  : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100'
+                  : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
               }`}
             >
               <span className="relative z-10 flex items-center gap-1">
@@ -150,10 +150,10 @@ export default function Projects({ currentLang }: ProjectsProps) {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35 }}
                 whileHover={{ y: -6 }}
-                className="group flex flex-col justify-between bg-zinc-50 border border-zinc-200/60 rounded-2xl overflow-hidden hover:border-orange-500/10 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-500"
+                className="group flex flex-col justify-between bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl border border-white/60 dark:border-zinc-800/60 rounded-2xl overflow-hidden hover:border-white dark:hover:border-zinc-700 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-500"
               >
                 {/* Visual Image Block (Project Cover Frame) */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
+                <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                   <img
                     src={project.image || project.imageUrl}
                     alt={project.title[currentLang]}
@@ -171,7 +171,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                     </button>
                   </div>
                   {/* Category Pill Tag floating inside top right */}
-                  <span className="absolute top-3 right-3 text-[8.5px] uppercase font-extrabold tracking-widest px-2 py-0.5 bg-white/95 backdrop-blur-md rounded-full shadow-sm text-zinc-700">
+                  <span className="absolute top-3 right-3 text-[8.5px] uppercase font-extrabold tracking-widest px-2 py-0.5 bg-white/95 dark:bg-zinc-900/90 backdrop-blur-md rounded-full shadow-sm text-zinc-700 dark:text-zinc-300">
                     {project.category}
                   </span>
                 </div>
@@ -195,20 +195,20 @@ export default function Projects({ currentLang }: ProjectsProps) {
                       )}
                     </div>
 
-                    <h3 className="font-sans font-extrabold text-[14.5px] text-zinc-900 group-hover:text-orange-500 transition-colors leading-snug mb-1.5 line-clamp-1">
+                    <h3 className="font-sans font-extrabold text-[14.5px] text-zinc-900 dark:text-zinc-100 group-hover:text-orange-500 transition-colors leading-snug mb-1.5 line-clamp-1">
                       {project.title[currentLang]}
                     </h3>
-                    <p className="font-sans text-xs text-zinc-500 leading-relaxed font-normal mb-3.5 line-clamp-2 min-h-[36px]">
+                    <p className="font-sans text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal mb-3.5 line-clamp-2 min-h-[36px]">
                       {project.description[currentLang]}
                     </p>
                   </div>
 
                   {/* Dynamic Tags list representation under card bottom */}
-                  <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-zinc-100/80 mt-auto">
+                  <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-zinc-100/80 dark:border-zinc-800/80 mt-auto">
                     {project.tags[currentLang].slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="text-[9px] font-bold text-zinc-500 bg-zinc-100 uppercase px-2 py-0.5 rounded"
+                        className="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 uppercase px-2 py-0.5 rounded"
                       >
                         {tag}
                       </span>
@@ -228,14 +228,14 @@ export default function Projects({ currentLang }: ProjectsProps) {
         {/* Full-Screen Detail Overlay / Modal */}
         <AnimatePresence>
           {selectedProject && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-zinc-950/25 backdrop-blur-sm">
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-zinc-950/40 dark:bg-zinc-950/70 backdrop-blur-sm">
               {/* Mask overlay click back trigger */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedProject(null)}
-                className="absolute inset-0 bg-zinc-950/70"
+                className="absolute inset-0 bg-zinc-950/60 dark:bg-black/60"
               />
 
               {/* Main detail panel */}
@@ -244,7 +244,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.96, y: 12 }}
                 transition={{ type: 'spring', stiffness: 320, damping: 26 }}
-                className="relative w-full max-w-5xl bg-white rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col md:flex-row max-h-[92vh] md:max-h-[82vh]"
+                className="relative w-full max-w-5xl bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/60 dark:border-zinc-800/60 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col md:flex-row max-h-[92vh] md:max-h-[82vh]"
               >
                 {/* Close Button top-right */}
                 <button
@@ -394,7 +394,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                 </div>
 
                 {/* Right Side: Descriptions and Technical Metrics */}
-                <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-between overflow-y-auto max-h-[60vh] md:max-h-full border-l border-zinc-100">
+                <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-between overflow-y-auto max-h-[60vh] md:max-h-full border-l border-zinc-100 dark:border-zinc-800">
                   <div>
                     {/* Date badge */}
                     <div className="flex items-center gap-1.5 mb-2.5">
@@ -402,24 +402,24 @@ export default function Projects({ currentLang }: ProjectsProps) {
                       <span className="font-mono text-xs text-zinc-400 font-bold">{selectedProject.publishDate}</span>
                     </div>
 
-                    <h3 className="font-sans font-extrabold text-xl md:text-2xl text-zinc-900 leading-tight mb-4">
+                    <h3 className="font-sans font-extrabold text-xl md:text-2xl text-zinc-900 dark:text-zinc-100 leading-tight mb-4">
                       {selectedProject.title[currentLang]}
                     </h3>
                     
-                    <p className="font-sans text-xs leading-relaxed text-zinc-500 font-normal mb-8">
+                    <p className="font-sans text-xs leading-relaxed text-zinc-500 dark:text-zinc-400 font-normal mb-8">
                       {selectedProject.longDescription[currentLang]}
                     </p>
 
                     {/* Features checklist */}
                     <div className="mb-8">
-                      <h4 className="font-sans font-bold text-xs text-zinc-800 tracking-wider uppercase mb-3.5">
+                      <h4 className="font-sans font-bold text-xs text-zinc-800 dark:text-zinc-200 tracking-wider uppercase mb-3.5">
                         {t.featuresTitle}
                       </h4>
                       <ul className="space-y-3">
                         {selectedProject.keyFeatures[currentLang].map((feat, index) => (
                           <li
                             key={index}
-                            className="font-sans text-xs font-semibold text-zinc-600 leading-relaxed flex items-start gap-2.5"
+                            className="font-sans text-xs font-semibold text-zinc-600 dark:text-zinc-400 leading-relaxed flex items-start gap-2.5"
                           >
                             <span className="w-1.5 h-1.5 mt-1.5 rounded-full bg-orange-500 shrink-0" />
                             <span>{feat}</span>
@@ -430,14 +430,14 @@ export default function Projects({ currentLang }: ProjectsProps) {
 
                     {/* Technical architecture badges */}
                     <div className="mb-8">
-                      <h4 className="font-sans font-bold text-xs text-zinc-800 tracking-wider uppercase mb-3">
+                      <h4 className="font-sans font-bold text-xs text-zinc-800 dark:text-zinc-200 tracking-wider uppercase mb-3">
                         {t.techStackTitle}
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
                         {selectedProject.tags[currentLang].map((tag) => (
                           <span
                             key={tag}
-                            className="font-sans text-[10px] font-bold text-zinc-500 bg-zinc-150 rounded px-2 py-0.5"
+                            className="font-sans text-[10px] font-bold text-zinc-500 dark:text-zinc-400 bg-zinc-150 dark:bg-zinc-800 rounded px-2 py-0.5"
                           >
                             {tag}
                           </span>
@@ -447,7 +447,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                   </div>
 
                   {/* Call to Actions - trialUrl or contact discussions */}
-                  <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-zinc-150 mt-auto">
+                  <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-zinc-150 dark:border-zinc-800 mt-auto">
                     {selectedProject.trialUrl ? (
                       <a
                         href={selectedProject.trialUrl}
@@ -479,7 +479,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                         const chatArea = document.getElementById('assistant');
                         if (chatArea) chatArea.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="px-5 py-3 border border-zinc-200 hover:border-orange-500/20 text-zinc-700 hover:text-orange-500 rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center gap-1.5"
+                      className="px-5 py-3 border border-zinc-200 dark:border-zinc-700 hover:border-orange-500/20 text-zinc-700 dark:text-zinc-300 hover:text-orange-500 dark:hover:text-orange-400 rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center gap-1.5"
                     >
                       <Icons.Github className="w-4 h-4" />
                       <span>{currentLang === 'zh' ? '探讨合作' : 'Discuss'}</span>

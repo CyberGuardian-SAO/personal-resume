@@ -49,6 +49,15 @@ export interface DiverseExperience {
   description: Record<'zh' | 'en', string>;
 }
 
+export interface NewsItem {
+  id: string;
+  date: string;
+  title: Record<'zh' | 'en', string>;
+  description: Record<'zh' | 'en', string>;
+  status: 'completed' | 'in_progress';
+  link?: string;
+}
+
 export interface PortfolioData {
   name: Record<'zh' | 'en', string>;
   title: Record<'zh' | 'en', string>;
@@ -65,4 +74,5 @@ export interface PortfolioData {
   diverseExperiences?: DiverseExperience[];
   awards?: Award[];
   photos?: string[];
+  latestNews?: NewsItem[];
 }

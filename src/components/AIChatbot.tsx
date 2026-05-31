@@ -112,7 +112,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
   };
 
   return (
-    <section id="assistant" className="py-24 bg-white border-b border-orange-500/5">
+    <section id="assistant" className="py-24 border-b border-white/20 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-14">
@@ -131,7 +131,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 tracking-tight"
+            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100 tracking-tight"
           >
             {t.title}
           </motion.h2>
@@ -147,16 +147,16 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
         </div>
 
         {/* Chat Widget Wrapper */}
-        <div className="max-w-4xl mx-auto bg-zinc-50 border border-zinc-200/60 rounded-3xl overflow-hidden shadow-sm flex flex-col h-[580px] hover:border-orange-500/10 transition-all duration-300">
+        <div className="max-w-4xl mx-auto bg-white/40 dark:bg-zinc-900/40 backdrop-blur-2xl border border-white/60 dark:border-zinc-800/60 rounded-3xl overflow-hidden shadow-lg flex flex-col h-[580px] hover:border-white dark:hover:border-zinc-700 transition-all duration-300">
           {/* Header Panel */}
-          <div className="px-6 py-4 bg-white border-b border-zinc-100 flex items-center justify-between">
+          <div className="px-6 py-4 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-md border-b border-white/40 dark:border-zinc-700/60 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200 text-orange-600 relative shrink-0">
                 <Bot className="w-5 h-5 animate-pulse" />
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
               </div>
               <div>
-                <h3 className="font-sans font-bold text-sm text-zinc-800">
+                <h3 className="font-sans font-bold text-sm text-zinc-800 dark:text-zinc-100">
                   {t.assistantTitle}
                 </h3>
                 <span className="text-[10px] uppercase font-extrabold text-emerald-500 tracking-wider">
@@ -185,7 +185,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border select-none ${
                     msg.sender === 'user'
-                      ? 'bg-zinc-800 border-zinc-700 text-white'
+                      ? 'bg-zinc-800 dark:bg-zinc-700 border-zinc-700 dark:border-zinc-600 text-white'
                       : 'bg-orange-500 border-orange-400 text-white'
                   }`}
                 >
@@ -200,8 +200,8 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
                 <div
                   className={`p-4 rounded-3xl text-sm leading-relaxed ${
                     msg.sender === 'user'
-                      ? 'bg-zinc-800 text-white rounded-tr-none font-medium'
-                      : 'bg-white border border-zinc-200/50 text-zinc-700 rounded-tl-none font-normal shadow-sm'
+                      ? 'bg-zinc-800 dark:bg-zinc-700 text-white rounded-tr-none font-medium shadow-md'
+                      : 'bg-white/80 dark:bg-zinc-800/80 backdrop-blur border border-white/60 dark:border-zinc-700/60 text-zinc-800 dark:text-zinc-200 rounded-tl-none font-normal shadow-sm'
                   }`}
                 >
                   <p className="whitespace-pre-line font-sans">{msg.text}</p>
@@ -215,7 +215,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
                 <div className="w-8 h-8 rounded-full bg-orange-500 border border-orange-400 text-white flex items-center justify-center shrink-0 animate-bounce">
                   <Bot className="w-4 h-4" />
                 </div>
-                <div className="px-5 py-3.5 bg-white border border-zinc-100 rounded-3xl rounded-tl-none shadow-sm flex items-center gap-2">
+                <div className="px-5 py-3.5 bg-white dark:bg-zinc-800/80 border border-zinc-100 dark:border-zinc-700/60 rounded-3xl rounded-tl-none shadow-sm flex items-center gap-2">
                   <div className="flex gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-bounce delay-75" />
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-bounce delay-150" />
@@ -247,12 +247,12 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
           </div>
 
           {/* Quick Suggestion Chips */}
-          <div className="px-6 py-2.5 bg-white border-t border-zinc-100 flex flex-wrap gap-2 items-center select-none overflow-x-auto whitespace-nowrap">
+          <div className="px-6 py-2.5 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md border-t border-white/40 dark:border-zinc-800/60 flex flex-wrap gap-2 items-center select-none overflow-x-auto whitespace-nowrap">
             {suggestionPills.map((p) => (
               <button
                 key={p}
                 onClick={() => handleSendMessage(p)}
-                className="clickable px-3.5 py-1.5 bg-zinc-50 border border-zinc-200/50 hover:bg-orange-50 hover:border-orange-500/20 text-zinc-600 hover:text-orange-500 rounded-full font-sans text-xs font-semibold shrink-0 cursor-pointer transition-all duration-300 focus:outline-none"
+                className="clickable px-3.5 py-1.5 bg-white/60 dark:bg-zinc-800/60 border border-white/50 dark:border-zinc-700/50 hover:bg-white dark:hover:bg-zinc-700 hover:border-white dark:hover:border-zinc-600 text-zinc-600 dark:text-zinc-300 hover:text-orange-500 dark:hover:text-orange-400 rounded-full font-sans text-xs font-semibold shrink-0 cursor-pointer transition-all duration-300 focus:outline-none shadow-sm"
               >
                 {p}
               </button>
@@ -260,7 +260,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
           </div>
 
           {/* Core Input box */}
-          <div className="px-6 py-4 bg-white border-t border-zinc-100">
+          <div className="px-6 py-4 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl border-t border-white/40 dark:border-zinc-800/60">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -273,7 +273,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
                 placeholder={t.placeholder}
-                className="w-full pl-5 pr-14 py-3.5 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 placeholder-zinc-450 border border-zinc-200 rounded-2xl outline-none focus:border-orange-500 transition-all duration-300 font-sans font-medium text-sm text-shadow-none shadow-inner"
+                className="w-full pl-5 pr-14 py-3.5 bg-white/60 dark:bg-zinc-800/60 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-700/80 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-500 dark:placeholder-zinc-400 border border-white/60 dark:border-zinc-700/60 rounded-2xl outline-none focus:border-orange-500 dark:focus:border-orange-500/50 transition-all duration-300 font-sans font-medium text-sm text-shadow-none shadow-sm"
               />
               <button
                 type="submit"
@@ -281,7 +281,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
                 className={`absolute right-2 px-3 py-2 rounded-xl text-white outline-none focus:outline-none transition-all duration-305 ${
                   inputVal.trim() && !loading
                     ? 'bg-orange-500 hover:bg-orange-600 cursor-pointer active:scale-95'
-                    : 'bg-zinc-200 text-zinc-400 cursor-not-allowed'
+                    : 'bg-zinc-200 dark:bg-zinc-800/80 text-zinc-400 dark:text-zinc-600 cursor-not-allowed'
                 }`}
               >
                 <Send className="w-4 h-4" />

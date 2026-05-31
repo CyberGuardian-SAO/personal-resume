@@ -412,7 +412,7 @@ export default function Skills({ currentLang }: SkillsProps) {
   }, [filteredSkills, selectedSkillId]);
 
   return (
-    <section id="skills" className="py-24 bg-white border-b border-orange-500/5 select-none animate-fadeIn">
+    <section id="skills" className="py-24 border-b border-white/20 select-none animate-fadeIn relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Title */}
         <div className="mb-14">
@@ -431,7 +431,7 @@ export default function Skills({ currentLang }: SkillsProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 tracking-tight"
+            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100 tracking-tight"
           >
             {t.subtitle}
           </motion.h2>
@@ -452,7 +452,7 @@ export default function Skills({ currentLang }: SkillsProps) {
               className={`clickable relative px-4 py-2 rounded-full font-sans text-xs font-bold uppercase tracking-wider transition-colors duration-300 focus:outline-none ${
                 activeCategory === cat.id
                   ? 'text-white font-extrabold'
-                  : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100'
+                  : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800'
               }`}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -477,7 +477,7 @@ export default function Skills({ currentLang }: SkillsProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full bg-linear-to-b from-zinc-50/60 to-zinc-100/30 border border-zinc-200 shadow-md rounded-[2.5rem] p-4 md:p-6 md:py-4 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 relative overflow-hidden"
+            className="w-full bg-white/40 dark:bg-zinc-900/50 backdrop-blur-2xl border border-white/60 dark:border-zinc-800/60 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[2.5rem] p-4 md:p-6 md:py-4 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 relative overflow-hidden"
           >
             {/* Ambient subtle light flare */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -501,7 +501,7 @@ export default function Skills({ currentLang }: SkillsProps) {
             </div>
 
             {/* Integrated Live Data Board */}
-            <div className="w-full md:w-[45%] relative z-20 bg-white border border-zinc-200 p-4 md:p-5 rounded-3xl shadow-xs self-center">
+            <div className="w-full md:w-[45%] relative z-20 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl border border-white/60 dark:border-zinc-800/60 p-4 md:p-5 rounded-3xl shadow-lg self-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedSkillId}
@@ -534,7 +534,7 @@ export default function Skills({ currentLang }: SkillsProps) {
                               {getCategoryIcon(skill.category)}
                             </div>
                             <div className="min-w-0">
-                              <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 truncate">
+                              <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 dark:text-zinc-100 truncate">
                                 {skill.name[currentLang]}
                               </h3>
                               <span className="font-sans font-bold text-[10px] text-zinc-400 uppercase tracking-widest block mt-0.5">
@@ -557,13 +557,13 @@ export default function Skills({ currentLang }: SkillsProps) {
                         </div>
 
                         {/* Domain Dynamic Narrative */}
-                        <div className="text-xs text-zinc-500 leading-relaxed bg-zinc-50/55 p-3 rounded-xl border border-zinc-150">
+                        <div className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed bg-white/50 dark:bg-zinc-800/50 backdrop-blur-md p-3 rounded-xl border border-white/60 dark:border-zinc-700 shadow-sm">
                           💡 {skill.description ? skill.description[currentLang] : ''}
                         </div>
 
                         {/* Interactive competency progress tracker */}
                         <div className="space-y-1">
-                          <div className="h-2 bg-zinc-100 rounded-full overflow-hidden border border-zinc-200">
+                          <div className="h-2 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-700">
                             <motion.div
                               className="h-full rounded-full"
                               style={{ 
@@ -599,7 +599,7 @@ export default function Skills({ currentLang }: SkillsProps) {
                                       <button
                                         key={i}
                                         onClick={() => window.dispatchEvent(new CustomEvent('open-project', { detail: p!.id }))}
-                                        className="text-[10px] sm:text-xs font-semibold px-2 py-1 rounded bg-zinc-100 hover:bg-orange-50 hover:text-orange-600 text-zinc-600 transition-colors border border-transparent hover:border-orange-200 cursor-pointer flex items-center gap-1"
+                                        className="text-[10px] sm:text-xs font-semibold px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-50 dark:hover:bg-orange-500/10 hover:text-orange-600 dark:text-zinc-300 transition-colors border border-transparent hover:border-orange-200 dark:hover:border-orange-500/30 cursor-pointer flex items-center gap-1"
                                       >
                                         <Box className="w-3 h-3" />
                                         {p!.title[currentLang]}
@@ -624,7 +624,7 @@ export default function Skills({ currentLang }: SkillsProps) {
                                           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                           else document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }}
-                                        className="text-[10px] sm:text-xs font-semibold px-2 py-1 rounded bg-zinc-100 hover:bg-emerald-50 hover:text-emerald-600 text-zinc-600 transition-colors border border-transparent hover:border-emerald-200 cursor-pointer flex items-center gap-1"
+                                        className="text-[10px] sm:text-xs font-semibold px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 hover:text-emerald-600 dark:text-zinc-300 transition-colors border border-transparent hover:border-emerald-200 dark:hover:border-emerald-500/30 cursor-pointer flex items-center gap-1"
                                       >
                                         <Network className="w-3 h-3" />
                                         {e!.company[currentLang]}

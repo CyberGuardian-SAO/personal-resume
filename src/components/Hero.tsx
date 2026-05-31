@@ -51,9 +51,8 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="relative w-full min-h-[100dvh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-black"
     >
-      {/* Background Video directly referenced (no shade, no mask, full original beauty) */}
       <video
         className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
         src="https://static.alibabagroup.com/static/da78a56f-a7c3-499d-bf10-239569640ff5.mp4"
@@ -61,9 +60,9 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
         muted
         loop
         playsInline
+        preload="auto"
       />
-
-      {/* Floating Interface directly over the raw original background video */}
+      {/* Floating Interface directly over the abstract app background */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
         <div className="max-w-3xl mt-12">
           {/* Tagline */}
@@ -75,7 +74,7 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
               scale: [1, 1.03, 1],
               boxShadow: [
                 "0px 0px 0px rgba(249, 115, 22, 0)",
-                "0px 0px 14px rgba(249, 115, 22, 0.55)",
+                "0px 0px 14px rgba(249, 115, 22, 0.3)",
                 "0px 0px 0px rgba(249, 115, 22, 0)"
               ]
             }}
@@ -85,10 +84,10 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
               scale: { repeat: Infinity, duration: 2.2, ease: "easeInOut" },
               boxShadow: { repeat: Infinity, duration: 2.2, ease: "easeInOut" }
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/20 hover:bg-orange-500/30 backdrop-blur-md rounded-full border border-orange-450/40 text-white font-sans text-xs font-bold mb-6 shadow-md tracking-wider uppercase cursor-pointer transition-all duration-300"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 hover:bg-orange-100 backdrop-blur-md rounded-full border border-orange-200 text-orange-600 font-sans text-xs font-bold mb-6 shadow-sm tracking-wider uppercase cursor-pointer transition-all duration-300"
             onClick={() => onScrollTo('assistant')}
           >
-            <Bot className="w-4.5 h-4.5 text-orange-400 animate-bounce" />
+            <Bot className="w-4.5 h-4.5 text-orange-500 animate-bounce" />
             <span>{currentLang === 'zh' ? '点击与AI助理对话' : 'Ask Career AI'}</span>
           </motion.div>
 
@@ -165,7 +164,7 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 text-xs font-semibold uppercase tracking-widest cursor-pointer select-none"
+        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 text-xs font-semibold uppercase tracking-widest cursor-pointer select-none"
         onClick={() => onScrollTo('about')}
       >
         <span>{currentLang === 'zh' ? '向下滚动' : 'SCROLL DOWN'}</span>

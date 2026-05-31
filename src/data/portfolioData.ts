@@ -813,51 +813,6 @@ export const portfolioData: PortfolioData = {
       }
     },
     {
-      id: "p8",
-      title: {
-        zh: "Elfin-6轴协作机器人预研",
-        en: "Elfin 6-Axis Collaborative Robotic Arm"
-      },
-      description: {
-        zh: "研发 Elfin 协作机器人的三维高精手眼视觉寻址定位、AGV 自主巡航对接控制程序。",
-        en: "Visual positioning logic for elfin joint kinematics, centering Hand-Eye calibration and AGV automated navigators."
-      },
-      longDescription: {
-        zh: "该项目主要针对 6 轴协作工业机器人的智能化运行而研发。系统搭载高精三维‘手在眼上（Eye-in-Hand）’视觉标定矩阵，计算零部件边缘斜率，实现对多形状物体的自适应平滑抓取定位。通过多传感器组合定位算法（LiDAR/IMU）赋予 AGV 车载平台优秀的自主寻轨导航性能，控制指令链路反馈刷新率达 1KHz，大幅提升工业柔性组装与巡逻智能度。",
-        en: "This pre-research project focused on optimizing Elfin 6-axis collaborative robotic arm controls for flexible production. We engineered precise 3D Hand-Eye coordinate translation systems guiding visual alignment algorithms to sweep, track, and pick objects in various angles. Aligned with AGV lidar odometry, it forms a cohesive mobile manipulator."
-      },
-      tags: {
-        zh: ["机械视觉定位", "AGV自适应路径", "6轴协作机械臂", "手眼自流纠偏"],
-        en: ["Vision Localization", "AGV Adaptive Path", "6-Axis Robot", "Eye-in-Hand Calib."]
-      },
-      category: "design",
-      image: "https://files.bitqai.com/website/proj-elfin-FrontCover.png",
-      imageUrl: "https://files.bitqai.com/website/proj-elfin-FrontCover.png",
-      detailVideoUrl: "",
-      detailImages: [
-        "https://files.bitqai.com/website/proj-elfin-4.png",
-        "https://files.bitqai.com/website/proj-elfin-3.png",
-        "https://files.bitqai.com/website/proj-elfin-2.png",
-        "https://files.bitqai.com/website/proj-elfin-1.png"
-      ],
-      publishDate: "2022.06",
-      logo: "Cpu",
-      keyFeatures: {
-        zh: [
-          "🔭 高可靠的手眼定位估算转换算子，支持毫米级零件寻准",
-          "🤖 顺畅嫁接 ROS 控制内核，完成阻抗与柔顺控制自适应",
-          "🛡️ 敏感的电流碰撞阻隔避障，保障人机同工安全红线",
-          "🏗️ 全流程数据打包总线，连接工业中后台控制系统"
-        ],
-        en: [
-          "🔭 Eye-in-Hand transform solver targeting parts alignment under millimeters.",
-          "🤖 Custom controllers bridged to ROS kernels handling complex movements.",
-          "🛡️ Low-latency collision sensors executing immediate arm deceleration.",
-          "🏗️ Unified Modbus registries transferring coordinate sequences dynamically."
-        ]
-      }
-    },
-    {
       id: "p9",
       title: {
         zh: "乳腺超声智能诊断系统",
@@ -912,8 +867,8 @@ export const portfolioData: PortfolioData = {
       },
       period: "2023.06 - 2023.12",
       description: {
-        zh: "在“新西兰 Working Holiday”开启工作度假之旅，全面体验当地生活与职场节奏。这段深度沉浸之旅不仅锻炼了极强的异国环境适应力，同时也深度探访了“日本、新加坡、马来西亚、泰国、老挝、菲律宾、印度尼西亚、斯里兰卡”等十余个国家，极大拓展了国际化视野，深刻洞察不同文化下的用户行为与产品体验需求。",
-        en: "Embarked on a “New Zealand Working Holiday”, fully engaging with local life and workspace rhythms. This deeply immersive journey not only built resilient cross-cultural adaptability but also featured extensive travels across “10+ countries”, including “Japan, Singapore, Malaysia, Thailand, Laos, Philippines, Indonesia, and Sri Lanka”. This broadened international perspective profoundly informs my user empathy and design thinking."
+        zh: "在**新西兰 Working Holiday**开启工作度假之旅，全面体验当地生活与职场节奏。这段深度沉浸之旅不仅锻炼了极强的异国环境适应力，同时也深度探访了**日本、新加坡、马来西亚、泰国、老挝、菲律宾、印度尼西亚、斯里兰卡**等十余个国家，极大拓展了国际化视野，深刻洞察不同文化下的用户行为与产品体验需求。",
+        en: "Embarked on a **New Zealand Working Holiday**, fully engaging with local life and workspace rhythms. This deeply immersive journey not only built resilient cross-cultural adaptability but also featured extensive travels across **10+ countries**, including **Japan, Singapore, Malaysia, Thailand, Laos, Philippines, Indonesia, and Sri Lanka**. This broadened international perspective profoundly informs my user empathy and design thinking."
       }
     },
     {
@@ -936,8 +891,8 @@ export const portfolioData: PortfolioData = {
       },
       period: "2015.06 - 2015.12",
       description: {
-        zh: "脱产跨界投身住宿服务业，深度负责民宿的前后台日常精细化运营、多渠道线上直销获客引流及全程管家式招待。积累了深厚的“用户共情力”与敏锐的“体验侧设计直觉”，极大地提升了实战服务流程中的高维协同能力。",
-        en: "Served as the core manager of a boutique homestay, handling end-to-end hospitality operations. Managed multi-channel online booking funnels, led offline guest curation, and cultivated a robust sense of “user empathy” which continuously inspires my “product/UX design thinking”."
+        zh: "脱产跨界投身住宿服务业，深度负责民宿的前后台日常精细化运营、多渠道线上直销获客引流及全程管家式招待。积累了深厚的**用户共情力**与敏锐的**体验侧设计直觉**，极大地提升了实战服务流程中的高维协同能力。",
+        en: "Served as the core manager of a boutique homestay, handling end-to-end hospitality operations. Managed multi-channel online booking funnels, led offline guest curation, and cultivated a robust sense of **user empathy** which continuously inspires my **product/UX design thinking**."
       }
     },
     {
@@ -948,8 +903,8 @@ export const portfolioData: PortfolioData = {
       },
       period: "2012.06 - 2013.12",
       description: {
-        zh: "2012年独自“骑行拉萨318国道”，历经挑战与考验；2013年“徒步西藏214”并反串雅鲁藏布江腹地“墨脱”，完成极高难度的荒野徒步穿越。在极限环境中淬炼出极强的意志力、风险预见能力以及在复杂突发情况下的高压处理与资源统筹素养。",
-        en: "Solo-cycled the “318 National Highway to Lhasa” in 2012, overcoming immense physical and mental challenges. In 2013, trekked the “214” and successfully traversed the remote hinterlands of “Medog, Yarlung Tsangpo Grand Canyon”. These extreme adventures forged unyielding perseverance, expert risk assessment, and high-pressure decision-making capabilities in complex, resource-scarce environments."
+        zh: "2012年独自**骑行拉萨318国道**，历经挑战与考验；2013年**徒步西藏214**并反串雅鲁藏布江腹地**墨脱**，完成极高难度的荒野徒步穿越。在极限环境中淬炼出极强的意志力、风险预见能力以及在复杂突发情况下的高压处理与资源统筹素养。",
+        en: "Solo-cycled the **318 National Highway to Lhasa** in 2012, overcoming immense physical and mental challenges. In 2013, trekked the **214** and successfully traversed the remote hinterlands of **Medog, Yarlung Tsangpo Grand Canyon**. These extreme adventures forged unyielding perseverance, expert risk assessment, and high-pressure decision-making capabilities in complex, resource-scarce environments."
       }
     },
     {
@@ -960,9 +915,158 @@ export const portfolioData: PortfolioData = {
       },
       period: "Certifications / 复合能力资格",
       description: {
-        zh: "持有专业医护级急救证书（编号：CSSJJPX-25-1473419），熟练掌握急救心肺复苏（CPR）、AED 除颤设备使用及突发伤害管控。积累了丰富的徒步、露营及山地向导经验，体能出色且具备优异的风险预见与野外生还能力。同时持有标准 C1 驾照（熟悉 7 座 MPV 车队驾驶）、D照摩托车驾照、香港区域机动车驾照（熟练右舵行驶），及 PADI 国际潜水证。",
-        en: "Certified First Aider (No. CSSJJPX-25-1473419) proficient in CPR, AED life support, and emergency injury treatments. Boasting extensive mountaineering, camping, and trekking experiences with tremendous stamina and wilderness survival skills. Fully licensed for standard MPVs (C1 manual driving), motorcycle operation (D-class license), Hong Kong right-hand-drive vehicles, alongside holding professional PADI Scuba Diving certifications."
+        zh: "持有专业医护级急救证书（编号：CSSJJPX-25-1473419），熟练掌握急救心肺复苏（CPR）、AED 除颤设备使用及突发伤害管控。积累了丰富的徒步、露营及山地向导经验，体能出色且具备优异的风险预见与野外生还能力。同时持有标准 **C1 驾照**（熟悉 7 座 MPV 车队驾驶）、**D照摩托车驾照**、**香港区域机动车驾照**（熟练右舵行驶），及 **PADI 国际潜水证**。",
+        en: "Certified First Aider (No. CSSJJPX-25-1473419) proficient in CPR, AED life support, and emergency injury treatments. Boasting extensive mountaineering, camping, and trekking experiences with tremendous stamina and wilderness survival skills. Fully licensed for standard MPVs (**C1 manual driving**), motorcycle operation (**D-class license**), Hong Kong right-hand-drive vehicles, alongside holding professional **PADI Scuba Diving** certifications."
       }
+    }
+  ],
+  latestNews: [
+    {
+      id: "news1",
+      date: "2026.05",
+      title: {
+        zh: "🚀 Career AI 智能求职客户端 2.0 启动内测",
+        en: "🚀 Career AI Client 2.0 Private Beta Launched"
+      },
+      description: {
+        zh: "正在攻坚多智能体自适应拟真对战面试和实时音视频简历深度评级，极速提升求职实战通过率，支持全系列桌面终端。抢先体验请移步 career-ai.zangwei.dev",
+        en: "Currently designing multi-agent adaptive simulated interviews and live-audio resume evaluation. Early access available at career-ai.zangwei.dev"
+      },
+      status: "in_progress",
+      link: "https://career-ai.zangwei.dev"
+    },
+    {
+      id: "news2",
+      date: "2026.05",
+      title: {
+        zh: "🎉 Career AI 简历重构系统 1.0 正式版上线",
+        en: "🎉 Career AI 1.0 Resume Reconfiguration Live"
+      },
+      description: {
+        zh: "精准穿透企业级 ATS 关键词权重机制。本网站的 nextjs-portfolio-blog 模板已在 GitHub 全面开源，点击可一键前往查看部署文档。",
+        en: "Accurately parses corporate ATS filters. Our nextjs-portfolio-blog template is now fully open-sourced on GitHub, click to view guide."
+      },
+      status: "completed",
+      link: "https://github.com"
+    },
+    {
+      id: "news3",
+      date: "2026.04",
+      title: {
+        zh: "🎓 EduCare AI 智能留学 PS/CV 助手联动院校库",
+        en: "🎓 EduCare AI Dynamic Academy CV Recommender Connected"
+      },
+      description: {
+        zh: "覆盖全球数千所高校招生档案库，支持个人陈述 & 简历深度对比并在数秒内输出定制化评级，欢迎在 educare.zangwei.dev 试用体验。",
+        en: "Covers admission profiles for global universities, micro-tuning Resume/PS feedback in seconds. Open pilot at educare.zangwei.dev"
+      },
+      status: "completed",
+      link: "https://educare.zangwei.dev"
+    },
+    {
+      id: "news4",
+      date: "2026.03",
+      title: {
+        zh: "🤖 RPA 微信闭环机器人 GitHub 突破 150★",
+        en: "🤖 RPA WeChat Automation Bot Repo Hits 150+ Stars"
+      },
+      description: {
+        zh: "支持微信消息流多路由调起网页，静默执行对账流程与异常安全预警，大幅拉升中小零售端对账效率。欢迎围观开源仓库。",
+        en: "Supports parsing secure WeChat signals to directly execute background booking and push safety alerts. View GitHub repository."
+      },
+      status: "completed",
+      link: "https://github.com"
+    },
+    {
+      id: "news5",
+      date: "2026.02",
+      title: {
+        zh: "📡 AI巡店督导助手端全面精简弱网上传时延",
+        en: "📡 AI Retail Inspector Minimizes Upload Overhead"
+      },
+      description: {
+        zh: "更新智能视频/图像片段上行多参压缩序列，在 3G/4G 信号偏弱环境使图片上行响应度拔高 45%，保障业务可用性。",
+        en: "Optimized upstream telemetry queues, saving up to 45% bandwidth over weak signals for seamless on-site safety inspection."
+      },
+      status: "completed"
+    },
+    {
+      id: "news6",
+      date: "2025.12",
+      title: {
+        zh: "💼 开启自由执业，布局大模型 Agent 落地咨询",
+        en: "💼 Multi-agent Consulting & Solopreneur Journey Started"
+      },
+      description: {
+        zh: "专耕复杂工作流智能体编排设计、企业 RAG 多模态垂直检索增强，以及 Node.js / React 全栈原型快速闭环交付。",
+        en: "Deep-diving into complex langchain/autogen node orchestration, active corporate RAG, and high-fidelity fullstack prototype delivery."
+      },
+      status: "completed"
+    },
+    {
+      id: "news7",
+      date: "2025.11",
+      title: {
+        zh: "🏪 策雄 POS/ERP 智慧宠物连锁管理系统平稳交接",
+        en: "🏪 Kejiulai Pet Shop POS/ERP System Smooth Handoff"
+      },
+      description: {
+        zh: "统筹设计多门店高稳定性 WebSocket 状态同步，主导研发覆盖超 20+ 连锁加盟门店，平稳处理月超 200 万元流水。",
+        en: "Led architectural sync for 20+ local outlets, scaling concurrent websocket requests with ¥2M+ monthly transaction throughput."
+      },
+      status: "completed"
+    },
+    {
+      id: "news8",
+      date: "2025.08",
+      title: {
+        zh: "📱 重构策雄小程序，全面拥抱 Vue 3 Composition",
+        en: "📱 Retail SaaS WeChat Mini-app Fully Refactored with Vue 3"
+      },
+      description: {
+        zh: "从旧 H5 页面升级至 Uni-app 并彻底重组为 Composition 架构，在全系列手机上有效减少冷启动白屏返回延迟 35%。",
+        en: "Migrated legacy mobile templates to modern Composition API constructs, rendering views 35% faster on low-end screen devices."
+      },
+      status: "completed"
+    },
+    {
+      id: "news9",
+      date: "2024.12",
+      title: {
+        zh: "⚡ 自研高抗扰双通道 WebSocket 自动重连机制",
+        en: "⚡ High-Resilience WebSocket Dual-Channel Engine"
+      },
+      description: {
+        zh: "重点解决商场及地下店铺信号漂移导致的数据错位，通过可靠指令退避重试队列，保障门店交易收银无感继续。",
+        en: "Guarantees zero payment sequence loss during heavy brick-and-mortar radio dropouts via exponential retry buffer queues."
+      },
+      status: "completed"
+    },
+    {
+      id: "news10",
+      date: "2023.06",
+      title: {
+        zh: "🦾 大族 Elfin 协作机械手避障标定项目工厂交付",
+        en: "🦾 Han's Elfin Robot Arm Calibration Factory Launch"
+      },
+      description: {
+        zh: "融合 OpenCV、PCL 等视觉标定算法进行柔性物料寻轨，高精毫米级机械臂动作纠偏在全球知名华南厂房中平稳运行。",
+        en: "Engineered sub-millimeter vision alignment solver coupled with PCL point-cloud tracking, enabling reliable automation pick-and-place."
+      },
+      status: "completed"
+    },
+    {
+      id: "news11",
+      date: "2022.04",
+      title: {
+        zh: "🏥 医学超声辅助 AI 病变检出系统多院线试运行",
+        en: "🏥 Breast Tumor Ultrasound AI CAD Pilot Commenced"
+      },
+      description: {
+        zh: "实现超声实时影像乳腺结节边缘自动搜寻，结合客户端图物一键拼接评判，协助影像科临床医生审片时数平均缩短约 25%。",
+        en: "Achieved real-time ultrasound lump contour extraction algorithms alongside customized clinical reports, shaving 25% reading time."
+      },
+      status: "completed"
     }
   ]
 };

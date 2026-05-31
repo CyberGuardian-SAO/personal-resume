@@ -13,6 +13,25 @@ export default function Experience({ currentLang }: ExperienceProps) {
   const [showDiverse, setShowDiverse] = useState(false);
   const [showAllExperiences, setShowAllExperiences] = useState(false);
 
+  const renderWithHighlights = (text: string) => {
+    if (!text) return "";
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        const innerText = part.slice(2, -2);
+        return (
+          <strong
+            key={index}
+            className="inline font-extrabold text-orange-600 bg-orange-50 px-1 py-0.5 rounded border border-orange-100/60 mx-0.5 shadow-2xs"
+          >
+            {innerText}
+          </strong>
+        );
+      }
+      return part;
+    });
+  };
+
   // Dynamically calculate hidden experiences count and their active years range
   const remainingExperiences = experiences.slice(3);
   const remainingCount = remainingExperiences.length;
@@ -48,7 +67,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
     : 'Tip: Click any credential card below to expand/collapse detailed achievements & tech stack';
 
   return (
-    <section id="experience" className="py-24 bg-zinc-50 border-b border-orange-500/5 select-none">
+    <section id="experience" className="py-24 border-b border-white/20 select-none relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-16">
@@ -67,7 +86,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 tracking-tight"
+            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100 tracking-tight"
           >
             {t.subtitle}
           </motion.h2>
@@ -78,7 +97,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 flex items-center gap-2 text-xs md:text-sm text-zinc-550 bg-orange-50/40 border border-orange-500/10 rounded-2xl px-4 py-3 max-w-fit shadow-xs"
+            className="mt-4 flex items-center gap-2 text-xs md:text-sm text-zinc-550 dark:text-zinc-400 bg-orange-50/40 dark:bg-orange-500/10 border border-orange-500/10 dark:border-orange-500/20 rounded-2xl px-4 py-3 max-w-fit shadow-xs"
           >
             <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -108,19 +127,19 @@ export default function Experience({ currentLang }: ExperienceProps) {
                 {/* Box frame wrapper */}
                 <div
                   onClick={() => setExpandedId(isExpanded ? null : exp.id)}
-                  className={`bg-white p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden ${
+                  className={`bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden ${
                     isExpanded 
-                      ? 'border-orange-500/20 shadow-md ring-1 ring-orange-500/5 bg-gradient-to-br from-white to-zinc-50/20' 
-                      : 'border-zinc-200/60 shadow-sm hover:shadow-md hover:border-zinc-300/80 hover:bg-zinc-100/10'
+                      ? 'border-white/80 dark:border-zinc-700 shadow-lg ring-1 ring-orange-400/20 bg-gradient-to-br from-white/80 to-white/40 dark:from-zinc-800 dark:to-zinc-900' 
+                      : 'border-white/50 dark:border-zinc-800 shadow-sm hover:shadow-lg hover:border-white/80 dark:hover:border-zinc-700 hover:bg-white/70 dark:hover:bg-zinc-800'
                   }`}
                 >
                   <div className="flex flex-row items-center justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-col md:flex-row md:items-center gap-x-2 gap-y-1">
-                        <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 leading-snug">
+                        <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 dark:text-zinc-100 leading-snug">
                           {exp.role[currentLang]}
                         </h3>
-                        <span className="hidden md:inline text-zinc-300 text-xs font-light">•</span>
+                        <span className="hidden md:inline text-zinc-300 dark:text-zinc-600 text-xs font-light">•</span>
                         <p className="font-sans font-bold text-xs md:text-sm text-orange-500 font-semibold leading-snug">
                           {exp.company[currentLang]}
                         </p>
@@ -128,7 +147,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
                     </div>
 
                     <div className="flex items-center gap-2 shrink-0">
-                      <div className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold text-zinc-400 tracking-wider bg-zinc-50/80 px-2.5 py-1 rounded-full border border-zinc-100 select-none">
+                      <div className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold text-zinc-400 tracking-wider bg-zinc-50/80 dark:bg-zinc-800 px-2.5 py-1 rounded-full border border-zinc-100 dark:border-zinc-700 select-none">
                         <Calendar className="w-3 h-3 text-zinc-400" />
                         <span>{exp.period.replace('Present', currentLang === 'zh' ? '至今' : 'Present')}</span>
                       </div>
@@ -140,7 +159,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
                         className={`w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center border transition-colors shrink-0 ${
                           isExpanded 
                             ? 'bg-orange-500 border-orange-500 text-white' 
-                            : 'bg-zinc-50 border-zinc-150 text-zinc-400'
+                            : 'bg-zinc-50 dark:bg-zinc-800 border-zinc-150 dark:border-zinc-700 text-zinc-400'
                         }`}
                       >
                         <ChevronDown className="w-3.5 h-3.5" />
@@ -159,13 +178,13 @@ export default function Experience({ currentLang }: ExperienceProps) {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <div className="mt-4 pt-4 border-t border-zinc-100">
+                        <div className="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
                           {/* Achievements block */}
                           <ul className="space-y-2 mb-4">
                             {exp.description[currentLang].map((desc, i) => (
-                              <li key={i} className="font-sans text-xs md:text-sm text-zinc-650 leading-relaxed flex items-start gap-2">
+                              <li key={i} className="font-sans text-xs md:text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed flex items-start gap-2">
                                 <span className="text-orange-400 font-bold text-xs mt-0.5 select-none">•</span>
-                                <span>{desc}</span>
+                                <span>{renderWithHighlights(desc)}</span>
                               </li>
                             ))}
                           </ul>
@@ -200,7 +219,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             
             <button
               onClick={() => setShowAllExperiences(!showAllExperiences)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-zinc-200 bg-white hover:bg-zinc-50 text-xs font-bold text-zinc-500 hover:text-orange-500 hover:border-orange-350 transition-all duration-300 shadow-2xs cursor-pointer select-none"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-white/60 dark:border-zinc-700 bg-white/50 dark:bg-zinc-800/80 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-700 text-xs font-bold text-zinc-600 dark:text-zinc-300 hover:text-orange-500 dark:hover:text-orange-400 hover:border-white transition-all duration-300 shadow-sm cursor-pointer select-none"
             >
               <span>
                 {showAllExperiences 
@@ -248,19 +267,19 @@ export default function Experience({ currentLang }: ExperienceProps) {
                       {/* Box frame wrapper */}
                       <div
                         onClick={() => setExpandedId(isExpanded ? null : exp.id)}
-                        className={`bg-white p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden ${
+                        className={`bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden ${
                           isExpanded 
-                            ? 'border-orange-500/20 shadow-md ring-1 ring-orange-500/5 bg-gradient-to-br from-white to-zinc-50/20' 
-                            : 'border-zinc-200/60 shadow-sm hover:shadow-md hover:border-zinc-300/80 hover:bg-zinc-100/10'
+                            ? 'border-white/80 dark:border-zinc-700 shadow-lg ring-1 ring-orange-400/20 bg-gradient-to-br from-white/80 to-white/40 dark:from-zinc-800 dark:to-zinc-900' 
+                            : 'border-white/50 dark:border-zinc-800 shadow-sm hover:shadow-lg hover:border-white/80 dark:hover:border-zinc-700 hover:bg-white/70 dark:hover:bg-zinc-800'
                         }`}
                       >
                         <div className="flex flex-row items-center justify-between gap-3">
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-col md:flex-row md:items-center gap-x-2 gap-y-1">
-                              <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 leading-snug">
+                              <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 dark:text-zinc-100 leading-snug">
                                 {exp.role[currentLang]}
                               </h3>
-                              <span className="hidden md:inline text-zinc-300 text-xs font-light">•</span>
+                              <span className="hidden md:inline text-zinc-300 dark:text-zinc-600 text-xs font-light">•</span>
                               <p className="font-sans font-bold text-xs md:text-sm text-orange-500 font-semibold leading-snug">
                                 {exp.company[currentLang]}
                               </p>
@@ -299,13 +318,13 @@ export default function Experience({ currentLang }: ExperienceProps) {
                               transition={{ duration: 0.3, ease: 'easeInOut' }}
                               className="overflow-hidden"
                             >
-                              <div className="mt-4 pt-4 border-t border-zinc-100">
+                              <div className="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
                                 {/* Achievements block */}
                                 <ul className="space-y-2 mb-4">
                                   {exp.description[currentLang].map((desc, i) => (
-                                    <li key={i} className="font-sans text-xs md:text-sm text-zinc-650 leading-relaxed flex items-start gap-2">
+                                    <li key={i} className="font-sans text-xs md:text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed flex items-start gap-2">
                                       <span className="text-orange-400 font-bold text-xs mt-0.5 select-none">•</span>
-                                      <span>{desc}</span>
+                                      <span>{renderWithHighlights(desc)}</span>
                                     </li>
                                   ))}
                                 </ul>
@@ -343,60 +362,60 @@ export default function Experience({ currentLang }: ExperienceProps) {
           >
             <div className="absolute -left-[11px] top-4.5 w-5 h-5 rounded-full bg-white border-4 border-orange-400/50 group-hover:border-orange-500 transition-all duration-300" />
             
-            <div className="bg-white/60 p-6 md:p-8 rounded-3xl border border-zinc-200/60 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/60 dark:border-zinc-800/60 shadow-md hover:shadow-lg transition-all duration-300">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                   <h4 className="font-sans font-bold text-xs text-orange-500 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                     <GraduationCap className="w-4 h-4" />
                     <span>{t.educationHeader}</span>
                   </h4>
-                  <p className="font-sans font-extrabold text-base text-zinc-800">
+                  <p className="font-sans font-extrabold text-base text-zinc-800 dark:text-zinc-100">
                     {t.degree}
                   </p>
-                  <p className="font-sans font-medium text-sm text-zinc-500 mt-1 mb-4">
+                  <p className="font-sans font-medium text-sm text-zinc-500 dark:text-zinc-400 mt-1 mb-4">
                     {t.college}
                   </p>
-                  <div className="inline-block mt-1 p-3 bg-orange-50/50 rounded-xl border border-orange-100/50">
-                    <p className="font-sans font-bold text-sm text-zinc-800 flex items-center gap-1.5 mb-1">
+                  <div className="inline-block mt-1 p-3 bg-orange-50/50 dark:bg-orange-500/10 rounded-xl border border-orange-100/50 dark:border-orange-500/20">
+                    <p className="font-sans font-bold text-sm text-zinc-800 dark:text-zinc-200 flex items-center gap-1.5 mb-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                       {t.languageCapability}
                     </p>
-                    <p className="font-sans text-xs md:text-sm text-zinc-650 leading-relaxed max-w-xl">
+                    <p className="font-sans text-xs md:text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed max-w-xl">
                       {t.languageLevel}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 tracking-wider bg-zinc-100/40 px-3 py-1.5 rounded-full border border-zinc-100 self-start md:self-auto select-none">
-                  <Calendar className="w-3.5 h-3.5 text-zinc-400" />
+                <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 dark:text-zinc-500 tracking-wider bg-zinc-100/40 dark:bg-zinc-800/40 px-3 py-1.5 rounded-full border border-zinc-100 dark:border-zinc-800 self-start md:self-auto select-none">
+                  <Calendar className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
                   <span>{t.collegePeriod}</span>
                 </div>
               </div>
             </div>
             {/* Awards section */}
             <div className="mt-8">
-              <details className="group bg-gradient-to-br from-white to-zinc-50 border border-zinc-200/60 rounded-3xl p-6 shadow-sm hover:border-orange-200 transition-all duration-300">
-                <summary className="font-sans font-bold text-sm text-zinc-900 cursor-pointer flex items-center justify-between outline-none">
+              <details className="group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-lg border border-white/60 dark:border-zinc-800/60 rounded-3xl p-6 shadow-md hover:border-white dark:hover:border-zinc-700 transition-all duration-300">
+                <summary className="font-sans font-bold text-sm text-zinc-900 dark:text-zinc-100 cursor-pointer flex items-center justify-between outline-none">
                   <span className="flex items-center gap-2.5">
-                    <div className="p-1.5 bg-orange-100 rounded-lg">
-                      <Trophy className="w-4 h-4 text-orange-600" />
+                    <div className="p-1.5 bg-orange-100 dark:bg-orange-500/20 rounded-lg">
+                      <Trophy className="w-4 h-4 text-orange-600 dark:text-orange-400" />
                     </div>
                     {currentLang === 'zh' ? '荣誉与奖项' : 'Honors & Awards'}
                   </span>
-                  <div className="bg-zinc-100 p-1 rounded-full group-hover:bg-orange-100 transition-colors">
-                    <ChevronDown className="w-4 h-4 text-zinc-500 group-open:rotate-180 transition-transform duration-300" />
+                  <div className="bg-zinc-100 dark:bg-zinc-800 p-1 rounded-full group-hover:bg-orange-100 dark:group-hover:bg-orange-500/20 transition-colors">
+                    <ChevronDown className="w-4 h-4 text-zinc-500 dark:text-zinc-400 group-open:rotate-180 transition-transform duration-300" />
                   </div>
                 </summary>
-                <div className="mt-6 space-y-4 pt-6 border-t border-zinc-100">
+                <div className="mt-6 space-y-4 pt-6 border-t border-zinc-100 dark:border-zinc-800">
                   {portfolioData.awards?.map((award, idx) => (
                     <motion.div 
                       initial={{ opacity: 0, y: 5 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.05 }}
                       key={idx} 
-                      className="group/item flex justify-between items-start text-sm text-zinc-700 hover:text-zinc-900 font-sans p-3 rounded-xl hover:bg-white hover:shadow-sm border border-transparent hover:border-zinc-100 transition-all"
+                      className="group/item flex justify-between items-start text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 font-sans p-3 rounded-xl hover:bg-white/70 dark:hover:bg-zinc-800 hover:shadow-sm border border-transparent hover:border-white/60 dark:hover:border-zinc-700 transition-all"
                     >
                       <span className="flex-1 pr-6 leading-relaxed">{award.title[currentLang]}</span>
-                      <span className="font-mono text-zinc-400 group-hover/item:text-orange-500 text-xs mt-1 shrink-0 bg-zinc-100 group-hover/item:bg-orange-50 px-2 py-0.5 rounded-md transition-colors">{award.year}</span>
+                      <span className="font-mono text-zinc-400 dark:text-zinc-500 group-hover/item:text-orange-500 text-xs mt-1 shrink-0 bg-zinc-100 dark:bg-zinc-800 group-hover/item:bg-orange-50 dark:group-hover/item:bg-orange-500/20 px-2 py-0.5 rounded-md transition-colors">{award.year}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -411,7 +430,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             {!showDiverse ? (
               <button
                 onClick={() => setShowDiverse(true)}
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-zinc-200/80 bg-white/80 hover:bg-white text-xs md:text-sm text-zinc-500 hover:text-orange-500 transition-all duration-300 shadow-xs cursor-pointer hover:border-orange-500/20 active:scale-95"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/60 dark:border-zinc-700/60 bg-white/50 dark:bg-zinc-800/80 backdrop-blur text-xs md:text-sm text-zinc-700 dark:text-zinc-300 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-white/80 dark:hover:bg-zinc-700 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer active:scale-95"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -426,16 +445,16 @@ export default function Experience({ currentLang }: ExperienceProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white p-5 md:p-6 rounded-2xl border border-orange-100 shadow-md text-left"
+                className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-5 md:p-6 rounded-2xl border border-white/60 dark:border-zinc-800/60 shadow-lg text-left"
               >
-                <div className="flex items-center justify-between border-b border-zinc-150 pb-3 mb-4">
-                  <h4 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 flex items-center gap-2">
+                <div className="flex items-center justify-between border-b border-zinc-150 dark:border-zinc-800 pb-3 mb-4">
+                  <h4 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
                     <span className="text-orange-500">✦</span>
                     {currentLang === 'zh' ? '跨界足迹 & 斜杠经历' : 'Multiverse & Off-Track Journeys'}
                   </h4>
                   <button
                     onClick={() => setShowDiverse(false)}
-                    className="text-xs font-bold text-zinc-400 hover:text-orange-500 transition-colors uppercase cursor-pointer"
+                    className="text-xs font-bold text-zinc-400 dark:text-zinc-500 hover:text-orange-500 dark:hover:text-orange-400 transition-colors uppercase cursor-pointer"
                   >
                     {currentLang === 'zh' ? '收起' : 'Collapse'}
                   </button>
@@ -444,35 +463,17 @@ export default function Experience({ currentLang }: ExperienceProps) {
                 <div className="space-y-4">
                   {portfolioData.diverseExperiences?.map((divExp) => {
                     const periodStr = divExp.period.replace('Present', currentLang === 'zh' ? '至今' : 'Present');
-                    const renderWithHighlights = (text: string) => {
-                      if (!text) return "";
-                      const parts = text.split(/(\*\*[^*]+\*\*)/g);
-                      return parts.map((part, index) => {
-                        if (part.startsWith('**') && part.endsWith('**')) {
-                          const innerText = part.slice(2, -2);
-                          return (
-                            <strong
-                              key={index}
-                              className="inline font-extrabold text-orange-600 bg-orange-50 px-1 py-0.5 rounded border border-orange-100/60 mx-0.5 shadow-2xs"
-                            >
-                              {innerText}
-                            </strong>
-                          );
-                        }
-                        return part;
-                      });
-                    };
                     return (
-                      <div key={divExp.id} className="group hover:bg-zinc-50 p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-zinc-100">
-                        <div className="flex items-center justify-between flex-wrap gap-2 mb-1.5">
-                          <span className="font-sans font-extrabold text-xs md:text-sm text-zinc-900 group-hover:text-orange-600 transition-colors">
+                      <div key={divExp.id} className="group p-4 sm:p-5 bg-white/40 dark:bg-zinc-800/40 rounded-xl transition-all duration-300 border border-zinc-200/80 dark:border-zinc-700/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md hover:bg-white/80 dark:hover:bg-zinc-700/80 hover:border-orange-200 dark:hover:border-orange-500/30 relative overflow-hidden">
+                        <div className="flex items-center justify-between flex-wrap gap-2 mb-1.5 relative z-10">
+                          <span className="font-sans font-extrabold text-xs md:text-sm text-zinc-900 dark:text-zinc-200 group-hover:text-orange-600 transition-colors">
                             {divExp.title[currentLang]}
                           </span>
-                          <span className="font-mono text-[10px] md:text-xs font-semibold text-zinc-400 bg-zinc-100/50 px-2.5 py-0.5 rounded-full border border-zinc-100 group-hover:bg-orange-50 group-hover:border-orange-100 group-hover:text-orange-500 transition-colors">
+                          <span className="font-mono text-[10px] md:text-xs font-semibold text-zinc-400 dark:text-zinc-500 bg-zinc-100/50 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-full border border-zinc-100 dark:border-zinc-700/50 group-hover:bg-orange-50 dark:group-hover:bg-orange-500/10 group-hover:border-orange-100 dark:group-hover:border-orange-500/20 group-hover:text-orange-500 transition-colors">
                             {periodStr}
                           </span>
                         </div>
-                        <p className="font-sans text-xs md:text-sm text-zinc-650 leading-relaxed group-hover:text-zinc-700 transition-colors">
+                        <p className="font-sans text-xs md:text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
                           {renderWithHighlights(divExp.description[currentLang])}
                         </p>
                       </div>

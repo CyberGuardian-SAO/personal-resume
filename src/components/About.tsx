@@ -51,7 +51,7 @@ export default function About({ currentLang }: AboutProps) {
   };
 
   return (
-    <section id="about" className="py-24 bg-zinc-50 border-b border-orange-500/5 select-none">
+    <section id="about" className="py-24 border-b border-white/20 select-none relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-16">
@@ -70,7 +70,7 @@ export default function About({ currentLang }: AboutProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 tracking-tight"
+            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100 tracking-tight"
           >
             {t.sectionSubtitle}
           </motion.h2>
@@ -87,21 +87,46 @@ export default function About({ currentLang }: AboutProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white p-5 md:p-6 rounded-3xl border border-zinc-200/60 shadow-sm flex flex-col justify-between"
+              className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-5 md:p-6 rounded-3xl border border-white/60 dark:border-zinc-800/60 shadow-lg flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-semibold text-orange-600/70 tracking-widest uppercase mb-2 block">
-                  {currentLang === 'zh' ? '个人简述' : 'BIOGRAPHY'}
-                </span>
-                <p className="font-sans text-xs md:text-sm text-zinc-700 leading-relaxed font-normal mb-3">
+                <div className="flex flex-row items-center justify-between mb-2">
+                  <span className="text-xs font-semibold text-orange-600/70 tracking-widest uppercase block">
+                    {currentLang === 'zh' ? '个人简述' : 'BIOGRAPHY'}
+                  </span>
+                  
+                  {/* MBTI Badge */}
+                  <a
+                    href="https://www.16personalities.com/ch/istj-%E4%BA%BA%E6%A0%BC"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group/mbti inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-150 dark:border-zinc-700 hover:border-orange-400 dark:hover:border-orange-500/50 hover:bg-orange-50/50 dark:hover:bg-orange-500/10 text-[10px] font-sans font-bold text-zinc-550 dark:text-zinc-400 hover:text-orange-600 dark:hover:text-orange-400 transition-all cursor-pointer select-none"
+                    title={currentLang === 'zh' ? '点击查看 ISTJ-A 人格特征解析' : 'Click to view ISTJ-A personality traits analysis'}
+                    referrerPolicy="no-referrer"
+                  >
+                    <span>{currentLang === 'zh' ? 'MBTI' : 'MBTI'} ·</span>
+                    <span className="relative inline-block w-10 h-3 text-center">
+                      <span className="absolute inset-0 group-hover/mbti:opacity-0 group-hover/mbti:scale-75 transition-all duration-300 inline-block font-mono text-zinc-400 leading-none">
+                        ••••
+                      </span>
+                      <span className="absolute inset-0 opacity-0 group-hover/mbti:opacity-100 group-hover/mbti:scale-100 transition-all duration-300 font-mono text-orange-600 font-extrabold flex items-center justify-center leading-none">
+                        ISTJ-A
+                      </span>
+                    </span>
+                    <svg className="w-2.5 h-2.5 text-zinc-400 group-hover/mbti:text-orange-500 transition-colors shrink-0 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+                <p className="font-sans text-xs md:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal mb-3">
                   {bioText}
                 </p>
               </div>
 
-              <div className="border-t border-zinc-100 pt-3.5 mt-1">
+              <div className="border-t border-zinc-100 dark:border-zinc-800/50 pt-3.5 mt-1">
                 <ul className="space-y-1.5">
                   {bullets.map((bullet, idx) => (
-                    <li key={idx} className="font-sans text-xs text-zinc-650 leading-relaxed flex items-start gap-2">
+                    <li key={idx} className="font-sans text-xs text-zinc-650 dark:text-zinc-400 leading-relaxed flex items-start gap-2">
                       <span className="text-orange-500 font-bold shrink-0 mt-0.5">✦</span>
                       <span>{bullet}</span>
                     </li>
@@ -128,24 +153,24 @@ export default function About({ currentLang }: AboutProps) {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.05 * idx }}
                       whileHover={{ y: -2, borderColor: 'rgba(249, 115, 22, 0.3)' }}
-                      className="bg-white px-2 py-2 bg-gradient-to-b from-white to-zinc-50/50 rounded-xl border border-zinc-200/60 shadow-sm flex flex-col justify-between h-[72px] hover:shadow-md transition-all duration-300 relative overflow-hidden"
+                      className="px-2 py-2 bg-gradient-to-b from-white/70 to-white/30 dark:from-zinc-900/60 dark:to-zinc-900/30 backdrop-blur-lg rounded-xl border border-white/60 dark:border-zinc-800/60 shadow-sm flex flex-col justify-between h-[72px] hover:shadow-md transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="flex items-center justify-between w-full z-10">
-                        <div className="p-1 bg-white border border-zinc-100 rounded-md shadow-2xs shrink-0">
+                        <div className="p-1 bg-white/80 dark:bg-zinc-800/80 backdrop-blur flex items-center justify-center border border-white dark:border-zinc-700 rounded-md shadow-sm shrink-0">
                           {idx === 0 ? <Trophy className="w-3 h-3 text-emerald-500" /> :
                            idx === 1 ? <Flame className="w-3 h-3 text-orange-500" /> :
                            idx === 2 ? <Star className="w-3 h-3 text-purple-500" /> :
                            <Target className="w-3 h-3 text-blue-500" />}
                         </div>
-                        <span className="font-mono text-sm md:text-base font-black text-zinc-800 tracking-tight shrink-0">
+                        <span className="font-mono text-sm md:text-base font-black text-zinc-800 dark:text-zinc-100 tracking-tight shrink-0">
                           {stat.value}
                         </span>
                       </div>
                       <div className="mt-1.5 z-10">
-                        <p className="font-sans text-[8px] font-bold text-zinc-400 tracking-wider uppercase leading-none mb-0.5">
+                        <p className="font-sans text-[8px] font-bold text-zinc-400 dark:text-zinc-500 tracking-wider uppercase leading-none mb-0.5">
                           {currentLang === 'zh' ? smallLabelsZh[idx] : smallLabelsEn[idx]}
                         </p>
-                        <p className="font-sans font-extrabold text-[9px] md:text-[10px] text-zinc-700 leading-tight truncate">
+                        <p className="font-sans font-extrabold text-[9px] md:text-[10px] text-zinc-700 dark:text-zinc-300 leading-tight truncate">
                           {stat.label[currentLang]}
                         </p>
                       </div>
@@ -225,18 +250,18 @@ export default function About({ currentLang }: AboutProps) {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute -bottom-8 -left-8 bg-white border border-zinc-200 max-w-[290px] p-6 rounded-2xl shadow-xl z-20 hidden md:block select-none"
+                className="absolute -bottom-8 -left-8 bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/60 dark:border-zinc-800/60 max-w-[290px] p-6 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] z-20 hidden md:block select-none"
               >
                 {/* Decorative spotlight border effect */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-orange-500/5 rounded-full blur-xl pointer-events-none" />
 
-                <p className="font-sans font-medium text-xs leading-relaxed text-zinc-800 mb-4">
+                <p className="font-sans font-medium text-xs leading-relaxed text-zinc-800 dark:text-zinc-200 mb-4">
                   {currentLang === 'zh' 
                     ? "“先创造让用户惊艳的精美产品，再用绝对的技术能力去捍卫它的平稳落地。”"
                     : '"First forge exquisite products that fascinate web users; then secure standard stability with absolute tech."'}
                 </p>
-                <div className="flex items-center justify-between border-t border-zinc-100 pt-3">
-                  <span className="font-mono text-[9px] text-zinc-400">
+                <div className="flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800/50 pt-3">
+                  <span className="font-mono text-[9px] text-zinc-400 dark:text-zinc-500">
                     {editionStr}
                   </span>
                   <span className="text-[10px] font-extrabold text-orange-500 uppercase tracking-widest font-sans">
@@ -251,8 +276,8 @@ export default function About({ currentLang }: AboutProps) {
               </motion.div>
 
               {/* Mobile-only responsive fallback philosophy block rendering cleanly under the card */}
-              <div className="md:hidden mt-4 bg-white border border-zinc-200 p-5 rounded-2xl shadow-md w-full">
-                <p className="font-sans font-medium text-xs leading-relaxed text-zinc-800">
+              <div className="md:hidden mt-4 bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/60 dark:border-zinc-800/60 p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] w-full">
+                <p className="font-sans font-medium text-xs leading-relaxed text-zinc-800 dark:text-zinc-200">
                   {currentLang === 'zh' 
                     ? "“先创造让用户惊艳的精美产品，再用绝对的技术能力去捍卫它的平稳落地。”"
                     : '"First forge exquisite products that fascinate web users; then secure standard stability with absolute tech."'}

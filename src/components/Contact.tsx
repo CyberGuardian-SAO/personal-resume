@@ -85,7 +85,7 @@ export default function Contact({ currentLang }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-24 bg-zinc-50 border-b border-orange-500/5 select-none">
+    <section id="contact" className="py-24 border-b border-white/20 select-none relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-16">
@@ -104,7 +104,7 @@ export default function Contact({ currentLang }: ContactProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 tracking-tight"
+            className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100 tracking-tight"
           >
             {t.subtitle}
           </motion.h2>
@@ -118,7 +118,7 @@ export default function Contact({ currentLang }: ContactProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 bg-white p-8 md:p-10 rounded-3xl border border-zinc-200/60 shadow-sm flex flex-col justify-between"
+            className="lg:col-span-5 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-2xl p-8 md:p-10 rounded-3xl border border-white/60 dark:border-zinc-800/60 shadow-lg flex flex-col justify-between"
           >
             <div>
               <span className="text-[10px] font-extrabold tracking-widest text-zinc-400 block mb-6 uppercase">
@@ -127,21 +127,21 @@ export default function Contact({ currentLang }: ContactProps) {
 
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 shrink-0">
+                  <div className="w-11 h-11 rounded-2xl bg-orange-50 dark:bg-orange-500/10 border border-orange-100 dark:border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
                       {currentLang === 'zh' ? '地点' : 'LOCATION'}
                     </p>
-                    <p className="font-sans font-bold text-zinc-800 text-sm mt-0.5">
+                    <p className="font-sans font-bold text-zinc-800 dark:text-zinc-200 text-sm mt-0.5">
                       {t.location}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 shrink-0">
+                  <div className="w-11 h-11 rounded-2xl bg-orange-50 dark:bg-orange-500/10 border border-orange-100 dark:border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
@@ -149,7 +149,7 @@ export default function Contact({ currentLang }: ContactProps) {
                       {currentLang === 'zh' ? '邮箱' : 'DIRECT EMAIL'}
                     </p>
                     <div className="flex items-center gap-2 mt-0.5">
-                      <a href="mailto:guoxin@bitqai.com" className="font-sans font-bold text-zinc-800 text-sm hover:text-orange-600 transition-colors">
+                      <a href="mailto:guoxin@bitqai.com" className="font-sans font-bold text-zinc-800 dark:text-zinc-200 text-sm hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                         guoxin@bitqai.com
                       </a>
                       <button 
@@ -164,7 +164,7 @@ export default function Contact({ currentLang }: ContactProps) {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 shrink-0">
+                  <div className="w-11 h-11 rounded-2xl bg-orange-50 dark:bg-orange-500/10 border border-orange-100 dark:border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
@@ -172,7 +172,7 @@ export default function Contact({ currentLang }: ContactProps) {
                       {currentLang === 'zh' ? '联系电话' : 'TELEPHONE'}
                     </p>
                     <div className="flex items-center gap-2 mt-0.5">
-                      <a href="tel:15323411996" className="font-sans font-bold text-zinc-800 text-sm">
+                      <a href="tel:15323411996" className="font-sans font-bold text-zinc-800 dark:text-zinc-200 text-sm">
                         15323411996
                       </a>
                       <button 
@@ -187,15 +187,15 @@ export default function Contact({ currentLang }: ContactProps) {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 pt-3 border-t border-zinc-100/80">
-                  <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-500 shrink-0">
+                <div className="flex items-start gap-4 pt-3 border-t border-zinc-100/80 dark:border-zinc-800/80">
+                  <div className="w-11 h-11 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 flex items-center justify-center text-emerald-500 shrink-0">
                     <QrCode className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
                     <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
                       {currentLang === 'zh' ? '添加微信' : 'WECHAT QR CODE'}
                     </p>
-                    <div className="mt-2.5 p-2 bg-zinc-50 border border-zinc-150 rounded-xl inline-block">
+                    <div className="mt-2.5 p-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-150 dark:border-zinc-700/50 rounded-xl inline-block">
                       <div className="w-24 h-24 bg-white border border-dashed border-zinc-200 rounded flex items-center justify-center overflow-hidden">
                         {!wechatError ? (
                           <img
@@ -223,7 +223,7 @@ export default function Contact({ currentLang }: ContactProps) {
             </div>
 
             {/* Social handles links */}
-            <div className="border-t border-zinc-100 pt-8 mt-12 md:mt-0">
+            <div className="border-t border-zinc-100 dark:border-zinc-800/80 pt-8 mt-12 md:mt-0">
               <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-4">
                 {currentLang === 'zh' ? '社交媒体' : 'COMMUNITY NETWORKS'}
               </p>
@@ -232,7 +232,7 @@ export default function Contact({ currentLang }: ContactProps) {
                   href="https://github.com/BitQAI"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-zinc-200 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 transition-colors duration-300"
+                  className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-700 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 dark:text-zinc-400 transition-colors duration-300"
                 >
                   <Github className="w-4 h-4" />
                 </a>
@@ -240,7 +240,7 @@ export default function Contact({ currentLang }: ContactProps) {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-zinc-200 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 transition-colors duration-300"
+                  className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-700 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 dark:text-zinc-400 transition-colors duration-300"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
@@ -254,7 +254,7 @@ export default function Contact({ currentLang }: ContactProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-7 bg-white p-8 md:p-10 rounded-3xl border border-zinc-200/60 shadow-sm"
+            className="lg:col-span-7 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-2xl p-8 md:p-10 rounded-3xl border border-white/60 dark:border-zinc-800/60 shadow-lg"
           >
             <AnimatePresence mode="wait">
               {sent ? (
@@ -265,10 +265,10 @@ export default function Contact({ currentLang }: ContactProps) {
                   className="py-12 flex flex-col items-center text-center justify-center h-full"
                 >
                   <CheckCircle className="w-14 h-14 text-emerald-500 mb-6 shrink-0" />
-                  <h3 className="font-sans font-extrabold text-xl text-zinc-900 mb-3">
+                  <h3 className="font-sans font-extrabold text-xl text-zinc-900 dark:text-zinc-100 mb-3">
                     {t.successTitle}
                   </h3>
-                  <p className="font-sans text-sm text-zinc-500 max-w-md leading-relaxed">
+                  <p className="font-sans text-sm text-zinc-500 dark:text-zinc-400 max-w-md leading-relaxed">
                     {t.successDesc}
                   </p>
                 </motion.div>
@@ -286,7 +286,7 @@ export default function Contact({ currentLang }: ContactProps) {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder={currentLang === 'zh' ? '例如：埃隆 · 马斯克' : 'e.g. Elon Musk'}
-                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
+                        className="w-full px-4 py-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-800 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 font-sans border border-white/60 dark:border-zinc-700/60 shadow-sm rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -298,8 +298,8 @@ export default function Contact({ currentLang }: ContactProps) {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder={currentLang === 'zh' ? '例如：elon@tesla.com' : 'e.g. elon@tesla.com'}
-                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
+                        placeholder={currentLang === 'zh' ? '例如: guoxin@bitqai.com' : 'e.g. guoxin@bitqai.com'}
+                        className="w-full px-4 py-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-800 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 font-sans border border-white/60 dark:border-zinc-700/60 shadow-sm rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -310,8 +310,8 @@ export default function Contact({ currentLang }: ContactProps) {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder={currentLang === 'zh' ? '例如：138 0013 8000' : 'e.g. +1 (555) 000-0000'}
-                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
+                        placeholder={currentLang === 'zh' ? '例如：153 2341 1996' : 'e.g. +1 (555) 000-0000'}
+                        className="w-full px-4 py-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-800 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 font-sans border border-white/60 dark:border-zinc-700/60 shadow-sm rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -321,7 +321,7 @@ export default function Contact({ currentLang }: ContactProps) {
                       <select
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500/15 transition-all duration-300"
+                        className="w-full px-4 py-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-800 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 font-sans border border-white/60 dark:border-zinc-700/60 shadow-sm rounded-xl outline-none focus:border-orange-500/15 transition-all duration-300"
                       >
                         <option value="Consulting">{t.typeConsulting}</option>
                         <option value="Fulltime">{t.typeFulltime}</option>
@@ -341,7 +341,7 @@ export default function Contact({ currentLang }: ContactProps) {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder={t.placeholderMsg}
                       rows={5}
-                      className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 transition-all duration-300 resize-none leading-relaxed text-sm placeholder-zinc-400"
+                      className="w-full px-4 py-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-800 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 font-sans border border-white/60 dark:border-zinc-700/60 shadow-sm rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 transition-all duration-300 resize-none leading-relaxed text-sm placeholder-zinc-400"
                     />
                   </div>
 
