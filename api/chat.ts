@@ -1,4 +1,3 @@
-import { GoogleGenAI } from '@google/genai';
 import { buildSystemPrompt } from './_prompt';
 
 const SYSTEM_PROMPT = buildSystemPrompt();
@@ -75,20 +74,11 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ reply });
 
     } else {
-      // Default: Native Gemini API Call
+      // Default: Native Gemini API Call via REST endpoint to avoid bundling/import failures in Serverless
       const apiKey = process.env.GEMINI_API_KEY;
       if (!apiKey) {
         throw new Error('GEMINI_API_KEY is not configured on the environment');
       }
-
-      const ai = new GoogleGenAI({
-        apiKey: apiKey,
-        httpOptions: {
-          headers: {
-            'User-Agent': 'aistudio-build',
-          }
-        }
-      });
 
       // Prepare conversation messages combining previous interactions for context
       const contents = [
@@ -99,16 +89,30 @@ export default async function handler(req: any, res: any) {
         { role: 'user', parts: [{ text: prompt }] }
       ];
 
-      const completion = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
-        contents: contents,
-        config: {
-          systemInstruction: SYSTEM_PROMPT,
-          temperature: 0.7,
-        }
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`;
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          contents: contents,
+          systemInstruction: {
+            parts: [{ text: SYSTEM_PROMPT }]
+          },
+          generationConfig: {
+            temperature: 0.7
+          }
+        })
       });
 
-      const reply = completion.text || '';
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Gemini API returned error ${response.status}: ${errorText}`);
+      }
+
+      const resData = await response.json();
+      const reply = resData.candidates?.[0]?.content?.parts?.[0]?.text || '';
       return res.status(200).json({ reply });
     }
 

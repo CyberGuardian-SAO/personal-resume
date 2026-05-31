@@ -10,6 +10,7 @@ export default function Contact({ currentLang }: ContactProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: 'Consulting',
     message: '',
   });
@@ -19,21 +20,22 @@ export default function Contact({ currentLang }: ContactProps) {
   const [wechatError, setWechatError] = useState(false);
 
   const t = {
-    title: currentLang === 'zh' ? '保持联系' : 'Establish Synergy',
-    subtitle: currentLang === 'zh' ? '启动合作意向，开创更多技术可能性' : 'Drop a brief note to start standard scale collaborations',
+    title: currentLang === 'zh' ? '联系我' : 'Get in Touch',
+    subtitle: currentLang === 'zh' ? '期待交流，探讨合作并探索更多技术可能' : 'Let\'s connect and explore potential technical collaborations.',
     name: currentLang === 'zh' ? '您的尊称' : 'Full Name',
     email: currentLang === 'zh' ? '电子邮箱' : 'Email Address',
+    phone: currentLang === 'zh' ? '联系电话 (可选)' : 'Phone Number (Optional)',
     type: currentLang === 'zh' ? '合作意向' : 'Collaboration Intent',
     typeConsulting: currentLang === 'zh' ? '项目顾问 / 咨询' : 'Consulting / Contract',
     typeFulltime: currentLang === 'zh' ? '全职契机' : 'Full-time Opportunities',
     typeSaaS: currentLang === 'zh' ? 'AI Agent 定制开发' : 'AI Agent Solutions',
-    message: currentLang === 'zh' ? '留言内容' : 'Detailed Message',
-    placeholderMsg: currentLang === 'zh' ? '写下您的项目大纲、预算周期，我会尽快与您联系。' : 'Explain requirements, timeline, stack details, etc. Bill Guo will connect soon.',
-    submit: currentLang === 'zh' ? '发送邮件' : 'Dispatch Intent',
-    sending: currentLang === 'zh' ? '投递中...' : 'Dispatching...',
-    successTitle: currentLang === 'zh' ? '意向投递成功！' : 'Message Dispatched!',
-    successDesc: currentLang === 'zh' ? '感谢您的联络。合作信息已被安全发送，我将尽快回复您。' : 'Thank you for your contact. Your collaboration details have been sent securely via Resend and I will get back to you soon.',
-    location: currentLang === 'zh' ? '中国 广东省 深圳市/ 云南省 普洱市' : 'Nanshan District, Guangdong Shenzhen, China'
+    message: currentLang === 'zh' ? '留言内容' : 'Message',
+    placeholderMsg: currentLang === 'zh' ? '写下您的项目大纲或合作意向，我会尽快回复您。' : 'Please briefly describe your requirements or intent, and I will get back to you soon.',
+    submit: currentLang === 'zh' ? '发送消息' : 'Send Message',
+    sending: currentLang === 'zh' ? '发送中...' : 'Sending...',
+    successTitle: currentLang === 'zh' ? '发送成功！' : 'Message Sent!',
+    successDesc: currentLang === 'zh' ? '感谢您的联络，您的信息已成功发出，我将尽快回复。' : 'Thank you for reaching out. Your message has been sent successfully, and I will get back to you soon.',
+    location: currentLang === 'zh' ? '中国 广东省深圳市 / 云南省普洱市' : 'Shenzhen, Guangdong / Pu\'er, Yunnan, China'
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -77,7 +79,7 @@ export default function Contact({ currentLang }: ContactProps) {
     } finally {
       setLoading(false);
       setSent(true);
-      setFormData({ name: '', email: '', subject: 'Consulting', message: '' });
+      setFormData({ name: '', email: '', phone: '', subject: 'Consulting', message: '' });
       setTimeout(() => setSent(false), 8000);
     }
   };
@@ -119,8 +121,8 @@ export default function Contact({ currentLang }: ContactProps) {
             className="lg:col-span-5 bg-white p-8 md:p-10 rounded-3xl border border-zinc-200/60 shadow-sm flex flex-col justify-between"
           >
             <div>
-              <span className="text-[10px] font-extrabold tracking-widest text-orange-600 block mb-6 uppercase">
-                {currentLang === 'zh' ? '联系坐标' : 'COORDINATES'}
+              <span className="text-[10px] font-extrabold tracking-widest text-zinc-400 block mb-6 uppercase">
+                {currentLang === 'zh' ? '联系方式' : 'COORDINATES'}
               </span>
 
               <div className="space-y-6">
@@ -130,7 +132,7 @@ export default function Contact({ currentLang }: ContactProps) {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-                      {currentLang === 'zh' ? '居住地点' : 'LOCATION'}
+                      {currentLang === 'zh' ? '地点' : 'LOCATION'}
                     </p>
                     <p className="font-sans font-bold text-zinc-800 text-sm mt-0.5">
                       {t.location}
@@ -144,7 +146,7 @@ export default function Contact({ currentLang }: ContactProps) {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-                      {currentLang === 'zh' ? '直联邮箱' : 'DIRECT EMAIL'}
+                      {currentLang === 'zh' ? '邮箱' : 'DIRECT EMAIL'}
                     </p>
                     <p className="font-sans font-bold text-zinc-800 text-sm mt-0.5 hover:text-orange-600 transition-colors">
                       guoxin@bitqai.com
@@ -172,13 +174,13 @@ export default function Contact({ currentLang }: ContactProps) {
                   </div>
                   <div className="flex-1">
                     <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-                      {currentLang === 'zh' ? '微信联络码' : 'WECHAT CONTACT QR'}
+                      {currentLang === 'zh' ? '添加微信' : 'WECHAT QR CODE'}
                     </p>
                     <div className="mt-2.5 p-2 bg-zinc-50 border border-zinc-150 rounded-xl inline-block">
                       <div className="w-24 h-24 bg-white border border-dashed border-zinc-200 rounded flex items-center justify-center overflow-hidden">
                         {!wechatError ? (
                           <img
-                            src="/https://files.bitqai.com/website/wechat-qrcode.jpg"
+                            src="https://files.bitqai.com/website/wechat-qrcode.jpg"
                             alt="微信二维码"
                             referrerPolicy="no-referrer"
                             onError={() => setWechatError(true)}
@@ -253,7 +255,7 @@ export default function Contact({ currentLang }: ContactProps) {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Two columns form fields */}
+                  {/* Form fields */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
@@ -264,7 +266,8 @@ export default function Contact({ currentLang }: ContactProps) {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 transition-all duration-300"
+                        placeholder={currentLang === 'zh' ? '例如：埃隆 · 马斯克' : 'e.g. Elon Musk'}
+                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -276,25 +279,36 @@ export default function Contact({ currentLang }: ContactProps) {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 transition-all duration-300"
+                        placeholder={currentLang === 'zh' ? '例如：elon@tesla.com' : 'e.g. elon@tesla.com'}
+                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
                       />
                     </div>
-                  </div>
-
-                  {/* Purpose list */}
-                  <div>
-                    <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
-                      {t.type}
-                    </label>
-                    <select
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500/15 transition-all duration-300"
-                    >
-                      <option value="Consulting">{t.typeConsulting}</option>
-                      <option value="Fulltime">{t.typeFulltime}</option>
-                      <option value="AI Solutions">{t.typeSaaS}</option>
-                    </select>
+                    <div>
+                      <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
+                        {t.phone}
+                      </label>
+                      <input
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder={currentLang === 'zh' ? '例如：138 0013 8000' : 'e.g. +1 (555) 000-0000'}
+                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500/10 placeholder-zinc-400 transition-all duration-300"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
+                        {t.type}
+                      </label>
+                      <select
+                        value={formData.subject}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        className="w-full px-4 py-3 bg-zinc-50 hover:bg-zinc-100/40 focus:bg-white text-zinc-800 font-sans border border-zinc-200 rounded-xl outline-none focus:border-orange-500/15 transition-all duration-300"
+                      >
+                        <option value="Consulting">{t.typeConsulting}</option>
+                        <option value="Fulltime">{t.typeFulltime}</option>
+                        <option value="AI Solutions">{t.typeSaaS}</option>
+                      </select>
+                    </div>
                   </div>
 
                   {/* Message body */}

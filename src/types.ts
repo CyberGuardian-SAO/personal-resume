@@ -1,10 +1,15 @@
+export interface Award {
+  title: Record<'zh' | 'en', string>;
+  year: string;
+}
+
 export interface Project {
   id: string;
   title: Record<'zh' | 'en', string>;
   name?: string; // compatibility
   description: Record<'zh' | 'en', string>;
   longDescription: Record<'zh' | 'en', string>;
-  tags: string[];
+  tags: Record<'zh' | 'en', string[]>;
   category: 'software' | 'mobile' | 'ai' | 'design';
   image: string; // Dynamic path or premium icon representation
   imageUrl?: string; // raw image from user
@@ -28,9 +33,13 @@ export interface Experience {
 }
 
 export interface Skill {
-  name: string;
+  name: { zh: string; en: string };
   level: number; // 0-100 percentage
   category: 'Frontend' | 'Backend' | 'AI / Data' | 'Tools & Design';
+  description?: { zh: string; en: string };
+  color?: string; // e.g. '#3b82f6'
+  relatedProjects?: string[]; // IDs
+  relatedExperiences?: string[]; // IDs
 }
 
 export interface DiverseExperience {
@@ -54,5 +63,6 @@ export interface PortfolioData {
   experiences: Experience[];
   projects: Project[];
   diverseExperiences?: DiverseExperience[];
+  awards?: Award[];
   photos?: string[];
 }

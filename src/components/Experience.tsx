@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { portfolioData } from '../data/portfolioData';
-import { Sparkles, Calendar, Briefcase, GraduationCap, ChevronDown } from 'lucide-react';
+import { Sparkles, Calendar, Briefcase, GraduationCap, ChevronDown, Trophy } from 'lucide-react';
 
 interface ExperienceProps {
   currentLang: 'zh' | 'en';
@@ -36,9 +36,11 @@ export default function Experience({ currentLang }: ExperienceProps) {
     title: currentLang === 'zh' ? '职业生涯履历' : 'Technical Chronicle',
     subtitle: currentLang === 'zh' ? '在海量业务淬炼中锤炼的成长图景' : 'A timeline of growth refined through large scale business demands',
     educationHeader: currentLang === 'zh' ? '教育及通用学术底座' : 'Education & Foundations',
-    degree: currentLang === 'zh' ? '软件工程 · 学士学位' : 'Bachelor\'s Degree in Software Engineering',
-    college: currentLang === 'zh' ? '双一流重点理工科大学' : 'National Key University of Science & Tech',
-    collegePeriod: "2014.09 - 2018.06",
+    degree: currentLang === 'zh' ? '全日制本科 · 信息化技术与管理' : 'Full-time Bachelor\'s in Information Tech & Management',
+    college: currentLang === 'zh' ? '中南林业科技大学 (国内一流大学建设高校)' : 'Central South University of Forestry and Tech (CSUFT)',
+    collegePeriod: "2016.09 - 2020.06",
+    languageCapability: currentLang === 'zh' ? '语言能力 (CET-6)' : 'Language Capability (CET-6)',
+    languageLevel: currentLang === 'zh' ? '具有境外旅居跨国协作沟通经验。英文技术文档阅读与学习能力出众。' : 'Overseas living/collaboration experience. Superb English technical reading and learning proficiency.',
   };
 
   const clickHint = currentLang === 'zh'
@@ -92,6 +94,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             const isExpanded = expandedId === exp.id;
             return (
               <motion.div
+                id={exp.id}
                 key={exp.id}
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -231,6 +234,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
                   const isExpanded = expandedId === exp.id;
                   return (
                     <motion.div
+                      id={exp.id}
                       key={exp.id}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -329,7 +333,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             )}
           </AnimatePresence>
 
-          {/* Education entry as completion mark */}
+            {/* Education entry as completion mark */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -349,15 +353,54 @@ export default function Experience({ currentLang }: ExperienceProps) {
                   <p className="font-sans font-extrabold text-base text-zinc-800">
                     {t.degree}
                   </p>
-                  <p className="font-sans font-medium text-sm text-zinc-500 mt-1">
+                  <p className="font-sans font-medium text-sm text-zinc-500 mt-1 mb-4">
                     {t.college}
                   </p>
+                  <div className="inline-block mt-1 p-3 bg-orange-50/50 rounded-xl border border-orange-100/50">
+                    <p className="font-sans font-bold text-sm text-zinc-800 flex items-center gap-1.5 mb-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                      {t.languageCapability}
+                    </p>
+                    <p className="font-sans text-xs md:text-sm text-zinc-650 leading-relaxed max-w-xl">
+                      {t.languageLevel}
+                    </p>
+                  </div>
                 </div>
                 <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 tracking-wider bg-zinc-100/40 px-3 py-1.5 rounded-full border border-zinc-100 self-start md:self-auto select-none">
                   <Calendar className="w-3.5 h-3.5 text-zinc-400" />
                   <span>{t.collegePeriod}</span>
                 </div>
               </div>
+            </div>
+            {/* Awards section */}
+            <div className="mt-8">
+              <details className="group bg-gradient-to-br from-white to-zinc-50 border border-zinc-200/60 rounded-3xl p-6 shadow-sm hover:border-orange-200 transition-all duration-300">
+                <summary className="font-sans font-bold text-sm text-zinc-900 cursor-pointer flex items-center justify-between outline-none">
+                  <span className="flex items-center gap-2.5">
+                    <div className="p-1.5 bg-orange-100 rounded-lg">
+                      <Trophy className="w-4 h-4 text-orange-600" />
+                    </div>
+                    {currentLang === 'zh' ? '荣誉与奖项' : 'Honors & Awards'}
+                  </span>
+                  <div className="bg-zinc-100 p-1 rounded-full group-hover:bg-orange-100 transition-colors">
+                    <ChevronDown className="w-4 h-4 text-zinc-500 group-open:rotate-180 transition-transform duration-300" />
+                  </div>
+                </summary>
+                <div className="mt-6 space-y-4 pt-6 border-t border-zinc-100">
+                  {portfolioData.awards?.map((award, idx) => (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.05 }}
+                      key={idx} 
+                      className="group/item flex justify-between items-start text-sm text-zinc-700 hover:text-zinc-900 font-sans p-3 rounded-xl hover:bg-white hover:shadow-sm border border-transparent hover:border-zinc-100 transition-all"
+                    >
+                      <span className="flex-1 pr-6 leading-relaxed">{award.title[currentLang]}</span>
+                      <span className="font-mono text-zinc-400 group-hover/item:text-orange-500 text-xs mt-1 shrink-0 bg-zinc-100 group-hover/item:bg-orange-50 px-2 py-0.5 rounded-md transition-colors">{award.year}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </details>
             </div>
           </motion.div>
         </div>
@@ -375,7 +418,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
                 </span>
                 <span className="font-sans font-medium">
-                  {currentLang === 'zh' ? '期待探索更多维度的我？点击查看斜杠经历（导游/新西兰/民宿等）' : 'Curious about my diverse chapters? Click to explore life beyond tech (Tour guide, New Zealand WHV, etc.)'}
+                  {currentLang === 'zh' ? '期待探索更多维度的我？点击查看斜杠经历（导游策划/民宿/户外向导/急救持证）' : 'Curious about my diverse chapters? Click to explore life beyond tech (Tour guide, Homestay manager, First Aider)'}
                 </span>
               </button>
             ) : (
@@ -401,18 +444,36 @@ export default function Experience({ currentLang }: ExperienceProps) {
                 <div className="space-y-4">
                   {portfolioData.diverseExperiences?.map((divExp) => {
                     const periodStr = divExp.period.replace('Present', currentLang === 'zh' ? '至今' : 'Present');
+                    const renderWithHighlights = (text: string) => {
+                      if (!text) return "";
+                      const parts = text.split(/(\*\*[^*]+\*\*)/g);
+                      return parts.map((part, index) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                          const innerText = part.slice(2, -2);
+                          return (
+                            <strong
+                              key={index}
+                              className="inline font-extrabold text-orange-600 bg-orange-50 px-1 py-0.5 rounded border border-orange-100/60 mx-0.5 shadow-2xs"
+                            >
+                              {innerText}
+                            </strong>
+                          );
+                        }
+                        return part;
+                      });
+                    };
                     return (
-                      <div key={divExp.id} className="border-b border-zinc-100 pb-3 last:border-0 last:pb-0">
+                      <div key={divExp.id} className="group hover:bg-zinc-50 p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-zinc-100">
                         <div className="flex items-center justify-between flex-wrap gap-2 mb-1.5">
-                          <span className="font-sans font-extrabold text-xs md:text-sm text-zinc-800">
+                          <span className="font-sans font-extrabold text-xs md:text-sm text-zinc-900 group-hover:text-orange-600 transition-colors">
                             {divExp.title[currentLang]}
                           </span>
-                          <span className="font-mono text-[10px] md:text-xs font-semibold text-zinc-400 bg-zinc-50 px-2 py-0.5 rounded-full border border-zinc-100">
+                          <span className="font-mono text-[10px] md:text-xs font-semibold text-zinc-400 bg-zinc-100/50 px-2.5 py-0.5 rounded-full border border-zinc-100 group-hover:bg-orange-50 group-hover:border-orange-100 group-hover:text-orange-500 transition-colors">
                             {periodStr}
                           </span>
                         </div>
-                        <p className="font-sans text-xs md:text-sm text-zinc-650 leading-relaxed">
-                          {divExp.description[currentLang]}
+                        <p className="font-sans text-xs md:text-sm text-zinc-650 leading-relaxed group-hover:text-zinc-700 transition-colors">
+                          {renderWithHighlights(divExp.description[currentLang])}
                         </p>
                       </div>
                     );

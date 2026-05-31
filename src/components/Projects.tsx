@@ -13,6 +13,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeMediaTab, setActiveMediaTab] = useState<'video' | 'screenshots'>('screenshots');
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   const t = {
     title: currentLang === 'zh' ? '代表性作品案例' : 'Project Showcases',
@@ -20,7 +21,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
     all: currentLang === 'zh' ? '全部项目' : 'All Projects',
     ai: currentLang === 'zh' ? '智能体 AI' : 'Intelligence AI',
     software: currentLang === 'zh' ? '软件研发' : 'SaaS Engineering',
-    design: currentLang === 'zh' ? '硬件与动效' : 'Sensors & Robotics',
+    design: currentLang === 'zh' ? '硬件与机器人' : 'Sensors & Robotics',
     learnMore: currentLang === 'zh' ? '查看技术细节' : 'Understand Details',
     featuresTitle: currentLang === 'zh' ? '核心技术指标与特色' : 'Key Specifications & Features',
     demoBtn: currentLang === 'zh' ? '试用' : 'Try Now',
@@ -62,6 +63,23 @@ export default function Projects({ currentLang }: ProjectsProps) {
       setCurrentImgIndex(0);
     }
   }, [selectedProject]);
+
+  useEffect(() => {
+    const handleOpenProject = (e: CustomEvent) => {
+      const projId = e.detail;
+      const proj = portfolioData.projects.find(p => p.id === projId);
+      if (proj) {
+        setSelectedProject(proj);
+        // Add a slight delay to allow modal to render before scrolling if needed
+        setTimeout(() => {
+          document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    };
+    
+    window.addEventListener('open-project', handleOpenProject as EventListener);
+    return () => window.removeEventListener('open-project', handleOpenProject as EventListener);
+  }, []);
 
   return (
     <section id="projects" className="py-24 bg-white border-b border-orange-500/5">
@@ -187,7 +205,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
 
                   {/* Dynamic Tags list representation under card bottom */}
                   <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-zinc-100/80 mt-auto">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {project.tags[currentLang].slice(0, 3).map((tag) => (
                       <span
                         key={tag}
                         className="text-[9px] font-bold text-zinc-500 bg-zinc-100 uppercase px-2 py-0.5 rounded"
@@ -195,9 +213,9 @@ export default function Projects({ currentLang }: ProjectsProps) {
                         {tag}
                       </span>
                     ))}
-                    {project.tags.length > 3 && (
+                    {project.tags[currentLang].length > 3 && (
                       <span className="text-[9px] font-extrabold text-orange-500 bg-orange-50 px-2 py-0.5 rounded">
-                        +{project.tags.length - 3}
+                        +{project.tags[currentLang].length - 3}
                       </span>
                     )}
                   </div>
@@ -240,38 +258,42 @@ export default function Projects({ currentLang }: ProjectsProps) {
                 <div className="w-full md:w-1/2 relative bg-zinc-900 flex items-center justify-center min-h-[260px] md:min-h-0 self-stretch overflow-hidden">
                   
                   {/* Video/Image Switching Headers */}
-                  <div className="absolute top-4 left-4 z-20 flex gap-2">
-                    {selectedProject.detailVideoUrl && (
-                      <button
-                        onClick={() => {
-                          setActiveMediaTab('video');
-                          setCurrentImgIndex(0);
-                        }}
-                        className={`px-3 py-1.5 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all duration-300 ${
-                          activeMediaTab === 'video'
-                            ? 'bg-orange-500 text-white shadow-md'
-                            : 'bg-zinc-800/80 text-zinc-100 hover:bg-zinc-800 backdrop-blur-sm'
-                        }`}
-                      >
-                        🎥 {currentLang === 'zh' ? '演示视频' : 'Demo Video'}
-                      </button>
-                    )}
-                    {selectedProject.detailImages && selectedProject.detailImages.length > 0 && (
-                      <button
-                        onClick={() => {
-                          setActiveMediaTab('screenshots');
-                          setCurrentImgIndex(0);
-                        }}
-                        className={`px-3 py-1.5 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all duration-300 ${
-                          activeMediaTab === 'screenshots'
-                            ? 'bg-orange-500 text-white shadow-md'
-                            : 'bg-zinc-800/80 text-zinc-100 hover:bg-zinc-800 backdrop-blur-sm'
-                        }`}
-                      >
-                        🖼️ {currentLang === 'zh' ? '产品截图' : 'Details Images'}
-                      </button>
-                    )}
-                  </div>
+                  {(selectedProject.detailVideoUrl || (selectedProject.detailImages && selectedProject.detailImages.length > 0)) && (
+                    <div className="absolute top-4 left-4 z-20 flex gap-1 p-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-xl shadow-lg">
+                      {selectedProject.detailVideoUrl && (
+                        <button
+                          onClick={() => {
+                            setActiveMediaTab('video');
+                            setCurrentImgIndex(0);
+                          }}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all duration-300 ${
+                            activeMediaTab === 'video'
+                              ? 'bg-orange-500 text-white shadow-md'
+                              : 'text-zinc-300 hover:text-white hover:bg-white/10'
+                          }`}
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                          {currentLang === 'zh' ? '演示视频' : 'Demo Video'}
+                        </button>
+                      )}
+                      {selectedProject.detailImages && selectedProject.detailImages.length > 0 && (
+                        <button
+                          onClick={() => {
+                            setActiveMediaTab('screenshots');
+                            setCurrentImgIndex(0);
+                          }}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all duration-300 ${
+                            activeMediaTab === 'screenshots'
+                              ? 'bg-orange-500 text-white shadow-md'
+                              : 'text-zinc-300 hover:text-white hover:bg-white/10'
+                          }`}
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                          {currentLang === 'zh' ? '产品截图' : 'Screenshots'}
+                        </button>
+                      )}
+                    </div>
+                  )}
 
                   {/* Render Area */}
                   {activeMediaTab === 'video' && selectedProject.detailVideoUrl ? (
@@ -295,16 +317,28 @@ export default function Projects({ currentLang }: ProjectsProps) {
                         return (
                           <>
                             <AnimatePresence mode="wait">
-                              <motion.img
-                                key={currentImgIndex}
-                                src={images[currentImgIndex]}
-                                alt={`${selectedProject.title[currentLang]} item ${currentImgIndex}`}
-                                initial={{ opacity: 0, scale: 0.98 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="w-full h-full object-contain max-h-full"
-                              />
+                              <div 
+                                className="w-full h-full relative cursor-pointer group"
+                                onClick={() => setZoomedImage(images[currentImgIndex])}
+                              >
+                                <motion.img
+                                  key={currentImgIndex}
+                                  src={images[currentImgIndex]}
+                                  alt={`${selectedProject.title[currentLang]} item ${currentImgIndex}`}
+                                  initial={{ opacity: 0, scale: 0.98 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  exit={{ opacity: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="w-full h-full object-contain max-h-full transition-transform duration-300 group-hover:scale-[1.02]"
+                                />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                                  <div className="opacity-0 group-hover:opacity-100 transform scale-90 group-hover:scale-100 transition-all duration-300 bg-black/60 text-white backdrop-blur-md p-3 rounded-full">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
                             </AnimatePresence>
 
                             {/* Carousel controls click */}
@@ -400,7 +434,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                         {t.techStackTitle}
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
-                        {selectedProject.tags.map((tag) => (
+                        {selectedProject.tags[currentLang].map((tag) => (
                           <span
                             key={tag}
                             className="font-sans text-[10px] font-bold text-zinc-500 bg-zinc-150 rounded px-2 py-0.5"
@@ -454,6 +488,36 @@ export default function Projects({ currentLang }: ProjectsProps) {
                 </div>
               </motion.div>
             </div>
+          )}
+        </AnimatePresence>
+
+        {/* Zoomed Image Overlay */}
+        <AnimatePresence>
+          {zoomedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setZoomedImage(null)}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8 cursor-zoom-out"
+            >
+              <button
+                onClick={() => setZoomedImage(null)}
+                className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all duration-300"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+              <motion.img
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                src={zoomedImage}
+                alt="Zoomed details"
+                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+                onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+              />
+            </motion.div>
           )}
         </AnimatePresence>
       </div>

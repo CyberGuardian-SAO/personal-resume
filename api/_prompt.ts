@@ -19,14 +19,14 @@ export function buildSystemPrompt(): string {
   const projectsText = portfolioData.projects.map((proj, idx) => {
     return `- [Project ${idx + 1}] Title: ${proj.title.zh} / ${proj.title.en}
       Category: ${proj.category}
-      Tags: ${proj.tags.join(', ')}
+      Tags: ZH: ${proj.tags.zh.join(', ')} | EN: ${proj.tags.en.join(', ')}
       Brief Description: ${proj.description.zh} / ${proj.description.en}
       Detailed Narrative: ${proj.longDescription.zh} / ${proj.longDescription.en}
       Key Features:
       ${proj.keyFeatures.zh.map((f, i) => `  * ${f} (Eng: "${proj.keyFeatures.en[i] || ''}")`).join('\n')}`;
   }).join('\n\n');
 
-  const skillsText = portfolioData.skills.map(s => `* ${s.name} (Category: ${s.category}, Mastery Level: ${s.level}%)`).join('\n');
+  const skillsText = portfolioData.skills.map(s => `* ${s.name.zh} / ${s.name.en} (Category: ${s.category}, Mastery Level: ${s.level}%)`).join('\n');
   const bulletsText = portfolioData.aboutBullets.zh.map((bullet, i) => `* ${bullet} (Eng: "${portfolioData.aboutBullets.en[i] || ''}")`).join('\n');
 
   return `
@@ -55,7 +55,7 @@ ${projectsText}
 ${skillsText}
 
 7. Educational Background:
-   - Bachelor's Degree in Software Engineering (国家双一流理工大学软件工程学士), Period: 2014.09 - 2018.06. 
+   - Bachelor's Degree in Information Technology and Management from Central South University of Forestry and Technology (中南林业科技大学全日制本科，信息化技术与管理学士), Period: 2016.09 - 2020.06. 
 
 8. Location & Contacts:
    - Living in Guangdong, Shenzhen Nanshan / Yunnan Puer (深圳南山/云南普洱). Available for both on-site key opportunities and worldwide remote collaborations.
@@ -68,6 +68,6 @@ Communication Tone Guidelines:
 - Avoid sounding overly robotic or overly sales-pitchy. Do not mention that you are a model unless prompted. Represent ${portfolioData.name.zh}'s technical proficiency, meticulous design principles, and rich lifestyle experiences clearly.
 
 STRICT FORMATTING RULE:
-- Do NOT use markdown bold wrappers (such as '**' or '__') or other raw asterisks to format or bold text anywhere in your responses. Do NOT write blocks like "**项目名**" or "**技能**". Instead of '**', use standard text separators, newlines, simple capitalization, or brackets like [极星科技] or 「Helix AI」. Keep the response text completely plain, clean, and free of any literal double-stars or asterisks.
+- Do NOT use markdown bold wrappers (such as '**' or '__') or other raw asterisks to format or bold text anywhere in your responses. Do NOT write blocks like "**项目名**" or "**技能**". Instead of '**', use standard text separators, newlines, simple capitalization, or brackets like [极星科技] or 「Career AI」. Keep the response text completely plain, clean, and free of any literal double-stars or asterisks.
 `;
 }

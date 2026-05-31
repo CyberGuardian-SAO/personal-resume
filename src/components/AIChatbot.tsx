@@ -39,22 +39,25 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
   };
 
   const suggestionPills = currentLang === 'zh' ? [
-    "郭鑫擅长哪些微服务和AI方案？",
-    "介绍下他在 Helix AI 项目中的成果",
-    "目前他在寻找哪些全栈合作机会？",
-    "他的全日制及业余爱好是什么？"
+    "郭鑫擅长哪些端到端技术架构与AI应用方案？",
+    "他在智慧宠物门店(ERP)项目中取得了什么成果？",
+    "目前他倾向于寻找什么样的合作或职业机会？",
+    "他多元的斜杠经历(导游/旅居)对他产品思维有何影响？"
   ] : [
-    "What AI architectures does Bill excel in?",
-    "Explain his work on Helix AI",
-    "What kind of roles is he looking for?",
-    "How does he ensure pixel perfection?"
+    "What core tech stacks and AI agents does Guoxin excel in?",
+    "Explain his role and achievements in the Pet SaaS ERP.",
+    "What tech projects or engineering roles is he seeking?",
+    "How does his diverse background shape his product mindset?"
   ];
 
+  // NOTE: Auto-scroll effect removed to prevent forced page movement
+  /*
   useEffect(() => {
     if (messages.length > 1) {
       chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, loading]);
+  */
 
   const handleSendMessage = async (textToSend: string) => {
     if (!textToSend.trim() || loading) return;

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { portfolioData } from '../data/portfolioData';
 import { 
   Sparkles, Cpu, Code2, Database, PenTool,
-  Layers, Shield, Wind, Globe, Server, GitBranch, Zap, Box, Network, Bot, Sliders, GitMerge, FileCode, Cloud, Search, ArrowUpRight
+  Layers, Shield, Wind, Globe, Server, GitBranch, Zap, Box, Network, Bot, Sliders, GitMerge, FileCode, Cloud, Search, ArrowUpRight, Briefcase
 } from 'lucide-react';
 import { Skill } from '../types';
 
@@ -12,9 +12,11 @@ interface SkillsProps {
 }
 
 interface SphereTag {
-  name: string;
+  id: string;
+  name: { zh: string; en: string };
   category: string;
   level: number;
+  color?: string;
   x: number; // 3D x on unit sphere (-1 to 1)
   y: number; // 3D y on unit sphere (-1 to 1)
   z: number; // 3D z on unit sphere (-1 to 1)
@@ -25,9 +27,38 @@ interface SphereTag {
   dispY: number; // dynamic interactive offset y (mouse scatter force)
 }
 
+const skillRelations: Record<string, { projects: string[], experiences: string[] }> = {
+  "Flutter & uniapp (跨端开发)": { projects: ["p6"], experiences: ["exp1"] },
+  "JavaScript / Vue.js": { projects: ["p6"], experiences: ["exp1"] },
+  "React & Tailwind CSS": { projects: ["p0", "p1", "p2", "p5"], experiences: ["exp0"] },
+  "HTML5 / CSS3 / ES6+": { projects: ["p0", "p1", "p2", "p6"], experiences: ["exp0", "exp1"] },
+  "WebSocket 实时全双工协议": { projects: ["p5", "p6", "p7", "p8"], experiences: ["exp1", "exp2"] },
+  
+  "C / C++ (STL / QT / Boost)": { projects: ["p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
+  "PHP (ThinkPHP / Yii 框架)": { projects: ["p6", "p7"], experiences: ["exp1"] },
+  "TCP/IP & 高速套接字网络编程": { projects: ["p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
+  "Node.js (Express / Koa API)": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
+  "MySQL, Redis & SQL 慢查询调优": { projects: ["p6", "p7", "p9"], experiences: ["exp1", "exp3"] },
+  "Linux & LNMP 全套生产环境运维": { projects: ["p6", "p7"], experiences: ["exp1", "exp3"] },
+  "Python / Data Scripting": { projects: ["p4", "p9"], experiences: ["exp2", "exp3"] },
+  
+  "AI 智能体开发 & 敏捷工作流编排": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
+  "Vibe Coding 协同人机交互与提示词优化": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
+  "OpenCV (工业图像检测与目标分类)": { projects: ["p4", "p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
+  "PCL (三维工业点云拼接与法向计算)": { projects: ["p8"], experiences: ["exp2"] },
+  "Gemini / OpenAI API 整合与中转": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
+  
+  "Git / Gitee 团队协作版本控制": { projects: [], experiences: ["exp0", "exp1", "exp2", "exp3"] },
+  "Postman API 接口单元联调测试": { projects: [], experiences: ["exp0", "exp1"] },
+  "Jira / Wiki 敏捷开发流管理": { projects: [], experiences: ["exp1", "exp2", "exp3"] },
+  "CMake & Linux 编译底层构建工具": { projects: ["p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
+  "Linux网络与IO": { projects: [], experiences: ["exp4"] },
+  "TensorFlow模型训练": { projects: [], experiences: ["exp5"] }
+};
+
 export default function Skills({ currentLang }: SkillsProps) {
   const [activeCategory, setActiveCategory] = useState<'All' | 'Frontend' | 'Backend' | 'AI / Data' | 'Tools & Design'>('All');
-  const [selectedSkillName, setSelectedSkillName] = useState<string>('React / Next.js');
+  const [selectedSkillId, setSelectedSkillId] = useState<string>('Flutter & uniapp (跨端开发)');
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,10 +85,10 @@ export default function Skills({ currentLang }: SkillsProps) {
   };
 
   const t = {
-    title: currentLang === 'zh' ? '交互式高级技能图谱' : 'Expertise Index Explorer',
-    subtitle: currentLang === 'zh' ? '指尖转动技术主星云，解封在商业实战中的核心交付价值' : 'Hover & rotate the holographic constellation to decode commercial delivery values',
-    instructions: currentLang === 'zh' ? '💡 双层同步：点击左侧星体微粒，或点击右侧卡片，可双向高亮对应能力' : '💡 Double Sync: Click any star tag on the 3D sphere or click any card on the list to toggle status',
-    competencyLabel: currentLang === 'zh' ? '技能实际掌握度' : 'Competency Weight'
+    title: currentLang === 'zh' ? '技能图谱' : 'Skills & Expertise',
+    subtitle: currentLang === 'zh' ? '探索核心技术栈与交付能力' : 'Explore core tech stacks and delivery capabilities.',
+    instructions: currentLang === 'zh' ? '💡 提示：点击星云标签或右侧列表查看技能详情' : '💡 Tip: Click sphere tags or list items to view details.',
+    competencyLabel: currentLang === 'zh' ? '掌握程度' : 'Proficiency'
   };
 
   // Pre-seed coordinates on a Fibonacci sphere for equal spacing
@@ -73,9 +104,11 @@ export default function Skills({ currentLang }: SkillsProps) {
       const theta = Math.sqrt(numTags * Math.PI) * phi;
 
       tags.push({
+        id: skill.name.zh,
         name: skill.name,
         category: skill.category,
         level: skill.level,
+        color: skill.color,
         x: Math.cos(theta) * Math.sin(phi),
         y: Math.sin(theta) * Math.sin(phi),
         z: Math.cos(phi),
@@ -222,7 +255,7 @@ export default function Skills({ currentLang }: SkillsProps) {
 
       // 4. DRAW NODES AND TEXT LABELS
       for (const tag of sortedTags) {
-        const isSelected = selectedSkillName === tag.name;
+        const isSelected = selectedSkillId === tag.id;
         const matchesCategory = activeCategory === 'All' || tag.category === activeCategory;
 
         // Compute opacity depending both on 3D depth and whether it fits current filter category
@@ -231,9 +264,16 @@ export default function Skills({ currentLang }: SkillsProps) {
           alpha *= 0.15; // semi-transparent if filtered out
         }
 
-        // Selected highlights
-        const orangeColor = `rgba(249, 115, 22, ${isSelected ? 1.0 : alpha})`;
-        const darkColor = `rgba(63, 63, 70, ${isSelected ? 1.0 : alpha * 0.65})`;
+        // Helper for colors
+        const getHexRgba = (hex: string | undefined, a: number) => {
+          if (!hex) hex = '#F97316';
+          const r = parseInt(hex.slice(1, 3), 16);
+          const g = parseInt(hex.slice(3, 5), 16);
+          const b = parseInt(hex.slice(5, 7), 16);
+          return `rgba(${r}, ${g}, ${b}, ${a})`;
+        };
+
+        const themeColor = getHexRgba(tag.color, isSelected ? 1.0 : alpha);
 
         ctx.save();
 
@@ -242,9 +282,9 @@ export default function Skills({ currentLang }: SkillsProps) {
         const dotRadius = isSelected ? 5.5 : 3.5 * tag.scale;
         ctx.arc(tag.screenX, tag.screenY, dotRadius, 0, Math.PI * 2);
         
-        ctx.fillStyle = matchesCategory ? orangeColor : `rgba(161, 161, 170, ${alpha * 0.5})`;
+        ctx.fillStyle = matchesCategory ? themeColor : `rgba(161, 161, 170, ${alpha * 0.5})`;
         if (isSelected) {
-          ctx.shadowColor = 'rgba(249, 115, 22, 0.7)';
+          ctx.shadowColor = getHexRgba(tag.color, 0.7);
           ctx.shadowBlur = 8;
         }
         ctx.fill();
@@ -253,7 +293,7 @@ export default function Skills({ currentLang }: SkillsProps) {
         if (isSelected) {
           ctx.beginPath();
           ctx.arc(tag.screenX, tag.screenY, dotRadius + 3, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(249, 115, 22, 0.4)';
+          ctx.strokeStyle = getHexRgba(tag.color, 0.4);
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -265,20 +305,20 @@ export default function Skills({ currentLang }: SkillsProps) {
         ctx.textBaseline = 'middle';
 
         // Draw text with a clean slight background frame for high contrast readability
-        const textWidth = ctx.measureText(tag.name).width;
+        const textWidth = ctx.measureText(tag.name[currentLang]).width;
         ctx.fillStyle = isSelected 
           ? 'rgba(255, 255, 255, 0.95)' 
           : (currentLang === 'zh' ? 'rgba(250, 250, 250, 0.85)' : 'rgba(244, 244, 245, 0.85)');
           
         ctx.fillRect(tag.screenX - textWidth / 2 - 4, tag.screenY - fontSize / 2 - 14, textWidth + 8, fontSize + 4);
-        ctx.strokeStyle = isSelected ? 'rgba(249, 115, 22, 0.25)' : 'rgba(228, 228, 231, 0.45)';
+        ctx.strokeStyle = isSelected ? getHexRgba(tag.color, 0.25) : 'rgba(228, 228, 231, 0.45)';
         ctx.strokeRect(tag.screenX - textWidth / 2 - 4, tag.screenY - fontSize / 2 - 14, textWidth + 8, fontSize + 4);
 
         ctx.fillStyle = matchesCategory 
-          ? (isSelected ? 'rgba(249, 115, 22, 1.0)' : `rgba(24, 24, 27, ${Math.max(0.4, alpha)})`)
+          ? (isSelected ? getHexRgba(tag.color, 1.0) : `rgba(24, 24, 27, ${Math.max(0.4, alpha)})`)
           : `rgba(161, 161, 170, ${alpha * 0.45})`;
           
-        ctx.fillText(tag.name, tag.screenX, tag.screenY - 12);
+        ctx.fillText(tag.name[currentLang], tag.screenX, tag.screenY - 12);
         ctx.restore();
       }
 
@@ -290,7 +330,7 @@ export default function Skills({ currentLang }: SkillsProps) {
     return () => {
       cancelAnimationFrame(animFrameId);
     };
-  }, [activeCategory, selectedSkillName, currentLang]);
+  }, [activeCategory, selectedSkillId, currentLang]);
 
   // Handle click on canvas tags to select corresponding skill details
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -324,7 +364,7 @@ export default function Skills({ currentLang }: SkillsProps) {
     }
 
     if (closestTag) {
-      setSelectedSkillName(closestTag.name);
+      setSelectedSkillId(closestTag.id);
     }
   };
 
@@ -356,20 +396,20 @@ export default function Skills({ currentLang }: SkillsProps) {
       const idleTime = Date.now() - lastInteractionRef.current;
       // Switch randomly if user has been inactive for 5 seconds
       if (idleTime >= 5000 && filteredSkills.length > 1) {
-        const currentIndex = filteredSkills.findIndex(s => s.name === selectedSkillName);
+        const currentIndex = filteredSkills.findIndex(s => s.name.zh === selectedSkillId);
         let nextIndex = currentIndex;
         while (nextIndex === currentIndex) {
           nextIndex = Math.floor(Math.random() * filteredSkills.length);
         }
         const nextSkill = filteredSkills[nextIndex];
         if (nextSkill) {
-          setSelectedSkillName(nextSkill.name);
+          setSelectedSkillId(nextSkill.name.zh);
         }
       }
     }, 4000); // Check and auto-switch every 4 seconds
 
     return () => clearInterval(interval);
-  }, [filteredSkills, selectedSkillName]);
+  }, [filteredSkills, selectedSkillId]);
 
   return (
     <section id="skills" className="py-24 bg-white border-b border-orange-500/5 select-none animate-fadeIn">
@@ -384,7 +424,7 @@ export default function Skills({ currentLang }: SkillsProps) {
             className="flex items-center gap-2 text-xs font-bold text-orange-500 uppercase tracking-widest mb-3"
           >
             <Cpu className="w-4 h-4" />
-            <span>{currentLang === 'zh' ? '交互式高级技能图谱' : 'Expertise Index Explorer'}</span>
+            <span>{currentLang === 'zh' ? '技能图谱' : 'Skills & Expertise'}</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -464,7 +504,7 @@ export default function Skills({ currentLang }: SkillsProps) {
             <div className="w-full md:w-[45%] relative z-20 bg-white border border-zinc-200 p-4 md:p-5 rounded-3xl shadow-xs self-center">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={selectedSkillName}
+                  key={selectedSkillId}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -472,21 +512,30 @@ export default function Skills({ currentLang }: SkillsProps) {
                 >
                   {/* Skill Badge and level percentage */}
                   {(() => {
-                    const skill = portfolioData.skills.find(s => s.name === selectedSkillName) || {
-                      name: selectedSkillName,
+                    const skill = portfolioData.skills.find(s => s.name.zh === selectedSkillId) || {
+                      name: { zh: selectedSkillId, en: selectedSkillId },
                       level: 85,
-                      category: 'Frontend' as const
+                      category: 'Frontend' as const,
+                      color: '#F97316',
+                      description: { zh: '', en: '' }
                     };
                     return (
                       <div className="space-y-4">
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex items-center gap-2.5 min-w-0">
-                            <div className="w-9 h-9 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center shrink-0 text-orange-500 shadow-2xs">
+                            <div 
+                              className="w-9 h-9 border rounded-xl flex items-center justify-center shrink-0 shadow-2xs"
+                              style={{ 
+                                backgroundColor: skill.color ? `${skill.color}15` : '#FFF7ED',
+                                borderColor: skill.color ? `${skill.color}30` : '#FFEDD5',
+                                color: skill.color || '#F97316' 
+                              }}
+                            >
                               {getCategoryIcon(skill.category)}
                             </div>
                             <div className="min-w-0">
                               <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 truncate">
-                                {skill.name}
+                                {skill.name[currentLang]}
                               </h3>
                               <span className="font-sans font-bold text-[10px] text-zinc-400 uppercase tracking-widest block mt-0.5">
                                 {skill.category}
@@ -495,7 +544,10 @@ export default function Skills({ currentLang }: SkillsProps) {
                           </div>
                           
                           <div className="flex flex-col items-end shrink-0">
-                            <span className="font-mono text-base font-extrabold text-orange-500">
+                            <span 
+                              className="font-mono text-base font-extrabold"
+                              style={{ color: skill.color || '#F97316' }}
+                            >
                               {skill.level}%
                             </span>
                             <span className="font-sans font-semibold text-[9px] text-zinc-400 uppercase tracking-widest block mt-0.5">
@@ -506,38 +558,84 @@ export default function Skills({ currentLang }: SkillsProps) {
 
                         {/* Domain Dynamic Narrative */}
                         <div className="text-xs text-zinc-500 leading-relaxed bg-zinc-50/55 p-3 rounded-xl border border-zinc-150">
-                          {(() => {
-                            if (skill.category === 'Frontend') {
-                              return currentLang === 'zh' 
-                                ? "💡 精通现代响应式与交互式页面架构，深谙 UI 组件高复用设计与浏览器首屏流式渲染调优。"
-                                : "💡 Expert in reactive / interactive interface development, premium component engineering, and critical rendering path speed optimizations.";
-                            } else if (skill.category === 'Backend') {
-                              return currentLang === 'zh'
-                                ? "💡 专精于高性能 Express 服务端 API 管道、复合关系数据库索引索引建立、高频率慢查询审查与中间件鉴权隔离。"
-                                : "💡 Specialized in premium server-side APIs, database structures indexing, query execution path tuning, and secure routing pipelines.";
-                            } else if (skill.category === 'AI / Data') {
-                              return currentLang === 'zh'
-                                ? "💡 实战大模型提示工程（Prompt Orchestration）、多 Agent 协作工作流连接、以及智能搜索/高保位精确检索设计。"
-                                : "💡 Proficient in multi-agent orchestration, contextual retrieval-augmented generation (RAG), and strict tool-calling JSON schemas.";
-                            } else {
-                              return currentLang === 'zh'
-                                ? "💡 熟悉全敏捷交付生命周期的 CI/CD 自动化检测工程、云原生轻量镜像构建，以及 Figma 创意视觉设计与精准原型建模。"
-                                : "💡 Proficient in cloud-native Docker compiling, continuous quality automation (GH Actions), and asset prototyping on Figma.";
-                            }
-                          })()}
+                          💡 {skill.description ? skill.description[currentLang] : ''}
                         </div>
 
                         {/* Interactive competency progress tracker */}
                         <div className="space-y-1">
                           <div className="h-2 bg-zinc-100 rounded-full overflow-hidden border border-zinc-200">
                             <motion.div
-                              className="h-full bg-gradient-to-r from-orange-500 via-orange-450 to-amber-500 rounded-full"
+                              className="h-full rounded-full"
+                              style={{ 
+                                background: skill.color ? `linear-gradient(90deg, ${skill.color} 0%, ${skill.color}dd 100%)` : '#F97316'
+                              }}
                               initial={{ width: 0 }}
                               animate={{ width: `${skill.level}%` }}
                               transition={{ duration: 0.6, ease: 'easeOut' }}
                             />
                           </div>
                         </div>
+
+                        {/* Related Projects and Experiences */}
+                        {(() => {
+                          const relations = skillRelations[skill.name.zh];
+                          if (!relations) return null;
+                          
+                          const relatedProjects = relations.projects.map(pid => portfolioData.projects.find(p => p.id === pid)).filter(Boolean);
+                          const relatedExperiences = relations.experiences.map(eid => portfolioData.experiences.find(e => e.id === eid)).filter(Boolean);
+                          
+                          if (relatedProjects.length === 0 && relatedExperiences.length === 0) return null;
+                          
+                          return (
+                            <div className="pt-2 flex flex-col gap-3 border-t border-zinc-100 mt-2">
+                              {relatedProjects.length > 0 && (
+                                <div>
+                                  <span className="font-sans font-bold text-[9px] text-zinc-400 uppercase tracking-widest block mb-1.5 flex items-center gap-1">
+                                    <Code2 className="w-3 h-3" />
+                                    {currentLang === 'zh' ? '相关项目' : 'RELATED PROJECTS'}
+                                  </span>
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {relatedProjects.map((p, i) => (
+                                      <button
+                                        key={i}
+                                        onClick={() => window.dispatchEvent(new CustomEvent('open-project', { detail: p!.id }))}
+                                        className="text-[10px] sm:text-xs font-semibold px-2 py-1 rounded bg-zinc-100 hover:bg-orange-50 hover:text-orange-600 text-zinc-600 transition-colors border border-transparent hover:border-orange-200 cursor-pointer flex items-center gap-1"
+                                      >
+                                        <Box className="w-3 h-3" />
+                                        {p!.title[currentLang]}
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {relatedExperiences.length > 0 && (
+                                <div>
+                                  <span className="font-sans font-bold text-[9px] text-zinc-400 uppercase tracking-widest block mb-1.5 flex items-center gap-1">
+                                    <Briefcase className="w-3 h-3" />
+                                    {currentLang === 'zh' ? '应用履历' : 'APPLIED IN'}
+                                  </span>
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {relatedExperiences.map((e, i) => (
+                                      <button
+                                        key={i}
+                                        onClick={() => {
+                                          const el = document.getElementById(e!.id);
+                                          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                          else document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        }}
+                                        className="text-[10px] sm:text-xs font-semibold px-2 py-1 rounded bg-zinc-100 hover:bg-emerald-50 hover:text-emerald-600 text-zinc-600 transition-colors border border-transparent hover:border-emerald-200 cursor-pointer flex items-center gap-1"
+                                      >
+                                        <Network className="w-3 h-3" />
+                                        {e!.company[currentLang]}
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })()}
                       </div>
                     );
                   })()}

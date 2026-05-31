@@ -24,187 +24,464 @@ export const portfolioData: PortfolioData = {
     "https://files.bitqai.com/portfolio/self-pic3.jpg?auto=format&fit=crop&w=600&h=800&q=80"
   ],
   bio: {
-    zh: "我是一名热衷于创造极致美学与强大功能相结合的数字创作者。专注于 React, Node.js 以及大语言模型（LLM）的智能体开发，致力于通过直观细腻的交互和高可靠性的系统，解决现实商业痛点。",
-    en: "I am a digital creator passionate about blending ultimate aesthetics with powerful features. Specializing in React, Node.js, and LLM-powered agents, I am committed to solving real-world business pains through intuitive interactions and highly reliable systems."
+    zh: "我是一名拥有从 AI 视觉算法到企业级系统全栈研发经验的软件开发工程师，能够独立完成系统设计、性能优化与跨端协作。我曾主导智慧宠物门店系统的二次全周期开发与上线，并深度参与多轴协作机器人与 AI 医学影像系统的核心研发。我热衷于将最前沿的 AI 智能体（Agents）工作流编排、大语言模型提示词工程与高性能后端、极致细腻的跨端交互融为一体，为实际商业场景交付高品质、高增长的智能数字方案。",
+    en: "I am a full-stack engineer and AI developer with proven experience extending from machine vision algorithms to enterprise-level systems. I excel at system design, performance tuning, and cross-platform synergy. Having orchestrated the secondary development of retail store management software and programmed optical vision controls for collaborative robots and Medtech diagnostics, I blend cutting-edge AI agents, clean workflows, and pixel-perfect frontends to deliver stellar business solutions."
   },
   aboutBullets: {
     zh: [
-      "⚡ 拥有 6 年以上硅谷及国内一线大厂全栈开发经验",
-      "🎨 秉持 Apple & Linear 的设计原则，注重像素级精度与动效反馈",
-      "🤖 主导开发过多个日活超百万、赋能商业智能的 AI Agent 平台",
-      "🚀 开源社区活跃分子，核心 NPM 模块贡献者，累计收获 2,000+ Stars"
+      "🤖 拥有从零构建大语言模型(LLM)智能体、提示工程(Prompt Engineering)与 RPA 无缝集成的生产级 AI 开发深度功底",
+      "💼 曾作为数字化转型负责人，统筹覆盖 20+ 家连锁门店、月营业额超 200 万的智慧宠物门店收银 ERP 系统的开发与落地部署",
+      "🎥 深度参与 6 轴协作机器人及首款超声 AI 检测系统等重大预研工作，积累了 OpenCV、PCL 等丰富的底层算法工程实践经验",
+      "🚀 倡导并高度实践 Vibe Coding (Cursor / Claude / GPT 高效智能辅助开发)，在代码重构、测试、开发阶段获得翻倍的交付效率",
+      "🌍 六级英语(CET-6)具有出色的英文技术文档速读与国际化无痛协作视野，拥有新西兰 Gap Year 旅居及精品店管理等多元背景"
     ],
     en: [
-      "⚡ 6+ Years of elite full-stack experience in Silicon Valley and Top Tech firms",
-      "🎨 Bound to Apple & Linear design rules: absolute pixel perfection & fluid feedbacks",
-      "🤖 Led development of multiple AI Agent assistants with 1M+ active users",
-      "🚀 Active open-source helper, core contributor of web npm modules, 2,000+ total Stars"
+      "🤖 Production-grade experience engineering LLM-driven agents, modular prompt tuning, and WeChat/Web RPA workflows.",
+      "💼 Acted as Digitalization Lead delivering an enterprise-tier Pet SaaS POS/ERP system across 20+ outlets, enabling ¥2M+ monthly turnovers.",
+      "🎥 Engaged in premium 3D cobots optical tracking and pioneer ultrasound malignancy diagnosis with OpenCV, PCL, and ROS integration.",
+      "🚀 Strong advocate and practitioner of Vibe Coding (leveraging Cursor, Claude, and ChatGPT) to double delivery and debugging speeds.",
+      "🌍 Passed CET-6 with excellent English technical literature comprehension, backed by international collaboration during NZ Gap Year."
     ]
   },
   stats: [
     {
       label: { zh: "项目交付", en: "Projects Delivered" },
-      value: "40+"
+      value: "20+"
     },
     {
-      label: { zh: "技术栈工龄", en: "Years of Experience" },
-      value: "6+"
+      label: { zh: "实战工龄", en: "Active Tech Career" },
+      value: "6年"
     },
     {
-      label: { zh: "开源 Stars数", en: "GitHub Stars" },
-      value: "2.4K"
+      label: { zh: "覆盖门店数", en: "Flagship Outlets" },
+      value: "20+"
     },
     {
-      label: { zh: "卓越效率提升", en: "Efficiency Lift" },
-      value: "150%"
+      label: { zh: "效率提升", en: "Efficiency Lift" },
+      value: "200%"
+    }
+  ],
+  awards: [
+    {
+      title: { zh: "校级“优秀毕业论文(设计)”(Top 1.5%)", en: "University-level 'Outstanding Graduation Thesis' (Top 1.5%)" },
+      year: "2020"
+    },
+    {
+      title: { zh: "湖南省研究性学习与创新性实验课题省级立项结题", en: "Hunan Province Research Learning and Innovative Experimental Project Provincial Completion" },
+      year: "2019"
+    },
+    {
+      title: { zh: "第四届“建设银行杯”全国互联网+创新创业大赛“三等奖”", en: "4th 'CCB Cup' China Internet+ Innovation and Entrepreneurship Competition 'Third Prize'" },
+      year: "2018"
+    },
+    {
+      title: { zh: "发表CSSCI南大核心期刊", en: "CSSCI Core Journal Publication" },
+      year: "2018"
+    },
+    {
+      title: { zh: "全国高校商业精英挑战赛“全国二等奖”", en: "National University Business Elite Challenge 'National Second Prize'" },
+      year: "2017"
+    },
+    {
+      title: { zh: "第八届中南地区模拟联合国大会“最佳风采奖”", en: "8th Central-South Model United Nations Conference 'Best Style Award'" },
+      year: "2017"
     }
   ],
   skills: [
     // Frontend
-    { name: "React / Next.js", level: 95, category: "Frontend" },
-    { name: "TypeScript", level: 98, category: "Frontend" },
-    { name: "Tailwind CSS", level: 96, category: "Frontend" },
-    { name: "Framer Motion", level: 92, category: "Frontend" },
-    { name: "HTML5 / WebGL", level: 85, category: "Frontend" },
+    { 
+      name: { zh: "Flutter & uniapp (跨端开发)", en: "Flutter & uniapp (Cross-platform)" }, 
+      level: 93, 
+      category: "Frontend",
+      color: "#2563EB",
+      description: {
+        zh: "跨平台移动端和桌面端开发架构，深耕底层渲染层优化与多端自适应布局，达成一套代码丝滑复用。",
+        en: "Master of cross-device mobile/desktop rendering, ensuring performant write-once-run-anywhere deployments with fluid UI experiences."
+      }
+    },
+    { 
+      name: { zh: "JavaScript / Vue.js", en: "JavaScript / Vue.js" }, 
+      level: 91, 
+      category: "Frontend",
+      color: "#14B8A6",
+      description: {
+        zh: "丰富的组合式 API 实战经验，熟练落地复杂单页面的状态抽象模块与高可用组件池体系。",
+        en: "Deep expertise in Composition API, handling complex SPA state management and scalable reusable component ecosystems."
+      }
+    },
+    { 
+      name: { zh: "React & Tailwind CSS", en: "React & Tailwind CSS" }, 
+      level: 86, 
+      category: "Frontend",
+      color: "#D946EF",
+      description: {
+        zh: "精通函数式组件设计，结合原子级 CSS 工具库无门槛打造像素级且极高响应度的高奢数字交互。",
+        en: "Crafting pixel-perfect, highly responsive interfaces utilizing functional components and utility-first CSS styling precision."
+      }
+    },
+    { 
+      name: { zh: "HTML5 / CSS3 / ES6+", en: "HTML5 / CSS3 / ES6+" }, 
+      level: 88, 
+      category: "Frontend",
+      color: "#F59E0B",
+      description: {
+        zh: "扎实的切图与语义化网页渲染底盘，熟练操刀脱离框架的极速自适应布局和跨浏览器兼容处理。",
+        en: "Rock-solid foundations in responsive layouts, semantic document markups, and pure native styling strategies bypassing frameworks."
+      }
+    },
+    { 
+      name: { zh: "WebSocket 实时全双工协议", en: "WebSocket (Real-time Duplex)" }, 
+      level: 92, 
+      category: "Frontend",
+      color: "#0EA5E9",
+      description: {
+        zh: "打通前后端多通道毫秒级长连接，轻松承载直播协同数据并保证前端应用侧即时状态无损分发。",
+        en: "Bridging bi-directional real-time data streams for milliseconds-latency collaborative or live-update features seamlessly."
+      }
+    },
     
     // Backend
-    { name: "Node.js / Express", level: 94, category: "Backend" },
-    { name: "PostgreSQL / Prisma", level: 88, category: "Backend" },
-    { name: "GraphQL", level: 89, category: "Backend" },
-    { name: "Redis / BullMQ", level: 85, category: "Backend" },
-    { name: "Docker & K8s", level: 82, category: "Backend" },
+    { 
+      name: { zh: "C / C++ (STL / QT / Boost)", en: "C / C++ (STL / QT / Boost)" }, 
+      level: 93, 
+      category: "Backend",
+      color: "#E11D48",
+      description: {
+        zh: "高并发无锁线程与指针安全设计，深入底层 STL 与极速响应的跨平台 QT 图形控制引擎架构研发。",
+        en: "Concurrency and STL memory tuning, highly proficient in authoring multi-threaded cross-platform QT graphic control engines."
+      }
+    },
+    { 
+      name: { zh: "PHP (ThinkPHP / Yii 框架)", en: "PHP (ThinkPHP / Yii)" }, 
+      level: 90, 
+      category: "Backend",
+      color: "#7C3AED",
+      description: {
+        zh: "极速输出商业中后台 CRUD 系统及电商复杂派单核销逻辑，驾驭海量单表存储及多表动态全连接查询。",
+        en: "Efficient production of ERP and eCommerce backends, mastering huge-scale table associations and high-traffic order logic."
+      }
+    },
+    { 
+      name: { zh: "TCP/IP & 高速套接字网络编程", en: "TCP/IP & High-Speed Sockets" }, 
+      level: 91, 
+      category: "Backend",
+      color: "#EA580C",
+      description: {
+        zh: "果断剥离臃肿的传统 HTTP 头部封装，采用 C++ 生套接字原语处理严苛的医疗及工业级数据链路稳定通信。",
+        en: "Stripping overheads with raw customized Sockets to guarantee nano-second industrial/medical hardware telemetry stability."
+      }
+    },
+    { 
+      name: { zh: "Node.js (Express / Koa API)", en: "Node.js (Express / Koa API)" }, 
+      level: 89, 
+      category: "Backend",
+      color: "#16A34A",
+      description: {
+        zh: "深拓中间件鉴权拦截机制，借助事件驱动与非阻塞 I/O 构建优异的高并发 BFF 微服务 API 代理网关。",
+        en: "Designing event-driven, non-blocking microservices and robust API gateways scaling flexibly tailored for Frontend-centric requests."
+      }
+    },
+    { 
+      name: { zh: "MySQL, Redis & SQL 慢查询调优", en: "MySQL, Redis & Slow SQL Tuning" }, 
+      level: 88, 
+      category: "Backend",
+      color: "#2563EB",
+      description: {
+        zh: "精于分析大宽表的执行计划路径、设计并重构 B+ 树索引结构，运用 Redis 热点穿透技术大幅降级数据库压力。",
+        en: "Profiling slow query execution plans, caching high-concurrency read layers, and fortifying transactional database index structures."
+      }
+    },
+    { 
+      name: { zh: "Linux & LNMP 全套生产环境运维", en: "Linux & LNMP Environment Ops" }, 
+      level: 87, 
+      category: "Backend",
+      color: "#475569",
+      description: {
+        zh: "积淀多年的 CentOS/Ubuntu 实操配置部署经验，可单兵完成负载均衡隔离及一键式可扩展集群服务器上架搭建。",
+        en: "Seasoned headless Ubuntu environment configuration, scripting fast automated deployments, and tuning clustered reverse proxy routings."
+      }
+    },
+    { 
+      name: { zh: "Python / Data Scripting", en: "Python / Data Scripting" }, 
+      level: 84, 
+      category: "Backend",
+      color: "#D97706",
+      description: {
+        zh: "灵活采用 Python 撰写多线程并行爬虫、定制数据切洗分类工作流，并在模型训练期进行多参实验与图谱输出。",
+        en: "Employing robust automated extraction pipelines, data sanitation scripts, and executing parameter orchestrator batch processes."
+      }
+    },
 
     // AI & Data
-    { name: "LLM Orchestration (LangChain)", level: 90, category: "AI / Data" },
-    { name: "Gemini API Integration", level: 95, category: "AI / Data" },
-    { name: "RAG / Vector Databases", level: 87, category: "AI / Data" },
-    { name: "Prompt Optimization", level: 93, category: "AI / Data" },
+    { 
+      name: { zh: "AI 智能体开发 & 敏捷工作流编排", en: "AI Agents & Workflow Orchestration" }, 
+      level: 95, 
+      category: "AI / Data",
+      color: "#9333EA",
+      description: {
+        zh: "熟练将大模型拆解为具身独立 Agent，结合知识图谱完成从自由上下文语境检索到最终外部应用功能准确投递流。",
+        en: "Orchestrating autonomous LLMs into embodied Agents, closing the loop from logical NLP reasoning to real-world function calling validations."
+      }
+    },
+    { 
+      name: { zh: "Vibe Coding 协同人机交互与提示词优化", en: "Vibe Coding & Prompt Optimization" }, 
+      level: 96, 
+      category: "AI / Data",
+      color: "#0D9488",
+      description: {
+        zh: "紧追前沿的创新型人机交互编码范式，深度适配并极限利用当下生成引擎，跨栈极速完成高门槛系统交付。",
+        en: "Pioneering Human-AI symbiosis and prompt contextual designs, dramatically amplifying engineering delivery capabilities transcending traditional limits."
+      }
+    },
+    { 
+      name: { zh: "OpenCV (工业图像检测与目标分类)", en: "OpenCV (Industrial Insp. & Class.)" }, 
+      level: 92, 
+      category: "AI / Data",
+      color: "#E11D48",
+      description: {
+        zh: "专研解决复杂工业环境打光盲拍缺陷，组合运用算子针对不规则目标做边缘抽离提取、色彩自动补偿校正与降噪。",
+        en: "Formulating optical exposure adjustments, sub-pixel edge detection, and noise-filtering formulas to conquer extreme industrial lighting inconsistencies."
+      }
+    },
+    { 
+      name: { zh: "PCL (三维工业点云拼接与法向计算)", en: "PCL (3D Point Cloud Processing)" }, 
+      level: 85, 
+      category: "AI / Data",
+      color: "#2563EB",
+      description: {
+        zh: "驾驭严苛结构的三维空间点群匹配算法，能够快速计算外轮廓法向参数在柔性抓取堆叠乱序场景下提供决定性锚定点。",
+        en: "Registering complex 3D point clouds and normal parameter estimations for rapid spatial anchor matching in chaotic unstructured robotic picking modules."
+      }
+    },
+    { 
+      name: { zh: "Gemini / OpenAI API 整合与中转", en: "Gemini / OpenAI API Integration" }, 
+      level: 93, 
+      category: "AI / Data",
+      color: "#F59E0B",
+      description: {
+        zh: "精通各大原厂闭源及开源模型多模态通信集成，娴熟控制流式输出延时截断，并完美搭建结合私有数据的 RAG 链路增强机制。",
+        en: "Expertly integrating cloud-hosted conversational endpoints, managing fast streaming sockets, and architecting RAG pipelines using specific vector database contexts."
+      }
+    },
 
     // Tools & Design
-    { name: "Figma (UI/UX)", level: 88, category: "Tools & Design" },
-    { name: "Git / CI/CD Pipelines", level: 92, category: "Tools & Design" },
-    { name: "Vite / Webpack", level: 91, category: "Tools & Design" },
-    { name: "Vercel / Cloud Run", level: 89, category: "Tools & Design" }
+    { 
+      name: { zh: "Git / Gitee 团队协作版本控制", en: "Git / Gitee Team VC" }, 
+      level: 94, 
+      category: "Tools & Design",
+      color: "#DC2626",
+      description: {
+        zh: "恪守多分支规范化开发基准线，熟练拆解并解决交叉冲突，保证团队长期项目维护期的无缝溯回和清爽代码审查流。",
+        en: "Mastering rigorous branching paradigms across teams, managing conflict resolution gracefully, and assuring highly readable clean version tracebacks over iterations."
+      }
+    },
+    { 
+      name: { zh: "Postman API 接口单元联调测试", en: "Postman API Unit Testing" }, 
+      level: 92, 
+      category: "Tools & Design",
+      color: "#CA8A04",
+      description: {
+        zh: "在前置开发周期高频采用 Mock 隔离模拟请求，进行并发压测分析，从而输出规范且可自解释的全栈交互接驳文档规范。",
+        en: "Accelerating decoupled parallel team cycles via isolated Mock servers and comprehensive generation of self-explanatory interactive API docs."
+      }
+    },
+    { 
+      name: { zh: "Jira / Wiki 敏捷开发流管理", en: "Jira / Wiki Agile Management" }, 
+      level: 89, 
+      category: "Tools & Design",
+      color: "#2563EB",
+      description: {
+        zh: "强烈推崇并深度践行敏捷迭代准则，科学拆解并分发 Sprint 池权重颗粒，推动业务从原始概念至技术文档落地的极速固化。",
+        en: "Championing cross-functional Scrum sprints, dividing tasks into granular backlog queues, and fostering centralized technical corporate-knowledge preservation."
+      }
+    },
+    { 
+      name: { zh: "CMake & Linux 编译底层构建工具", en: "CMake & Linux Build Tools" }, 
+      level: 86, 
+      category: "Tools & Design",
+      color: "#059669",
+      description: {
+        zh: "游刃有余地管控重型 C++ 项目依赖地狱拓扑图，通过精密的底层脚本设计消除多系统的二次编译移植壁垒。",
+        en: "Engineering intricate native cross-platform compilations, alleviating heavy dependency hell topological structures utilizing modular Makefile directives."
+      }
+    },
+    { 
+      name: { zh: "Linux网络与IO", en: "Linux Network & IO" }, 
+      level: 85,
+      category: "Backend",
+      color: "#64748B",
+      description: {
+        zh: "掌握Linux底层网络套接字编程、IO多路复用及定时器算法。",
+        en: "Proficient in low-level Linux socket programming, IO multiplexing, and timer algorithm optimizations."
+      }
+    },
+    { 
+      name: { zh: "TensorFlow模型训练", en: "TensorFlow Model Training" }, 
+      level: 80,
+      category: "AI / Data",
+      color: "#FF6F00",
+      description: {
+        zh: "应用TensorFlow及Inception-v3模型进行图像特征提取与训练。",
+        en: "Practical experience using TensorFlow and Inception-v3 models for image feature extraction and training."
+      }
+    }
   ],
   experiences: [
     {
-      id: "exp1",
+      id: "exp0",
       role: {
-        zh: "资深全栈工程师 & AI 创新小组组长",
-        en: "Senior Full-Stack Engineer & AI Innovation Lead"
+        zh: "AI智能体架构师 & 独立开发者",
+        en: "AI Agent Architect & Independent Developer"
       },
       company: {
-        zh: "极星科技集团（Top 2 科技独角兽）",
-        en: "Polaris Tech Group (Top Tech Unicorn)"
+        zh: "AI智能体开发与数字化顾问 (自由执业/独立开发)",
+        en: "AI Agent Solutions & Digital Consultant (Independent)"
       },
-      period: "2023.10 - Present",
+      period: "2025.12 - 2026.05",
       description: {
         zh: [
-          "带领全栈研发团队，从零构建基于 Gemini / OpenAI 驱动的智能客服与协同研发平台，赋能近百万名活跃客户",
-          "使用 Next.js 与 FastAPI 重构微前端控制台，通过精细化代码分割和懒加载降低 FCP (First Contentful Paint) 52%",
-          "设计可复用的组件库和全套动画方案，获得年度卓越体验设计大奖"
+          "聚焦先进大语言模型(LLM)智能体、自动化工作流与微服务架构开发，主导了 Career AI 留学/求职、EduCare AI 及 PetCare AI 等多款极客型垂直场景 Agent 系统落地",
+          "熟练设计和调优场景提示词工程（Prompt Engineering），结合 RAG 向量智囊基础，打通微信/Web控制终端与自动化 RPA 网页及后端数据库的实时闭环接口",
+          "彻底践行人机无缝协作 Vibe Coding，采用 Cursor / Claude / GPT 各大生产力模型缩减 70% 编码时长，深度解耦轻量 Serverless APIs 模块，达成高敏捷的前后端极致体验"
         ],
         en: [
-          "Led a modular engineering squad building Gemini/OpenAI-driven Customer Core Assistants & R&D suites for 1M+ active enterprise partners.",
-          "Re-engineered administrative portals with Next.js & FastAPI, lowering FCP by 52% via lazy loading and dynamic bundle splits.",
-          "Authored generic company shared components based on Framer Motion, winning the annual internal Core UX Architecture prize."
+          "Focused on premium LLM-driven agents, automation workflows, and lightweight micro-services, bringing Career AI, EduCare AI, and PetCare AI vertical setups into highly functional products.",
+          "Synthesized context-aware Prompt Engineering coupled with RAG vector search mechanisms, building cohesive pipelines routing real-time conversations to backend relational databases or Selenium-based RPA wrappers.",
+          "Implemented pure human-AI Vibe Coding workflows via Cursor and Claude, cutting development timelines by 70% and managing serverless API structures for absolute operational lightness."
         ]
       },
-      skills: ["React", "TypeScript", "Node.js", "Gemini SDK", "PostgreSQL", "Tailwind CSS"]
+      skills: ["LLM Agents", "Prompt Engineering", "TypeScript", "Vibe Coding", "Serverless API", "Node.js"]
+    },
+    {
+      id: "exp1",
+      role: {
+        zh: "数字化转型负责人",
+        en: "Director of Digital Transformation & Tech Head"
+      },
+      company: {
+        zh: "长沙客就来网络科技有限公司 (软件服务)",
+        en: "Changsha Kejiulai Network Technology Co., Ltd. (SaaS)"
+      },
+      period: "2023.12 - 2025.11",
+      description: {
+        zh: [
+          "全面统筹「智慧宠物门店收银管理系统」（策雄 POS/ERP）的二次全周期开发设计、核心数据库重整与技术总落地执行",
+          "使用 Flutter 完美设计高性能跨平台 PC 收银端，基于 uniapp 开发微信电商小程序及 Vue.js+Element UI 支撑的 ERP 后端数据后台，实现多端秒级长链数据同步",
+          "采用 ThinkPHP 框架完成高可靠、低延迟业务服务端逻辑及高内聚 API 设计，采用 MySQL 优化复杂多表聚合 SQL，通过 Redis 缓解高频报表统计运算压力",
+          "主导敏捷迭代，管理多渠道跨国协作与系统规范落地，极力护航 20+ 个大中型连锁宠物店顺利上线部署，实现单月销售营业总额突破 200 万大关"
+        ],
+        en: [
+          "Directed the custom secondary development, database architecture refactoring, and general system delivery of the flagship 'Kejiulai Pet SaaS POS & ERP' platform.",
+          "Coded desktop-grade POS checkout applications using Flutter, and crafted client eCommerce portals on WeChat mini-programs using uniapp linked with React/Vue management dashboards.",
+          "Engineered backend servers with ThinkPHP, optimizing heavily nested SQL queries while offloading analytics reporting pipelines to Redis caching structures.",
+          "Championed Scrum conventions to govern cross-functional teams, overseeing deployments in 20+ flagship retail outlets and safely handles monthly sales exceeding ¥2,000,000."
+        ]
+      },
+      skills: ["Flutter", "uniapp", "ThinkPHP", "MySQL", "Redis", "WebSocket", "Vue.js", "Element UI"]
     },
     {
       id: "exp2",
       role: {
-        zh: "核心研发全栈工程师",
-        en: "Full-Stack Software Engineer"
+        zh: "机器视觉工程师",
+        en: "Machine Vision Engineer"
       },
       company: {
-        zh: "星空无界技术（海外 SaaS 独角兽）",
-        en: "Galactic SaaS Corp (Global B2B Unicorn)"
+        zh: "深圳市大族机器人有限公司 (智能制造)",
+        en: "Shenzhen Han's Robot Co., Ltd. (Industrial Automation)"
       },
-      period: "2020.08 - 2023.09",
+      period: "2022.05 - 2023.06",
       description: {
         zh: [
-          "负责高并发协作画布与数据看板的研发，基于 Web-socket 协议实现毫秒级多人在线协同操作",
-          "优化数据库读写性能，将 PostgreSQL 复杂报表查询时延从 4.2秒 降至 210毫秒",
-          "搭建多语言国际化（i18n）自动化集成平台，提升外文版本打包与翻译分发效率 3 倍"
+          "参与大族 Elfin 系列 6 轴协作工业机械臂的部分核心视觉寻源算法与 AGV 随动巡航机器人的姿态轨迹算法预研工作",
+          "利用 OpenCV 与 PCL 建立精密的三维空间点云对齐与特征提取骨架，毫米级精确提取手眼视觉（Eye-in-Hand）抓取位置，解决强反光材质零件辨识难题",
+          "主导建立模块化插件式框架，支持 ROS 操作系统下机器人视觉和避障算法的动态加载热插拔，提高算法集成和现场调试频次超 50%",
+          "使用 Boost.Asio 构建线程安全的高并发 C++ 异步 Socket 通信栈，结合 gRPC 和 WebSocket 降低 AGV 底座与中央工控端通信时延，时延完美控制在 100ms 以内"
         ],
         en: [
-          "Helped author a responsive, collaborative data whiteboard using high-frequency WebSocket sync with sub-50ms visual updates.",
-          "Drove query speed ups of PostgreSQL reporting databases, reducing raw execution latency from 4.2s down to 210ms via compound indexing.",
-          "Automated dynamic multi-language localization frameworks, slicing package size and optimizing general string compilation speed."
+          "Contributed to visual tracking algorithms and mobile AGV coordinate conversions for the high-end industrial Elfin 6-axis collaborative robotic arm.",
+          "Constructed rigorous 3D point cloud alignment and edge descriptors with OpenCV/PCL, achieving sub-millimeter precision in Hand-Eye calibration.",
+          "Engineered fully modular hot-pluggable plugin containers inside ROS environment, decreasing site testing cycles and compilation friction by 50%.",
+          "Architected thread-safe networking backends in C++ via Boost.Asio, optimizing gRPC/WebSocket queues to enforce robotic roundtrip latency under 100ms."
         ]
       },
-      skills: ["Vue3", "TypeScript", "Express", "WebSocket", "PostgreSQL", "Redis", "i18n"]
+      skills: ["C++", "OpenCV", "PCL", "ROS", "Boost.Asio", "gRPC", "WebSocket", "CMake"]
     },
     {
       id: "exp3",
       role: {
-        zh: "软件工程师（全栈方向）",
-        en: "Junior Full-Stack Developer"
+        zh: "C++ 开发工程师",
+        en: "C++ Software Engineer"
       },
       company: {
-        zh: "大云智造数码公司",
-        en: "MegaCloud Interactive Systems"
+        zh: "北京医准智能科技有限公司 (智能医疗/AI辅助诊断)",
+        en: "Beijing Yizhun Intelligent Technology Co., Ltd. (AI MedTech)"
       },
-      period: "2018.07 - 2020.07",
+      period: "2020.06 - 2022.04",
       description: {
         zh: [
-          "参与企业级 ERP 和中后台数据中台搭建，熟练编写高鲁棒性 API 和交互良好的数据表单",
-          "从零维护数十个内部前端脚本和持续交付流水线，确保发布成功率 100%"
+          "投身国内首款医学超声影像实时陈列的 AI 辅助病变快速检出系统，实现对乳腺病灶结节的高精自动描边分割与良恶性程度多层评级判定",
+          "使用 QT 设计整套极简视窗，OpenCV 实现超声视频帧极速捕获、录屏截图与渲染机制，精简医师日常交互步骤，阅片耗时缩短 25%",
+          "抛弃高能耗 HTTP 套接字，采用原生态 TcpSocket 直联医学工作机视频流，有效抑制音视频丢帧和高频断流重试异动，提升图传极速与稳定性",
+          "引入 Base64 编码并组合 MD5 对关键患者、医院隐私元数据进行密级加盐安全混淆保护，顺利通过医疗器械及院方安全机密合规范审查"
         ],
         en: [
-          "Scaffolded responsive ERP control flows, standardizing responsive table forms, validation patterns, and elegant dashboards.",
-          "Authored robust automated CI/CD configurations improving local build delivery frequency significantly."
+          "Pioneered China's first regulatory-compliant MedTech software for ultrasound tumor boundaries detection and automated BI-RADS classification.",
+          "Authored QT visual diagnostics workspace, wrapping high-speed OpenCV decoders to render video screenshots, which reduced overall clinical click counts by 25%.",
+          "Developed high-performance raw TcpSocket message loops to fetch ultrasound streams, bypassing high overhead HTTP request routines and avoiding frame dropouts.",
+          "Incorporated cryptographic schemes based on multi-salt MD5 and Base64 headers to secure patient datasets, passing strict hospital auditing with flying colors."
         ]
       },
-      skills: ["React", "JavaScript", "Koa2", "MongoDB", "CSS3", "Docker"]
+      skills: ["C++", "QT", "OpenCV", "Socket", "rapidjson", "log4qt", "Cryptography", "MySQL"]
     },
     {
-      id: "exp4",
+      id: "exp6",
       role: {
-        zh: "全栈开发实习生",
-        en: "Full-Stack Developer Intern"
+        zh: "毕业设计 (核心负责人)",
+        en: "Core Developer (Graduation Project)"
       },
       company: {
-        zh: "微智互联信息技术",
-        en: "WeSmart Interactive Corp"
+        zh: "基于深度学习的“两步路”近景标注模型",
+        en: "DL-based 'Two-Step Road' Annotation Model"
       },
-      period: "2017.06 - 2018.06",
+      period: "2020.01 - 2020.06",
       description: {
         zh: [
-          "参与移动端混合 H5 页面及微信小程序的组件研发，模块复用度大幅提升",
-          "编写并交付数十个高响应性活动落地页，通过图像压缩与雪碧图合并优化加载速度"
+          "对森林景观图片进行深度视觉识别与分类，提供林学与旅游信息化智能化科研支撑。",
+          "采用 Selenium 自动化模拟操作，配合 BeautifulSoup4 解析器高效抓取海量网页样本数据。",
+          "基于 Hashlib MD5 算法对数据去重清洗，导入 TensorFlow 与 Inception-v3 模型训练框架，实现复杂景观图片的特征精细化提取与表征分析。"
         ],
         en: [
-          "Participated in hybrid mobile H5 interfaces and WeChat mini-program core features development.",
-          "Delivered reactive marketing campaign splash pages with asset compression and sprite loading optimization."
+          "Executed deep visual recognition and classification task for forest landscape analysis to provide intelligent research support.",
+          "Deployed Selenium automation and BeautifulSoup4 parsers to aggregate and sanitize massive web-based dataset samples.",
+          "Engineered Hashlib-based MD5 deduplication pipelines and trained Inception-v3 models within TensorFlow for high-precision landscape element feature extraction."
         ]
       },
-      skills: ["Vue2", "JavaScript", "CSS3", "Webpack", "Git"]
+      skills: ["Python", "TensorFlow", "Inception-v3", "Selenium", "BeautifulSoup4", "Hashlib", "Pandas"]
     },
     {
-      id: "exp5",
+      id: "exp7",
       role: {
-        zh: "自由全栈开发者 & 实验室开发骨干",
-        en: "Freelance Developer & Lab Core Programmer"
+        zh: "开发人员 (大学项目)",
+        en: "Developer (University Project)"
       },
       company: {
-        zh: "极客星空工作室（高校联合创业）",
-        en: "Geek Studio (Campus Joint Incubator)"
+        zh: "Linux 私有协议文件传输系统",
+        en: "Linux Private Protocol File Transfer System"
       },
-      period: "2016.03 - 2017.05",
+      period: "2019.06 - 2019.12",
       description: {
         zh: [
-          "为本地高校竞赛、创意团队定制开发多套 H5 动画宣传册、官网主页与静态页展示系统",
-          "主导开发校区二手跳蚤市场信息对接网站，累计支撑过万名师生的高频浏览，保障平稳运行"
+          "实现了一套高性能Linux服务器端传输系统，支持多客户端并发连接、用户注册登录与文件上传下载、增删操作。",
+          "基于IO多路复用与高效线程池架构，利用mmap技术实现大文件极速传输，通过偏移量支持断点续传。",
+          "集成MySQL加盐加密验证，利用MD5技术实现文件秒传，引入TimingWheel定时轮算法降低服务器连接开销与资源消耗。"
         ],
         en: [
-          "Developed rich animation scrolls, portfolio showcase portfolios, and corporate marketing assets for collegiate venture teams.",
-          "Pioneered a dedicated campus exchange forum utilizing active message cues and direct searches, sustaining excellent uptime."
+          "Engineered a high-performance Linux server transmission system supporting multi-client concurrency, user auth, and file manipulation.",
+          "Architecture built on IO multiplexing and thread pooling, utilizing mmap for large file transport and offset tracking for breakpoint resumption.",
+          "Integrated salted MySQL authentication, MD5 hashes for instant file transfers, and TimingWheel algorithms to optimize server connection overhead."
         ]
       },
-      skills: ["HTML5", "CSS3", "JavaScript", "jQuery", "PHP", "MySQL"]
+      skills: ["Linux Network Programming", "IO Multiplexing", "mmap", "Breakpoint Resumption", "File Hot Transfer", "TimingWheel", "MySQL", "Encryption"]
     }
   ],
   projects: [
@@ -222,7 +499,10 @@ export const portfolioData: PortfolioData = {
         zh: "该系统深度拆解主流企业招聘过滤系统（ATS）的权重逻辑，提供全套场景化求职工具。专注于将用户的零散或非对称工作经历，智能化、规范化翻译为对齐目标岗位的高精求职暗语，并基于 STAR 原则智能补强、量化成果业绩。系统能在不侵犯隐私的前提下，自动提取匹配要点，帮助无数求职者建立跨行求职底气并提供全真互动式模拟面试保障，实效通过率获得平均翻倍提升。",
         en: "This platform is an ATS-friendly conversational tool aligning non-linear work milestones with standard corporate qualifications. It converts past achievements into high-value sector keywords utilizing STAR methodology. It helps individuals bridge regional or industrial gaps, customize motivations, refine deliverables, and trigger realistic interactive AI interview simulations."
       },
-      tags: ["简历重构", "跨行业转型", "ATS语义匹配", "智能模拟面试"],
+      tags: {
+        zh: ["简历重构", "跨行业转型", "ATS语义匹配", "智能模拟面试"],
+        en: ["Resume Refactoring", "Cross-Industry Transition", "ATS Semantic Matching", "AI Mock Interviews"]
+      },
       category: "ai",
       image: "https://files.bitqai.com/website/proj-careerai-Logo.png",
       imageUrl: "https://files.bitqai.com/website/proj-careerai-Logo.png",
@@ -271,7 +551,10 @@ export const portfolioData: PortfolioData = {
         zh: "EduCare AI 专为解决全球生源升学不透明、择校繁重纠结的难点而生。系统内置了全球数千所大学、上万个专业的全参数录取数据库，输入个人的 GPA、托福雅思、课外科研实践背景，即可通过定制的条件矩阵匹配，给出极具梯度保障的“冲刺-稳拿-保底”金字塔择校建议，并精细定制个人自述（PS）與学术简历（CV）润色修正，规划每一步准备时间节点，全速护航留学路。",
         en: "EduCare AI streamlines tedious study abroad pipelines. Powered by globally compiled admissions indices and course standards, it automatically scans candidate credentials, drafts standard combinations of safe/match/reach institutions, flags necessary research internships, and offers tailored personal statements polishing helpers."
       },
-      tags: ["留学规划", "智能推荐", "金字塔院校组合", "背景提升建议"],
+      tags: {
+        zh: ["留学规划", "智能推荐", "金字塔院校组合", "背景提升建议"],
+        en: ["Admissions Planning", "Smart Recommender", "Tiered Universities", "Profile Enhancement"]
+      },
       category: "ai",
       image: "https://files.bitqai.com/website/proj-educareai-FrontCover.png",
       imageUrl: "https://files.bitqai.com/website/proj-educareai-FrontCover.png",
@@ -315,7 +598,10 @@ export const portfolioData: PortfolioData = {
         zh: "项目打破了常规 RPA 只能在电脑终端静态排档执行的地理限制。自研自然语言处理模块可即时提炼出微信聊天群组或单聊中的文字、语音意图，解析关键业务要素，通过云代理驱动后台自动化执行单元。系统搭载了 Selenium 定制轻量爬虫和桌面操作按键流，能够全天候自动完成高价值商品核批、多系统对账、企业巡查报警等，实现低成本、极高响应频次的流程自动化静默闭环。",
         en: "Connecting RPA routines with standard WeChat triggers, this smart robot parses conversational intents and converts chat strings into secure browser automations. Built-in automation handlers crawl inventories, extract financial statistics, or draft shipping notifications on the server, ensuring rapid operations with zero-touch efficiency."
       },
-      tags: ["流程自动化", "RPA机器人", "微信控制端", "意图语义识别"],
+      tags: {
+        zh: ["流程自动化", "RPA机器人", "微信控制端", "意图语义识别"],
+        en: ["Workflow Automation", "RPA Bot", "WeChat Control", "Semantic Intent Parsing"]
+      },
       category: "software",
       image: "https://files.bitqai.com/website/proj-RPA-FrontCover.jpg",
       imageUrl: "https://files.bitqai.com/website/proj-RPA-FrontCover.jpg",
@@ -354,7 +640,10 @@ export const portfolioData: PortfolioData = {
         zh: "该平台是针对现代化连锁新零售、便利门店设计的智能店面督导解决方案。店员或巡检顾问通过移动手机捕获陈列货架图像，云端 YOLO 识别引擎即可快速锚定各品牌商品的排布位置，计算陈列占比、核对缺货指数、识别吊牌文字错贴，并在后台一键生成多级加权客观考核表。颠覆以往人工抽样登记的冗长低效，为多店科学化零售标准打下扎实数字地基。",
         en: "A robust SaaS helper improving store layout audit workflows. Taking simple mobile snapshots of store displays, it localizes SKUs, tracks facing ratios, matches printed pricing tags with corporate databases via OCR, and produces consistent, objective grade-cards within seconds, enabling large chains to maintain optimal standards."
       },
-      tags: ["视觉识别与OCR", "自动审核", "目标定位检测", "陈列合规评测"],
+      tags: {
+        zh: ["视觉识别与OCR", "自动审核", "目标定位检测", "陈列合规评测"],
+        en: ["Vision & OCR", "Automated Audits", "Object Detection", "Shelf Compliance"]
+      },
       category: "ai",
       image: "https://files.bitqai.com/website/proj-openclawRobot-FrontCover.jpg",
       imageUrl: "https://files.bitqai.com/website/proj-openclawRobot-FrontCover.jpg",
@@ -383,6 +672,53 @@ export const portfolioData: PortfolioData = {
       }
     },
     {
+      id: "p6",
+      title: {
+        zh: "宠医健康聚合平台",
+        en: "Youyang Pet Health"
+      },
+      description: {
+        zh: "挂载高清、低时延实时音视频通话组件。用户可以按照品类标签、擅长科室速锁全国名医；医生可在后台根据细颗粒电子处方单（配合药品说明提示及配伍禁忌安全核对）出具非处方和处方建议，无缝对接物流速运或指引附近急救舱，贴心至极。",
+        en: "Youyang Pet Health is a compliance-certified medical marketplace linking pet owners with emergency experts. Hosting WebRTC real-time audio-video integrations, owners get immediate digital triage. Vets utilize a custom structured diagnostic dashboard that handles safety boundaries for pharmaceutical dosages, streamlining home nursing and clinic referrals."
+      },
+      longDescription: {
+        zh: "宠医健康聚合平台是一个面向宠主与急救专家的高可用远程医疗及问诊服务平台。系统挂载高清、低时延实时 WebRTC 音视频通话组件，用户可以按照品类标签、擅长科室秒级锁定全国持证名医。针对线上处方安全性，设计了细颗粒度数字电子处方单，配合药品禁忌自动交叉安全核对引擎，提供可靠用药建议。同时融合地理网格服务，可实时指引和一键导航至最近的宠物24小时急救舱或实体网点，极速化解宠物意外急症风控偏高痛点。",
+        en: "Youyang Pet Health is a highly available virtual pet consultation and emergency marketplace. By integrating low-latency Adaptive WebRTC components, pet owners can connect instantly with credentialed veterinarians based on specialties and user ratings. To ensure safe prescribing, it incorporates cross-checking rules for drug-to-drug interactions. Additionally, by matching map grids, the system offers instant navigation directions guiding distressed owners to the nearest 24-hour veterinary facility."
+      },
+      tags: {
+        zh: ["在线视频面诊", "宠物远程医疗", "规范化数字处方", "就近医疗网格"],
+        en: ["Virtual Consultation", "Pet Telehealth", "Digital Prescriptions", "Local Med-Grid"]
+      },
+      category: "software",
+      image: "https://files.bitqai.com/website/proj-youyangpet-FrontCover.jpg",
+      imageUrl: "https://files.bitqai.com/website/proj-youyangpet-FrontCover.jpg",
+      trialUrl: "https://files.bitqai.com/website/proj-youyangpet-QRcode.jpg",
+      demoUrl: "https://files.bitqai.com/website/proj-youyangpet-QRcode.jpg",
+      detailVideoUrl: "",
+      detailImages: [
+        "https://files.bitqai.com/website/proj-youyangpet-4.jpg",
+        "https://files.bitqai.com/website/proj-youyangpet-3.jpg",
+        "https://files.bitqai.com/website/proj-youyangpet-1.jpg",
+        "https://files.bitqai.com/website/proj-youyangpet-QRcode.jpg"
+      ],
+      publishDate: "2023.12",
+      logo: "Stethoscope",
+      keyFeatures: {
+        zh: [
+          "📹 自适应超画质实时视频对讲管道，极力辅助伤口视诊",
+          "🩺 支持药物说明比对及配伍红线检测的电子处方卡",
+          "🏥 地理信息图格联动，遭遇急症可一键指引发起附近急诊定位",
+          "📊 履约医师评价打分体系，严密把关线上兽医诊疗水准"
+        ],
+        en: [
+          "📹 High-fidelity WebRTC streaming facilitating real-time skin inspections.",
+          "🩺 Structured medical records preventing prescription dosages conflict.",
+          "🏥 Local geo-grid mappings enabling one-touch emergency dispatch.",
+          "📊 Performance-driven veterinarian grading metrics."
+        ]
+      }
+    },
+    {
       id: "p5",
       title: {
         zh: "工业视觉上位机通用平台",
@@ -396,7 +732,10 @@ export const portfolioData: PortfolioData = {
         zh: "该软件是专门服务微米级工业制造检测流程的集成控制核心。底层采用极致精炼的多线程 C++ 算法引擎，前端通过现代化 React 数据看板展示。兼容 GigE 以及 USB3.0 多种工业相机。内置亚像素模板比对技术、焊缝寻轨缺陷检出纠编、多轴联动坐标对齐算子，通过 Modbus/TCP 与工控机 and PLC 保持毫秒级通讯，可无痛满足各类全自动化工厂千万级小时连续稳定运转标准。",
         en: "VisionMaster is a modern, reliable PC controller hosting industrial optical inspections. Engineered with highly-performant C++ analysis workers and interactive UI control cards, it grabs real-time frame packets. Supporting sub-pixel template patterns, positioning calibrations, and weld-line tracking, it interfaces with PLC drivers to enforce nanometer precision."
       },
-      tags: ["工业视觉", "VisionMaster", "亚像素定位", "工控联动PLC"],
+      tags: {
+        zh: ["工业视觉", "VisionMaster", "亚像素定位", "工控联动PLC"],
+        en: ["Industrial Vision", "VisionMaster", "Sub-pixel Align", "PLC Control"]
+      },
       category: "software",
       image: "https://files.bitqai.com/website/proj-visionMaster-FrontCover.jpg",
       imageUrl: "https://files.bitqai.com/website/proj-visionMaster-FrontCover.jpg",
@@ -437,7 +776,10 @@ export const portfolioData: PortfolioData = {
         zh: "PetCare AI 构建了兼具专业临床深度与亲和交互关怀的数字宠物健康入口。用户只需进行‘描述症状、拍摄爱宠、生成方案’的三步轻快闭环，系统的大模型结合向量检索诊疗数据库即可完成病情急重分级，并精准解析猫狗异常病灶图片（如眼部红肿、粪便色差、皮肤皮屑）。其底层匹配知名兽用急诊应对准则（Redline Index），提供极具条理的家庭用药或急诊急退避雷指南。",
         en: "PetCare AI functions as a swift digital veterinary assistant. Within three simple steps, owners input behavioral warnings, snap dynamic photos of symptoms (gums, lesions, digestives), and receive structured, highly readable advice cards. Operating over veterinary triaging databases, it categorizes severe concerns to help avoid emergency delays."
       },
-      tags: ["宠物医疗", "风险分级评估", "多模态大模型", "急救分流红线"],
+      tags: {
+        zh: ["宠物医疗", "风险分级评估", "多模态大模型", "急救分流红线"],
+        en: ["Pet Healthcare", "Risk Triage", "Multi-modal LLM", "First-aid Triaging"]
+      },
       category: "ai",
       image: "https://files.bitqai.com/website/proj-petcarai-FrontCover.png",
       imageUrl: "https://files.bitqai.com/website/proj-petcarai-FrontCover.png",
@@ -463,98 +805,10 @@ export const portfolioData: PortfolioData = {
           "🐾 爱宠终生病例数字化档案与长线核心生理指标图谱"
         ],
         en: [
-          "🩺 Domain-trained medical routing agent aligning diagnostic flows.",
-          "📸 Visual lesion segmentation checking skin rash or eye conditions.",
-          "📝 Three-tier triage recommendations listing essential care tips.",
-          "🐾 Smart chronic tracking of pets temperature, files and diets."
-        ]
-      }
-    },
-    {
-      id: "p6",
-      title: {
-        zh: "策雄宠物门店 SaaS 系统",
-        en: "Cexiong Pet Store SaaS POS System"
-      },
-      description: {
-        zh: "覆盖宠物零售收银、体检洗护挂号排队、会员积分营销与分店联动的全场景 SaaS 系统。",
-        en: "Omni-channel SaaS platform managing pet cash checkouts, grooming queues, ERP inventory, and CRM profiles."
-      },
-      longDescription: {
-        zh: "本平台是专门为大中型连锁宠物门店规划的集数字化收银、供应链、客户档案为一体的旗舰级管理内核。采用高度弹性的微服务微前端架构，不仅可以应对秒级超万次的极速 POS 收银结算，还创设计了“爱宠时间段拉伸预约排班算法”，科学提升洗护中心及美容师在店饱和度。引入‘一物一码’批次追踪和财务联动看板，使得多重门店实现真正的扁平、高效率数字驱动管理。",
-        en: "Cexiong is a enterprise-level cloud ERP coordinating commercial pet store sectors. It combines lightning-fast retail POS, client tracking registries, and a time-slotted pet grooming scheduler that prevents traffic bottlenecks. Featuring robust item batch management and comprehensive financial analytics dashboards, it streamlines cross-outlet retail chains."
-      },
-      tags: ["店面管理数字化", "SaaS系统", "智能排队轮候", "一户一宠档案"],
-      category: "software",
-      image: "https://files.bitqai.com/website/proj-cexiong-FrontCover.png",
-      imageUrl: "https://files.bitqai.com/website/proj-cexiong-FrontCover.png",
-      trialUrl: "https://petpospal.com",
-      demoUrl: "https://petpospal.com",
-      detailVideoUrl: "",
-      detailImages: [
-        "https://files.bitqai.com/website/proj-petpospal-4.png",
-        "https://files.bitqai.com/website/proj-petpospal-3.png",
-        "https://files.bitqai.com/website/proj-petpospal-2.png",
-        "https://files.bitqai.com/website/proj-petpospal-1.png"
-      ],
-      publishDate: "2024.11",
-      logo: "Store",
-      keyFeatures: {
-        zh: [
-          "💳 轻盈飞速的 POS 前哨收银系统，断网亦可暂存付款记录",
-          "📅 时段化预约看板，动态分配美容工位与缩短高峰拥堵",
-          "🐾 贴合爱宠习性的电子档案系统，深度跟进过敏和绝育情况",
-          "📈 自带进销存财务分析计算器，零繁复工作即可自动输出流水"
-        ],
-        en: [
-          "💳 Highly interactive checkout POS grid holding billing offline.",
-          "📅 Appointment schedulers coordinating groomers based on pet size.",
-          "🐾 Dynamic pet database records highlighting allergies and vaccine runs.",
-          "📈 Real-time sales telemetry providing instant P&L statement exports."
-        ]
-      }
-    },
-    {
-      id: "p7",
-      title: {
-        zh: "友阳宠医 — 宠物在线医疗平台",
-        en: "Youyang Online Pet Medicine Platform"
-      },
-      description: {
-        zh: "打通医生、宠主与实体医院的挂接交互专线，支持在线问诊与电子处方流转。",
-        en: "Connects certified veterinarians with pet owners, supporting text/video consultations and regulatory digital prescriptions."
-      },
-      longDescription: {
-        zh: "友阳宠医是一款一站式线上专业问诊、电子药方互通共享、线下紧急转院联动的互联网宠物医院中枢。平台采用安全、易核查的架构标准，挂载高清、低时延实时音视频通话组件。用户可以按照品类标签、擅长科室速锁全国名医；医生可在后台根据细颗粒电子处方单（配合药品说明提示及配伍禁忌安全核对）出具非处方和处方建议，无缝对接物流速运或指引附近急救舱，贴心至极。",
-        en: "Youyang Pet Health is a compliance-certified medical marketplace linking pet owners with emergency experts. Hosting WebRTC real-time audio-video integrations, owners get immediate digital triage. Vets utilize a custom structured diagnostic dashboard that handles safety boundaries for pharmaceutical dosages, streamlining home nursing and clinic referrals."
-      },
-      tags: ["在线视频面诊", "宠物远程医疗", "规范化数字处方", "就近医疗网格"],
-      category: "software",
-      image: "https://files.bitqai.com/website/proj-youyangpet-FrontCover.jpg",
-      imageUrl: "https://files.bitqai.com/website/proj-youyangpet-FrontCover.jpg",
-      trialUrl: "https://files.bitqai.com/website/proj-youyangpet-QRcode.jpg",
-      demoUrl: "https://files.bitqai.com/website/proj-youyangpet-QRcode.jpg",
-      detailVideoUrl: "",
-      detailImages: [
-        "https://files.bitqai.com/website/proj-youyangpet-4.jpg",
-        "https://files.bitqai.com/website/proj-youyangpet-3.jpg",
-        "https://files.bitqai.com/website/proj-youyangpet-1.jpg",
-        "https://files.bitqai.com/website/proj-youyangpet-QRcode.jpg"
-      ],
-      publishDate: "2023.12",
-      logo: "Stethoscope",
-      keyFeatures: {
-        zh: [
-          "📹 自适应超画质实时视频对讲管道，极力辅助伤口视诊",
-          "🩺 支持药物说明比对及配伍红线检测的电子处方卡",
-          "🏥 地理信息图格联动，遭遇急症可一键指引发起附近急诊定位",
-          "📊 履约医师评价打分体系，严密把关线上兽医诊疗水准"
-        ],
-        en: [
-          "📹 High-fidelity WebRTC streaming facilitating real-time skin inspections.",
-          "🩺 Structured medical records preventing prescription dosages conflict.",
-          "🏥 Geographic locator guiding pet users toward 24-hour physical clinics.",
-          "📊 Integrated feedback loops evaluating veterinary rating logs."
+          "🩺 Domain-trained medical routing agent aligning specialized veterinary diagnostic logic for rapid triage.",
+          "📸 Multimodal visual classification for skin lesions, ulcers, and revelations.",
+          "📝 Clear tripartite urgency routing for home care vs. emergency guidance.",
+          "🐾 Digitized lifetime health records and physiological tracking."
         ]
       }
     },
@@ -572,7 +826,10 @@ export const portfolioData: PortfolioData = {
         zh: "该项目主要针对 6 轴协作工业机器人的智能化运行而研发。系统搭载高精三维‘手在眼上（Eye-in-Hand）’视觉标定矩阵，计算零部件边缘斜率，实现对多形状物体的自适应平滑抓取定位。通过多传感器组合定位算法（LiDAR/IMU）赋予 AGV 车载平台优秀的自主寻轨导航性能，控制指令链路反馈刷新率达 1KHz，大幅提升工业柔性组装与巡逻智能度。",
         en: "This pre-research project focused on optimizing Elfin 6-axis collaborative robotic arm controls for flexible production. We engineered precise 3D Hand-Eye coordinate translation systems guiding visual alignment algorithms to sweep, track, and pick objects in various angles. Aligned with AGV lidar odometry, it forms a cohesive mobile manipulator."
       },
-      tags: ["机械视觉定位", "AGV自适应路径", "6轴协作机械臂", "手眼自流纠偏"],
+      tags: {
+        zh: ["机械视觉定位", "AGV自适应路径", "6轴协作机械臂", "手眼自流纠偏"],
+        en: ["Vision Localization", "AGV Adaptive Path", "6-Axis Robot", "Eye-in-Hand Calib."]
+      },
       category: "design",
       image: "https://files.bitqai.com/website/proj-elfin-FrontCover.png",
       imageUrl: "https://files.bitqai.com/website/proj-elfin-FrontCover.png",
@@ -614,8 +871,11 @@ export const portfolioData: PortfolioData = {
         zh: "这是针对医学超声活动流视频设计的微小病灶捕获检测系统。团队通过创新的神经网络搜索机制（NAS），大幅提炼轻量化诊断算子，使得高精准度的检测功能可以直接流畅地在普通工位终端上实现。平台能在视频数据流中高亮勾划目标轮廓分析回声不均等恶变因素，对经典的 BI-RADS 分级做出多级客观辅助，极大防止医疗过程漏诊、误判定。",
         en: "An innovative AI diagnosis terminal analyzing fluid ultrasound video segments. By refining deep models through Neural Architecture Search (NAS), the diagnostic engine fits easily on basic medical PCs. Slicing streaming video packets, it highlights lump contours, classifies echogenicity signatures, and recommends BI-RADS score guidelines."
       },
-      tags: ["医学超声检测", "AI智能诊断辅佐", "脑神经结构搜索", "BI-RADS分类度"],
-      category: "software",
+      tags: {
+        zh: ["医学超声检测", "AI智能诊断辅佐", "脑神经结构搜索", "BI-RADS分类度"],
+        en: ["Ultrasound Scan", "AI Diagnostics", "Neural Arch Search", "BI-RADS Scoring"]
+      },
+      category: "design",
       image: "https://files.bitqai.com/website/proj-ultrasound-FrontCover.jpg",
       imageUrl: "https://files.bitqai.com/website/proj-ultrasound-FrontCover.jpg",
       detailVideoUrl: "",
@@ -637,7 +897,7 @@ export const portfolioData: PortfolioData = {
         en: [
           "🔬 Compact neural checkpoints running smoothly without robust GPUs.",
           "🎞️ Real-time video frame object tracker stabilizing irregular bounding boxes.",
-          "🛡️ Formal BI-RADS score generators for direct clinical referencing.",
+          "🩺 Formal BI-RADS score generators for direct clinical referencing.",
           "🛡️ Double-blind tested alongside radiologists to ensure stellar consistency."
         ]
       }
@@ -645,39 +905,63 @@ export const portfolioData: PortfolioData = {
   ],
   diverseExperiences: [
     {
-      id: "div1",
+      id: "div5",
       title: {
-        zh: "🗺️ 资深持证导游 (8年)",
-        en: "🗺️ Licensed Tour Guide (8 Years)"
+        zh: "新西兰 Working Holiday & 深度多国游历探险",
+        en: "New Zealand Working Holiday & Multi-Country Depth-Travel Adventure"
       },
-      period: "2018 - Present",
+      period: "2023.06 - 2023.12",
       description: {
-        zh: "拥有导游执业证书。利用工作之余，曾带队国内众多长线自驾与学术研学团体。这段经历不仅充盈了人文视野，更极其锻炼了我的跨文化沟通、危机公关和高强度、重细节的组织协调能力。",
-        en: "Professional tour guide credential holder. Dispatched premium self-driving and educational exploration communities over holiday periods. Refined high-level crisis management, absolute logistics attention, and adaptive communication styles."
+        zh: "在**新西兰 Working Holiday**开启工作度假之旅，全面体验当地生活与职场节奏。这段深度沉浸之旅不仅锻炼了极强的异国环境适应力，同时也深度探访了**日本、新加坡、马来西亚、泰国、老挝、菲律宾、印度尼西亚、斯里兰卡**等十余个国家，极大拓展了国际化视野，深刻洞察不同文化下的用户行为与产品体验需求。",
+        en: "Embarked on a **New Zealand Working Holiday**, fully engaging with local life and workspace rhythms. This deeply immersive journey not only built resilient cross-cultural adaptability but also featured extensive travels across **10+ countries**, including **Japan, Singapore, Malaysia, Thailand, Laos, Philippines, Indonesia, and Sri Lanka**. This broadened international perspective profoundly informs my user empathy and design thinking."
       }
     },
     {
-      id: "div2",
+      id: "div1",
       title: {
-        zh: "🥝 新西兰工作与旅居 (Working Holiday)",
-        en: "🥝 New Zealand Working Holiday"
+        zh: "湖南省中青旅  |  导游与策划 (拥有8年持证导游资历)",
+        en: "Hunan CYTS | Tour Guide & Planner (8-Year Licensed)"
       },
-      period: "2022.04 - 2023.04",
+      period: "2018.09 - 2020.01",
       description: {
-        zh: "自主赴新西兰开启一年的 Gap Year。深度融入南半球当地社群，在这期间从事过多份当地果园、农场及民生小镇基础性、高压力工作。让我养成了极限环境下的即时英语口语交际能力与终身自适应力。",
-        en: "Embarked on a self-directed GAP year program. Imposed myself in community farmsteads, orchards, and town businesses across Otago and Canterbury. Sharpened real-time bilingual fluid dialogue patterns and deep situational adaptiveness."
+        zh: "持有**全国导游资格证**（证号：BM11259Y），能够独立完成优质旅游线路设计、报价核算、行程策划及高品质的客户沟通。熟悉旅游产品策划与推广流程，能进行目的地品牌包装与线上线下整合营销；善于将短视频文案、数据分析与**两步路**结合，对客群画像、转化率进行精准研判规划。具有出色的境外全英文路书资料撰写与外宾接待能力。",
+        en: "Licensed Tour Guide (No. BM11259Y) with **8 years of credentialed background**. Expert at independent itinerary design, cost accounting, and customer communication. Adept at creating targeted marketing packages, short-video scripts, and leveraging **AI (ChatGPT/DeepSeek)** for data-driven traveler profiling. Fully capable of hosting foreign tours and formulating comprehensive English exploration documents."
       }
     },
     {
       id: "div3",
       title: {
-        zh: "🏡 精品酒店与中高端民宿运营",
-        en: "🏡 Boutique Hotel & Luxury Homestay Management"
+        zh: "大理古镇薇薇民居  |  民宿主理人",
+        en: "Dali Weiwei Guesthouse | Boutique Homestay Manager"
       },
-      period: "2023.05 - 2023.10",
+      period: "2015.06 - 2015.12",
       description: {
-        zh: "在大理、杭州等地中高端民宿与艺术酒店客串运营骨干。负责住客多端关系维护、全域线上直销获客引流、以及现场全链管家式接待，积累了卓越的用户共情心理、服务细节体验设计和现场精细化运作常识。",
-        en: "Active operations manager for boutique hotels/guesthouses in Dali and Hangzhou. Led guest experience workflows, digitized booking funnels across media platforms, and curated local community experiences, building immense user empathy and product design insight."
+        zh: "脱产跨界投身住宿服务业，深度负责民宿的前后台日常精细化运营、多渠道线上直销获客引流及全程管家式招待。积累了深厚的**用户共情力**与敏锐的**体验侧设计直觉**，极大地提升了实战服务流程中的高维协同能力。",
+        en: "Served as the core manager of a boutique homestay, handling end-to-end hospitality operations. Managed multi-channel online booking funnels, led offline guest curation, and cultivated a robust sense of **user empathy** which continuously inspires my **product/UX design thinking**."
+      }
+    },
+    {
+      id: "div6",
+      title: {
+        zh: "极限户外探险拓荒者 (藏地徒步/骑行)",
+        en: "Extreme Outdoor Expedition Trailblazer (Tibet Trekking/Cycling)"
+      },
+      period: "2012.06 - 2013.12",
+      description: {
+        zh: "2012年独自**骑行拉萨318国道**，历经挑战与考验；2013年**徒步西藏214**并反串雅鲁藏布江腹地**墨脱**，完成极高难度的荒野徒步穿越。在极限环境中淬炼出极强的意志力、风险预见能力以及在复杂突发情况下的高压处理与资源统筹素养。",
+        en: "Solo-cycled the **318 National Highway to Lhasa** in 2012, overcoming immense physical and mental challenges. In 2013, trekked the **214** and successfully traversed the remote hinterlands of **Medog, Yarlung Tsangpo Grand Canyon**. These extreme adventures forged unyielding perseverance, expert risk assessment, and high-pressure decision-making capabilities in complex, resource-scarce environments."
+      }
+    },
+    {
+      id: "div4",
+      title: {
+        zh: "户外探险组长、安全急救与特殊通行证牌",
+        en: "Outdoor Expedition Leader, First Aider & Specialized Licenses"
+      },
+      period: "Certifications / 复合能力资格",
+      description: {
+        zh: "持有专业医护级急救证书（编号：CSSJJPX-25-1473419），熟练掌握急救心肺复苏（CPR）、AED 除颤设备使用及突发伤害管控。积累了丰富的徒步、露营及山地向导经验，体能出色且具备优异的风险预见与野外生还能力。同时持有标准 **C1 驾照**（熟悉 7 座 MPV 车队驾驶）、**D照摩托车驾照**、**香港区域机动车驾照**（熟练右舵行驶），及 **PADI 国际潜水证**。",
+        en: "Certified First Aider (No. CSSJJPX-25-1473419) proficient in CPR, AED life support, and emergency injury treatments. Boasting extensive mountaineering, camping, and trekking experiences with tremendous stamina and wilderness survival skills. Fully licensed for standard MPVs (**C1 manual driving**), motorcycle operation (**D-class license**), Hong Kong right-hand-drive vehicles, alongside holding professional **PADI Scuba Diving** certifications."
       }
     }
   ]

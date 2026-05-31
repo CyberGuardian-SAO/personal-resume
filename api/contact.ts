@@ -17,7 +17,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { name, email, subject, message } = req.body;
+    const { name, email, phone, subject, message } = req.body;
     if (!name || !email || !message) {
       return res.status(400).json({ error: 'Missing required contact inputs' });
     }
@@ -41,6 +41,7 @@ export default async function handler(req: any, res: any) {
           <h3>New Contact Request from Portfolio Website</h3>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
           <p><strong>Subject:</strong> ${subject}</p>
           <p><strong>Message:</strong></p>
           <blockquote style="background: #f4f4f4; padding: 15px; border-left: 4px solid #f97316;">

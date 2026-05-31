@@ -110,45 +110,58 @@ export default function About({ currentLang }: AboutProps) {
               </div>
             </motion.div>
 
-            {/* Key Metrics Statistics Block (2x2 Grid) */}
+            {/* Key Metrics Statistics Block (4 cols Grid) */}
             <div>
               <span className="text-[11px] font-semibold text-zinc-400 tracking-widest uppercase mb-1.5 block">
                 {t.statsHeading}
               </span>
-              <div className="grid grid-cols-2 gap-3">
-                {stats.map((stat, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.05 * idx }}
-                    whileHover={{ y: -2, borderColor: 'rgba(249, 115, 22, 0.3)' }}
-                    className="bg-white px-3 py-2 md:px-4 md:py-2.5 rounded-2xl border border-zinc-200/60 shadow-sm flex flex-col justify-between h-[76px] hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="flex items-center justify-between w-full">
-                      <div className="p-1 bg-orange-50 rounded-md shrink-0">
-                        {idx === 0 ? <Trophy className="w-3.5 h-3.5 text-orange-500" /> :
-                         idx === 1 ? <Flame className="w-3.5 h-3.5 text-orange-500" /> :
-                         idx === 2 ? <Star className="w-3.5 h-3.5 text-orange-500" /> :
-                         <Target className="w-3.5 h-3.5 text-orange-500" />}
+              <div className="grid grid-cols-4 gap-2 md:gap-3">
+                {stats.map((stat, idx) => {
+                  const smallLabelsZh = ['研发履历', '沉淀深耕', '商业赋能', '效能转化'];
+                  const smallLabelsEn = ['DELIVERY', 'EXPERIENCE', 'BUSINESS', 'IMPACT'];
+                  
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.05 * idx }}
+                      whileHover={{ y: -2, borderColor: 'rgba(249, 115, 22, 0.3)' }}
+                      className="bg-white px-2 py-2 bg-gradient-to-b from-white to-zinc-50/50 rounded-xl border border-zinc-200/60 shadow-sm flex flex-col justify-between h-[72px] hover:shadow-md transition-all duration-300 relative overflow-hidden"
+                    >
+                      <div className="flex items-center justify-between w-full z-10">
+                        <div className="p-1 bg-white border border-zinc-100 rounded-md shadow-2xs shrink-0">
+                          {idx === 0 ? <Trophy className="w-3 h-3 text-emerald-500" /> :
+                           idx === 1 ? <Flame className="w-3 h-3 text-orange-500" /> :
+                           idx === 2 ? <Star className="w-3 h-3 text-purple-500" /> :
+                           <Target className="w-3 h-3 text-blue-500" />}
+                        </div>
+                        <span className="font-mono text-sm md:text-base font-black text-zinc-800 tracking-tight shrink-0">
+                          {stat.value}
+                        </span>
                       </div>
-                      <span className="font-sans text-sm md:text-lg font-black text-orange-500 tracking-tight shrink-0">
-                        {stat.value}
-                      </span>
-                    </div>
-                    <div className="mt-1">
-                      <p className="font-sans text-[8px] font-extrabold text-zinc-400 tracking-wider uppercase leading-none mb-0.5">
-                        {currentLang === 'zh' ? '核心实力' : 'KEY VALUE'}
-                      </p>
-                      <p className="font-sans font-extrabold text-[9px] md:text-[10px] text-zinc-800 leading-tight truncate">
-                        {stat.label[currentLang]}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+                      <div className="mt-1.5 z-10">
+                        <p className="font-sans text-[8px] font-bold text-zinc-400 tracking-wider uppercase leading-none mb-0.5">
+                          {currentLang === 'zh' ? smallLabelsZh[idx] : smallLabelsEn[idx]}
+                        </p>
+                        <p className="font-sans font-extrabold text-[9px] md:text-[10px] text-zinc-700 leading-tight truncate">
+                          {stat.label[currentLang]}
+                        </p>
+                      </div>
+                      
+                      {/* Subtle background flair */}
+                      <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full opacity-10 pointer-events-none filter blur-xl" 
+                           style={{
+                             backgroundColor: idx === 0 ? '#10B981' : idx === 1 ? '#F97316' : idx === 2 ? '#A855F7' : '#3B82F6'
+                           }}
+                      />
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
+
           </div>
 
           {/* Right Column: Combined Gallery & Philosophy Card (Col Span 5) */}
