@@ -350,7 +350,7 @@ export const portfolioData: PortfolioData = {
           "Implemented pure human-AI Vibe Coding workflows via Cursor and Claude, cutting development timelines by 70% and managing serverless API structures for absolute operational lightness."
         ]
       },
-      skills: ["LLM Agents", "Prompt Engineering", "TypeScript", "Vibe Coding", "Serverless API", "Node.js"]
+      skills: ["LLM Agents", "Prompt Engineering", "TypeScript", "Vibe Coding", "Serverless API", "Node.js", "HTML5 / CSS3 / ES6+", "Git / Gitee Team VC", "Postman API Unit Testing", "Jira / Wiki Agile Management"]
     },
     {
       id: "exp1",
@@ -456,7 +456,7 @@ export const portfolioData: PortfolioData = {
           "Engineered Hashlib-based MD5 deduplication pipelines and trained Inception-v3 models within TensorFlow for high-precision landscape element feature extraction."
         ]
       },
-      skills: ["Python", "TensorFlow", "Inception-v3", "Selenium", "BeautifulSoup4", "Hashlib", "Pandas"]
+      skills: ["Python", "TensorFlow Model Training", "Inception-v3", "Selenium", "BeautifulSoup4", "Hashlib", "Pandas"]
     },
     {
       id: "exp7",
@@ -481,7 +481,7 @@ export const portfolioData: PortfolioData = {
           "Integrated salted MySQL authentication, MD5 hashes for instant file transfers, and TimingWheel algorithms to optimize server connection overhead."
         ]
       },
-      skills: ["Linux Network Programming", "IO Multiplexing", "mmap", "Breakpoint Resumption", "File Hot Transfer", "TimingWheel", "MySQL", "Encryption"]
+      skills: ["Linux Network & IO", "IO Multiplexing", "mmap", "Breakpoint Resumption", "File Hot Transfer", "TimingWheel", "MySQL", "Encryption"]
     }
   ],
   projects: [
@@ -912,8 +912,8 @@ export const portfolioData: PortfolioData = {
       },
       period: "2023.06 - 2023.12",
       description: {
-        zh: "在**新西兰 Working Holiday**开启工作度假之旅，全面体验当地生活与职场节奏。这段深度沉浸之旅不仅锻炼了极强的异国环境适应力，同时也深度探访了**日本、新加坡、马来西亚、泰国、老挝、菲律宾、印度尼西亚、斯里兰卡**等十余个国家，极大拓展了国际化视野，深刻洞察不同文化下的用户行为与产品体验需求。",
-        en: "Embarked on a **New Zealand Working Holiday**, fully engaging with local life and workspace rhythms. This deeply immersive journey not only built resilient cross-cultural adaptability but also featured extensive travels across **10+ countries**, including **Japan, Singapore, Malaysia, Thailand, Laos, Philippines, Indonesia, and Sri Lanka**. This broadened international perspective profoundly informs my user empathy and design thinking."
+        zh: "在“新西兰 Working Holiday”开启工作度假之旅，全面体验当地生活与职场节奏。这段深度沉浸之旅不仅锻炼了极强的异国环境适应力，同时也深度探访了“日本、新加坡、马来西亚、泰国、老挝、菲律宾、印度尼西亚、斯里兰卡”等十余个国家，极大拓展了国际化视野，深刻洞察不同文化下的用户行为与产品体验需求。",
+        en: "Embarked on a “New Zealand Working Holiday”, fully engaging with local life and workspace rhythms. This deeply immersive journey not only built resilient cross-cultural adaptability but also featured extensive travels across “10+ countries”, including “Japan, Singapore, Malaysia, Thailand, Laos, Philippines, Indonesia, and Sri Lanka”. This broadened international perspective profoundly informs my user empathy and design thinking."
       }
     },
     {
@@ -936,8 +936,8 @@ export const portfolioData: PortfolioData = {
       },
       period: "2015.06 - 2015.12",
       description: {
-        zh: "脱产跨界投身住宿服务业，深度负责民宿的前后台日常精细化运营、多渠道线上直销获客引流及全程管家式招待。积累了深厚的**用户共情力**与敏锐的**体验侧设计直觉**，极大地提升了实战服务流程中的高维协同能力。",
-        en: "Served as the core manager of a boutique homestay, handling end-to-end hospitality operations. Managed multi-channel online booking funnels, led offline guest curation, and cultivated a robust sense of **user empathy** which continuously inspires my **product/UX design thinking**."
+        zh: "脱产跨界投身住宿服务业，深度负责民宿的前后台日常精细化运营、多渠道线上直销获客引流及全程管家式招待。积累了深厚的“用户共情力”与敏锐的“体验侧设计直觉”，极大地提升了实战服务流程中的高维协同能力。",
+        en: "Served as the core manager of a boutique homestay, handling end-to-end hospitality operations. Managed multi-channel online booking funnels, led offline guest curation, and cultivated a robust sense of “user empathy” which continuously inspires my “product/UX design thinking”."
       }
     },
     {
@@ -948,8 +948,8 @@ export const portfolioData: PortfolioData = {
       },
       period: "2012.06 - 2013.12",
       description: {
-        zh: "2012年独自**骑行拉萨318国道**，历经挑战与考验；2013年**徒步西藏214**并反串雅鲁藏布江腹地**墨脱**，完成极高难度的荒野徒步穿越。在极限环境中淬炼出极强的意志力、风险预见能力以及在复杂突发情况下的高压处理与资源统筹素养。",
-        en: "Solo-cycled the **318 National Highway to Lhasa** in 2012, overcoming immense physical and mental challenges. In 2013, trekked the **214** and successfully traversed the remote hinterlands of **Medog, Yarlung Tsangpo Grand Canyon**. These extreme adventures forged unyielding perseverance, expert risk assessment, and high-pressure decision-making capabilities in complex, resource-scarce environments."
+        zh: "2012年独自“骑行拉萨318国道”，历经挑战与考验；2013年“徒步西藏214”并反串雅鲁藏布江腹地“墨脱”，完成极高难度的荒野徒步穿越。在极限环境中淬炼出极强的意志力、风险预见能力以及在复杂突发情况下的高压处理与资源统筹素养。",
+        en: "Solo-cycled the “318 National Highway to Lhasa” in 2012, overcoming immense physical and mental challenges. In 2013, trekked the “214” and successfully traversed the remote hinterlands of “Medog, Yarlung Tsangpo Grand Canyon”. These extreme adventures forged unyielding perseverance, expert risk assessment, and high-pressure decision-making capabilities in complex, resource-scarce environments."
       }
     },
     {
@@ -960,8 +960,8 @@ export const portfolioData: PortfolioData = {
       },
       period: "Certifications / 复合能力资格",
       description: {
-        zh: "持有专业医护级急救证书（编号：CSSJJPX-25-1473419），熟练掌握急救心肺复苏（CPR）、AED 除颤设备使用及突发伤害管控。积累了丰富的徒步、露营及山地向导经验，体能出色且具备优异的风险预见与野外生还能力。同时持有标准 **C1 驾照**（熟悉 7 座 MPV 车队驾驶）、**D照摩托车驾照**、**香港区域机动车驾照**（熟练右舵行驶），及 **PADI 国际潜水证**。",
-        en: "Certified First Aider (No. CSSJJPX-25-1473419) proficient in CPR, AED life support, and emergency injury treatments. Boasting extensive mountaineering, camping, and trekking experiences with tremendous stamina and wilderness survival skills. Fully licensed for standard MPVs (**C1 manual driving**), motorcycle operation (**D-class license**), Hong Kong right-hand-drive vehicles, alongside holding professional **PADI Scuba Diving** certifications."
+        zh: "持有专业医护级急救证书（编号：CSSJJPX-25-1473419），熟练掌握急救心肺复苏（CPR）、AED 除颤设备使用及突发伤害管控。积累了丰富的徒步、露营及山地向导经验，体能出色且具备优异的风险预见与野外生还能力。同时持有标准 C1 驾照（熟悉 7 座 MPV 车队驾驶）、D照摩托车驾照、香港区域机动车驾照（熟练右舵行驶），及 PADI 国际潜水证。",
+        en: "Certified First Aider (No. CSSJJPX-25-1473419) proficient in CPR, AED life support, and emergency injury treatments. Boasting extensive mountaineering, camping, and trekking experiences with tremendous stamina and wilderness survival skills. Fully licensed for standard MPVs (C1 manual driving), motorcycle operation (D-class license), Hong Kong right-hand-drive vehicles, alongside holding professional PADI Scuba Diving certifications."
       }
     }
   ]

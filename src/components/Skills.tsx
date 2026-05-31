@@ -48,12 +48,12 @@ const skillRelations: Record<string, { projects: string[], experiences: string[]
   "PCL (三维工业点云拼接与法向计算)": { projects: ["p8"], experiences: ["exp2"] },
   "Gemini / OpenAI API 整合与中转": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
   
-  "Git / Gitee 团队协作版本控制": { projects: [], experiences: ["exp0", "exp1", "exp2", "exp3"] },
-  "Postman API 接口单元联调测试": { projects: [], experiences: ["exp0", "exp1"] },
-  "Jira / Wiki 敏捷开发流管理": { projects: [], experiences: ["exp1", "exp2", "exp3"] },
+  "Git / Gitee 团队协作版本控制": { projects: ["p0", "p2", "p3", "p4", "p5", "p6"], experiences: ["exp0", "exp1", "exp2", "exp3"] },
+  "Postman API 接口单元联调测试": { projects: ["p0", "p2", "p3", "p4", "p5", "p6"], experiences: ["exp0", "exp1"] },
+  "Jira / Wiki 敏捷开发流管理": { projects: ["p0", "p2", "p3", "p4", "p5", "p6"], experiences: ["exp1", "exp2", "exp3"] },
   "CMake & Linux 编译底层构建工具": { projects: ["p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
-  "Linux网络与IO": { projects: [], experiences: ["exp4"] },
-  "TensorFlow模型训练": { projects: [], experiences: ["exp5"] }
+  "Linux网络与IO": { projects: [], experiences: ["exp7"] },
+  "TensorFlow模型训练": { projects: [], experiences: ["exp6"] }
 };
 
 export default function Skills({ currentLang }: SkillsProps) {

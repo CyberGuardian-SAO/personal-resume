@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send, CheckCircle, Mail, MapPin, Linkedin, Github, QrCode, Phone } from 'lucide-react';
+import { Send, CheckCircle, Mail, MapPin, Linkedin, Github, QrCode, Phone, Copy } from 'lucide-react';
 
 interface ContactProps {
   currentLang: 'zh' | 'en';
@@ -144,13 +144,22 @@ export default function Contact({ currentLang }: ContactProps) {
                   <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
                       {currentLang === 'zh' ? '邮箱' : 'DIRECT EMAIL'}
                     </p>
-                    <p className="font-sans font-bold text-zinc-800 text-sm mt-0.5 hover:text-orange-600 transition-colors">
-                      guoxin@bitqai.com
-                    </p>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <a href="mailto:guoxin@bitqai.com" className="font-sans font-bold text-zinc-800 text-sm hover:text-orange-600 transition-colors">
+                        guoxin@bitqai.com
+                      </a>
+                      <button 
+                        onClick={() => navigator.clipboard.writeText('guoxin@bitqai.com')}
+                        className="p-1 text-zinc-400 hover:text-orange-500 transition-colors"
+                        title={currentLang === 'zh' ? '复制邮箱' : 'Copy Email'}
+                      >
+                        <Copy className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -158,13 +167,23 @@ export default function Contact({ currentLang }: ContactProps) {
                   <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-500 shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
                       {currentLang === 'zh' ? '联系电话' : 'TELEPHONE'}
                     </p>
-                    <p className="font-sans font-bold text-zinc-800 text-sm mt-0.5">
-                      15323411996 <span className="text-xs font-medium text-emerald-600">({currentLang === 'zh' ? '微信同号' : 'WeChat Sync'})</span>
-                    </p>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <a href="tel:15323411996" className="font-sans font-bold text-zinc-800 text-sm">
+                        15323411996
+                      </a>
+                      <button 
+                        onClick={() => navigator.clipboard.writeText('15323411996')}
+                        className="p-1 text-zinc-400 hover:text-orange-500 transition-colors"
+                        title={currentLang === 'zh' ? '复制电话' : 'Copy Phone'}
+                      >
+                        <Copy className="w-3.5 h-3.5" />
+                      </button>
+                      <span className="text-xs font-medium text-emerald-600 ml-1">({currentLang === 'zh' ? '微信同号' : 'WeChat Sync'})</span>
+                    </div>
                   </div>
                 </div>
 

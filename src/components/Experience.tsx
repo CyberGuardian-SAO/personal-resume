@@ -116,12 +116,12 @@ export default function Experience({ currentLang }: ExperienceProps) {
                 >
                   <div className="flex flex-row items-center justify-between gap-3">
                     <div className="flex-1 min-w-0">
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                        <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 truncate">
+                      <div className="flex flex-col md:flex-row md:items-center gap-x-2 gap-y-1">
+                        <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 leading-snug">
                           {exp.role[currentLang]}
                         </h3>
-                        <span className="text-zinc-300 text-xs font-light">•</span>
-                        <p className="font-sans font-bold text-xs md:text-sm text-orange-500 truncate font-semibold">
+                        <span className="hidden md:inline text-zinc-300 text-xs font-light">•</span>
+                        <p className="font-sans font-bold text-xs md:text-sm text-orange-500 font-semibold leading-snug">
                           {exp.company[currentLang]}
                         </p>
                       </div>
@@ -256,12 +256,12 @@ export default function Experience({ currentLang }: ExperienceProps) {
                       >
                         <div className="flex flex-row items-center justify-between gap-3">
                           <div className="flex-1 min-w-0">
-                            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                              <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 truncate">
+                            <div className="flex flex-col md:flex-row md:items-center gap-x-2 gap-y-1">
+                              <h3 className="font-sans font-extrabold text-sm md:text-base text-zinc-900 leading-snug">
                                 {exp.role[currentLang]}
                               </h3>
-                              <span className="text-zinc-300 text-xs font-light">•</span>
-                              <p className="font-sans font-bold text-xs md:text-sm text-orange-500 truncate font-semibold">
+                              <span className="hidden md:inline text-zinc-300 text-xs font-light">•</span>
+                              <p className="font-sans font-bold text-xs md:text-sm text-orange-500 font-semibold leading-snug">
                                 {exp.company[currentLang]}
                               </p>
                             </div>

@@ -139,7 +139,7 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
             title={currentLang === 'zh' ? '触发打印/另存为 PDF 简历' : 'Trigger Print / Save CV as PDF'}
           >
             <Download className="w-3.5 h-3.5 shrink-0" />
-            <span>{currentLang === 'zh' ? '简历下载' : 'Resume Download'}</span>
+            <span>{currentLang === 'zh' ? '下载简历' : 'Download Resume'}</span>
           </button>
 
           {/* Language Switch */}
@@ -191,6 +191,18 @@ export default function Header({ currentLang, setLang, onScrollTo }: HeaderProps
                 {item.label}
               </button>
             ))}
+            
+            {/* Mobile Resume Download Button */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.print();
+              }}
+              className="w-full flex items-center justify-center gap-2 mt-2 py-3 px-4 rounded-xl border border-orange-500/20 bg-orange-50 text-orange-600 font-sans font-bold text-sm hover:bg-orange-500 hover:text-white transition-all duration-300 cursor-pointer pointer-events-auto z-[9999]"
+            >
+              <Download className="w-4 h-4 shrink-0" />
+              <span>{currentLang === 'zh' ? '下载简历' : 'Download Resume'}</span>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

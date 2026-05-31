@@ -1,8 +1,8 @@
 import { buildSystemPrompt } from './_prompt';
 
-const SYSTEM_PROMPT = buildSystemPrompt();
-
 export default async function handler(req: any, res: any) {
+  const SYSTEM_PROMPT = buildSystemPrompt();
+  console.log('[Serverless Chat] Started handler. System Prompt generated.');
   // Set CORS headers for Vercel functions if called externally
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
