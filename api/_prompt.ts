@@ -1,4 +1,4 @@
-import { portfolioData } from '../src/data/portfolioData';
+import { portfolioData } from '../src/data/portfolioData.js';
 
 export function buildSystemPrompt(): string {
   const experiencesText = portfolioData.experiences.map((exp, idx) => {

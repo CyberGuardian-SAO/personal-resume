@@ -1,10 +1,22 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageCircle, X, QrCode, Phone } from 'lucide-react';
+import { MessageCircle, X, QrCode, Phone, Mail, Copy, Check } from 'lucide-react';
 
 export default function WeChatWidget() {
   const [isVisible, setIsVisible] = useState(true);
   const [imgError, setImgError] = useState(false);
+  const [copiedType, setCopiedType] = useState<'phone' | 'email' | null>(null);
+
+  const handleCopy = (text: string, type: 'phone' | 'email') => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedType(type);
+      setTimeout(() => {
+        setCopiedType(null);
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  };
 
   return (
     <AnimatePresence>
@@ -36,7 +48,7 @@ export default function WeChatWidget() {
           {/* Floating pop-out content on hover (simulated QR code panel) */}
           <div className="absolute right-full bottom-0 mb-0 mr-4 w-52 bg-white shadow-2xl rounded-[1.5rem] p-5 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 origin-bottom-right translate-x-4 group-hover:translate-x-0">
             <div className="flex flex-col items-center text-center">
-              <div className="w-9 h-9 bg-[#07C160]/10 rounded-full flex items-center justify-center text-[#07C160] mb-2.5">
+              <div className="w-9 h-9 bg-[#07C160]/10 rounded-full flex items-center justify-center text-[#07C160] mb-2">
                 <QrCode className="w-5 h-5" />
               </div>
               <h4 className="font-sans font-bold text-gray-800 tracking-tight mb-1 text-xs">欢迎扫码咨询</h4>
@@ -63,15 +75,63 @@ export default function WeChatWidget() {
                   )}
                 </div>
               </div>
-              <div className="flex items-center justify-center text-center w-full bg-zinc-50 py-2.5 px-3 rounded-xl border border-zinc-100">
-                <div className="w-7 h-7 bg-[#07C160]/10 rounded-full flex items-center justify-center text-[#07C160] shrink-0 mr-2">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-left">
-                  <p className="font-mono text-xs font-bold text-gray-800 leading-none">15323411996</p>
-                  <p className="font-sans text-[10px] text-gray-400 mt-0.5 leading-none">(微信同号)</p>
-                </div>
+
+              {/* Phone item */}
+              <div className="w-full flex items-center justify-between bg-zinc-50 hover:bg-zinc-100/80 transition-all py-1.5 px-2 rounded-xl border border-zinc-100 mb-2">
+                <a 
+                  href="tel:15323411996" 
+                  className="flex items-center flex-1 text-left min-w-0 cursor-pointer"
+                  title="点击拨打电话"
+                >
+                  <div className="w-6 h-6 bg-[#07C160]/10 rounded-lg flex items-center justify-center text-[#07C160] shrink-0 mr-1.5">
+                    <Phone className="w-3 h-3" />
+                  </div>
+                  <div className="truncate">
+                    <p className="font-mono text-[10px] font-bold text-gray-800 leading-none hover:text-[#07C160] transition-colors">15323411996</p>
+                    <p className="font-sans text-[8px] text-gray-400 mt-0.5 leading-none">微信同号</p>
+                  </div>
+                </a>
+                <button
+                  onClick={() => handleCopy('15323411996', 'phone')}
+                  className="p-1 text-zinc-400 hover:text-[#07C160] hover:bg-white rounded-md transition-all cursor-pointer shrink-0"
+                  title="复制电话"
+                >
+                  {copiedType === 'phone' ? (
+                    <Check className="w-3 h-3 text-[#07C160]" />
+                  ) : (
+                    <Copy className="w-3 h-3" />
+                  )}
+                </button>
               </div>
+
+              {/* Email item */}
+              <div className="w-full flex items-center justify-between bg-zinc-50 hover:bg-zinc-100/80 transition-all py-1.5 px-2 rounded-xl border border-zinc-100">
+                <a 
+                  href="mailto:guoxin@bitqai.com" 
+                  className="flex items-center flex-1 text-left min-w-0 cursor-pointer"
+                  title="点击发送邮件"
+                >
+                  <div className="w-6 h-6 bg-orange-50 rounded-lg flex items-center justify-center text-orange-500 shrink-0 mr-1.5">
+                    <Mail className="w-3 h-3" />
+                  </div>
+                  <div className="truncate">
+                    <p className="font-mono text-[10px] font-bold text-gray-800 leading-none hover:text-orange-500 transition-colors">guoxin@bitqai.com</p>
+                    <p className="font-sans text-[8px] text-gray-400 mt-0.5 leading-none">官方邮箱</p>
+                  </div>
+                </a>
+                <button
+                  onClick={() => handleCopy('guoxin@bitqai.com', 'email')}
+                  className="p-1 text-zinc-400 hover:text-orange-500 hover:bg-white rounded-md transition-all cursor-pointer shrink-0"
+                  title="复制邮箱"
+                >
+                  {copiedType === 'email' ? (
+                    <Check className="w-3 h-3 text-orange-500" />
+                  ) : (
+                    <Copy className="w-3 h-3" />
+                  )}
+                </button>
+              </div>
+
             </div>
           </div>
         </motion.div>
