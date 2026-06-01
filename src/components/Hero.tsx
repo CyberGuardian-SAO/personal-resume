@@ -64,7 +64,12 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
       id="hero"
       className="relative w-full min-h-[100dvh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-black"
     >
-      {!isMobile && (
+      {isMobile ? (
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center animate-slow-move"
+          style={{ backgroundImage: "url('https://files.bitqai.com/website/homepage-cover.png')" }}
+        />
+      ) : (
         <video
           className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
           src="https://static.alibabagroup.com/static/da78a56f-a7c3-499d-bf10-239569640ff5.mp4"
@@ -75,6 +80,15 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
           preload="auto"
         />
       )}
+      <style>{`
+        @keyframes slowMove {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        .animate-slow-move {
+          animation: slowMove 15s ease-in-out infinite;
+        }
+      `}</style>
       {/* Floating Interface directly over the abstract app background */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
         <div className="max-w-3xl mt-12">
