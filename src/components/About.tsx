@@ -213,6 +213,7 @@ export default function About({ currentLang }: AboutProps) {
                       transition={{ duration: 0.65 }}
                       className="w-full h-full object-cover transition-all duration-700 select-none pointer-events-none"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
                   </AnimatePresence>
                   {/* Elegant bottom darkening gradient vignette */}

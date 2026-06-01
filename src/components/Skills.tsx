@@ -27,36 +27,8 @@ interface SphereTag {
   dispY: number; // dynamic interactive offset y (mouse scatter force)
 }
 
-const skillRelations: Record<string, { projects: string[], experiences: string[] }> = {
-  "Flutter & uniapp (跨端开发)": { projects: ["p6"], experiences: ["exp1"] },
-  "JavaScript / Vue.js": { projects: ["p6"], experiences: ["exp1"] },
-  "React & Tailwind CSS": { projects: ["p0", "p1", "p2", "p5"], experiences: ["exp0"] },
-  "HTML5 / CSS3 / ES6+": { projects: ["p0", "p1", "p2", "p6"], experiences: ["exp0", "exp1"] },
-  "WebSocket 实时全双工协议": { projects: ["p5", "p6", "p7", "p8"], experiences: ["exp1", "exp2"] },
-  
-  "C / C++ (STL / QT / Boost)": { projects: ["p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
-  "PHP (ThinkPHP / Yii 框架)": { projects: ["p6", "p7"], experiences: ["exp1"] },
-  "TCP/IP & 高速套接字网络编程": { projects: ["p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
-  "Node.js (Express / Koa API)": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
-  "MySQL, Redis & SQL 慢查询调优": { projects: ["p6", "p7", "p9"], experiences: ["exp1", "exp3"] },
-  "Linux & LNMP 全套生产环境运维": { projects: ["p6", "p7"], experiences: ["exp1", "exp3"] },
-  "Python / Data Scripting": { projects: ["p4", "p9"], experiences: ["exp2", "exp3"] },
-  
-  "AI 智能体开发 & 敏捷工作流编排": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
-  "Vibe Coding 协同人机交互与提示词优化": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
-  "OpenCV (工业图像检测与目标分类)": { projects: ["p4", "p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
-  "PCL (三维工业点云拼接与法向计算)": { projects: ["p8"], experiences: ["exp2"] },
-  "Gemini / OpenAI API 整合与中转": { projects: ["p0", "p1", "p2", "p3"], experiences: ["exp0"] },
-  
-  "Git / Gitee 团队协作版本控制": { projects: ["p0", "p2", "p3", "p4", "p5", "p6"], experiences: ["exp0", "exp1", "exp2", "exp3"] },
-  "Postman API 接口单元联调测试": { projects: ["p0", "p2", "p3", "p4", "p5", "p6"], experiences: ["exp0", "exp1"] },
-  "Jira / Wiki 敏捷开发流管理": { projects: ["p0", "p2", "p3", "p4", "p5", "p6"], experiences: ["exp1", "exp2", "exp3"] },
-  "CMake & Linux 编译底层构建工具": { projects: ["p5", "p8", "p9"], experiences: ["exp2", "exp3"] },
-  "Linux网络与IO": { projects: [], experiences: ["exp7"] },
-  "TensorFlow模型训练": { projects: [], experiences: ["exp6"] }
-};
-
 export default function Skills({ currentLang }: SkillsProps) {
+
   const [activeCategory, setActiveCategory] = useState<'All' | 'Frontend' | 'Backend' | 'AI / Data' | 'Tools & Design'>('All');
   const [selectedSkillId, setSelectedSkillId] = useState<string>('Flutter & uniapp (跨端开发)');
   
@@ -578,11 +550,8 @@ export default function Skills({ currentLang }: SkillsProps) {
 
                         {/* Related Projects and Experiences */}
                         {(() => {
-                          const relations = skillRelations[skill.name.zh];
-                          if (!relations) return null;
-                          
-                          const relatedProjects = relations.projects.map(pid => portfolioData.projects.find(p => p.id === pid)).filter(Boolean);
-                          const relatedExperiences = relations.experiences.map(eid => portfolioData.experiences.find(e => e.id === eid)).filter(Boolean);
+                          const relatedProjects = (((skill as Skill).relatedProjects) || []).map(pid => portfolioData.projects.find(p => p.id === pid)).filter(Boolean);
+                          const relatedExperiences = (((skill as Skill).relatedExperiences) || []).map(eid => portfolioData.experiences.find(e => e.id === eid)).filter(Boolean);
                           
                           if (relatedProjects.length === 0 && relatedExperiences.length === 0) return null;
                           

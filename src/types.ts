@@ -10,7 +10,7 @@ export interface Project {
   description: Record<'zh' | 'en', string>;
   longDescription: Record<'zh' | 'en', string>;
   tags: Record<'zh' | 'en', string[]>;
-  category: 'software' | 'mobile' | 'ai' | 'design';
+  category: 'software' | 'mobile' | 'ai' | 'design' | 'hardware';
   image: string; // Dynamic path or premium icon representation
   imageUrl?: string; // raw image from user
   demoUrl?: string; // compatibility mapping
@@ -56,6 +56,7 @@ export interface NewsItem {
   description: Record<'zh' | 'en', string>;
   status: 'completed' | 'in_progress';
   link?: string;
+  relatedProjects?: string[];
 }
 
 export interface PortfolioData {

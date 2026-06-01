@@ -22,6 +22,10 @@ export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
+    document.documentElement.lang = currentLang;
+  }, [currentLang]);
+
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       if ('scrollRestoration' in window.history) {
         window.history.scrollRestoration = 'manual';
@@ -30,7 +34,7 @@ export default function App() {
 
       // Theme init
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      if (savedTheme === 'dark') {
         setTheme('dark');
         document.documentElement.classList.add('dark');
       } else {
@@ -78,12 +82,20 @@ export default function App() {
     <div className="relative min-h-screen text-slate-800 dark:text-zinc-300 font-sans selection:bg-orange-500/20 selection:text-orange-600 transition-colors duration-500 overflow-x-hidden">
       
       {/* Global Abstract Frosted Glass Haze Background */}
-      <div className="fixed inset-0 z-[-1] bg-slate-50/50 dark:bg-[#050505] transition-colors duration-500">
-        <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-100/60 dark:bg-orange-500/10 mix-blend-multiply dark:mix-blend-screen filter blur-[120px] animate-blob" />
-        <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-purple-100/60 dark:bg-indigo-600/10 mix-blend-multiply dark:mix-blend-screen filter blur-[120px] animate-blob animation-delay-2000" />
-        <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-orange-50/60 dark:bg-amber-500/10 mix-blend-multiply dark:mix-blend-screen filter blur-[120px] animate-blob animation-delay-4000" />
-        {/* Additional frost overlay to ensure text contrast isn't heavily impacted */}
-        <div className="absolute inset-0 bg-white/40 dark:bg-[#030303]/40 backdrop-blur-[100px] transition-colors duration-500" style={{ backdropFilter: 'blur(120px)', WebkitBackdropFilter: 'blur(120px)' }} />
+      <div className="fixed inset-0 z-[-1] overflow-hidden transition-colors duration-500">
+        {/* Base Layer Gradient with depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-blue-50/50 to-orange-50/50 dark:from-[#050505] dark:via-[#09090b] dark:to-[#0a0a09] transition-colors duration-500" />
+
+        {/* Dynamic Blobs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-cyan-200/50 dark:bg-cyan-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 animate-blob" />
+        <div className="absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-fuchsia-200/50 dark:bg-fuchsia-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[120px] opacity-70 animate-blob animation-delay-2000" />
+        <div className="absolute bottom-[-20%] left-[20%] w-[70vw] h-[70vw] rounded-full bg-amber-200/50 dark:bg-amber-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[140px] opacity-70 animate-blob animation-delay-4000" />
+
+        {/* Heavy Glass Overlay */}
+        <div className="absolute inset-0 bg-white/20 dark:bg-[#030303]/40 backdrop-blur-[80px] transition-colors duration-500" style={{ backdropFilter: 'blur(80px)', WebkitBackdropFilter: 'blur(80px)' }} />
+
+        {/* Subtle Noise overlay for premium physical texture */}
+        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06] pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
       </div>
 
       <Suspense fallback={null}>

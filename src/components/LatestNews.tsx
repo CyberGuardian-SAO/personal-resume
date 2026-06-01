@@ -8,7 +8,7 @@ interface LatestNewsProps {
 }
 
 export default function LatestNews({ currentLang }: LatestNewsProps) {
-  const newsList = portfolioData.latestNews || [];
+  const newsList = (portfolioData.latestNews || []).sort((a, b) => b.date.localeCompare(a.date));
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Default only latest 5 records
@@ -29,48 +29,32 @@ export default function LatestNews({ currentLang }: LatestNewsProps) {
   const completedCount = newsList.filter(item => item.status === 'completed').length;
   const inProgressCount = newsList.filter(item => item.status === 'in_progress').length;
 
-  // Ultra-precise description parser to render specific substrings as clickable/underlined links
-  const renderDescriptionWithLinks = (text: string, fallbackLink?: string) => {
+  // Parses markdown links: [link text](url)
+  const renderMarkdownLinks = (text: string) => {
     if (!text) return null;
     
-    // Captures domains or github references
-    const linkRegex = /(career-ai\.zangwei\.dev|educare\.zangwei\.dev|zangwei\.dev|GitHub)/gi;
-    const parts = text.split(linkRegex);
-    
-    if (parts.length === 1) {
-      return <span>{text}</span>;
-    }
-
-    return parts.map((part, index) => {
-      const matchLower = part.toLowerCase();
-      if (linkRegex.test(part)) {
-        let destination = fallbackLink || "https://github.com";
-        if (matchLower.includes("career-ai.zangwei.dev")) {
-          destination = "https://career-ai.zangwei.dev";
-        } else if (matchLower.includes("educare.zangwei.dev")) {
-          destination = "https://educare.zangwei.dev";
-        } else if (matchLower.includes("zangwei.dev")) {
-          destination = "https://zangwei.dev";
-        } else if (matchLower === "github" && fallbackLink) {
-          destination = fallbackLink;
+    // Split by the pattern and keep the delimiters
+    return text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, index) => {
+      if (part.startsWith('[') && part.includes('](')) {
+        const match = /\[([^\]]+)\]\(([^)]+)\)/.exec(part);
+        if (match) {
+          const [_, label, url] = match;
+          return (
+            <a
+              key={index}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-0.5 text-orange-600 font-extrabold hover:text-orange-700 underline decoration-orange-500/50 hover:decoration-orange-700 transition-all px-0.5 font-sans"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              {label}
+              <ArrowUpRight className="w-2.5 h-2.5 shrink-0 opacity-80" />
+            </a>
+          );
         }
-
-        return (
-          <a
-            key={index}
-            href={destination}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-0.5 text-orange-600 font-extrabold hover:text-orange-700 underline decoration-orange-500/50 hover:decoration-orange-700 transition-all px-0.5 font-sans"
-            onClick={(e) => {
-              // Ensure clicking the inline link works properly and doesn't get suppressed
-              e.stopPropagation();
-            }}
-          >
-            {part}
-            <ArrowUpRight className="w-2.5 h-2.5 shrink-0 opacity-80" />
-          </a>
-        );
       }
       return <span key={index}>{part}</span>;
     });
@@ -228,13 +212,13 @@ export default function LatestNews({ currentLang }: LatestNewsProps) {
                             {item.date}
                           </span>
                           <h3 className="font-sans font-bold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 leading-tight">
-                            {itemTitle}
+                            {renderMarkdownLinks(itemTitle)}
                           </h3>
                         </div>
 
                         {/* Lower Line: Description - parsed for inline urls, wrapped beautifully & fully responsive, zero-clipping */}
                         <div className="font-sans font-medium text-xs text-zinc-500 leading-relaxed text-left break-all sm:break-normal select-text">
-                          {renderDescriptionWithLinks(item.description[currentLang], item.link)}
+                          {renderMarkdownLinks(item.description[currentLang])}
                         </div>
                       </div>
                     </motion.div>

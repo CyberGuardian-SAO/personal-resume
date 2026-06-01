@@ -9,7 +9,7 @@ interface ProjectsProps {
 }
 
 export default function Projects({ currentLang }: ProjectsProps) {
-  const [activeTab, setActiveTab] = useState<'all' | 'ai' | 'software' | 'design'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'ai' | 'software' | 'hardware'>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeMediaTab, setActiveMediaTab] = useState<'video' | 'screenshots'>('screenshots');
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
@@ -21,7 +21,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
     all: currentLang === 'zh' ? '全部项目' : 'All Projects',
     ai: currentLang === 'zh' ? '智能体 AI' : 'Intelligence AI',
     software: currentLang === 'zh' ? '软件研发' : 'SaaS Engineering',
-    design: currentLang === 'zh' ? '硬件与机器人' : 'Sensors & Robotics',
+    hardware: currentLang === 'zh' ? '硬件与机器人' : 'Hardware & Robotics',
     learnMore: currentLang === 'zh' ? '查看技术细节' : 'Understand Details',
     featuresTitle: currentLang === 'zh' ? '核心技术指标与特色' : 'Key Specifications & Features',
     demoBtn: currentLang === 'zh' ? '试用' : 'Try Now',
@@ -113,7 +113,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
             { id: 'all', label: t.all },
             { id: 'ai', label: t.ai },
             { id: 'software', label: t.software },
-            { id: 'design', label: t.design },
+            { id: 'hardware', label: t.hardware },
           ] as const).map((tab) => (
             <button
               key={tab.id}
@@ -406,9 +406,49 @@ export default function Projects({ currentLang }: ProjectsProps) {
                       {selectedProject.title[currentLang]}
                     </h3>
                     
-                    <p className="font-sans text-xs leading-relaxed text-zinc-500 dark:text-zinc-400 font-normal mb-8">
+                    <p className="font-sans text-xs leading-relaxed text-zinc-500 dark:text-zinc-400 font-normal mb-6">
                       {selectedProject.longDescription[currentLang]}
                     </p>
+
+                    {/* Call to Actions - trialUrl or contact discussions */}
+                    <div className="flex flex-wrap items-center gap-3 mb-8">
+                      {selectedProject.trialUrl ? (
+                        <a
+                          href={selectedProject.trialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 text-center py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md shadow-orange-500/10"
+                        >
+                          <span>{t.demoBtn}</span>
+                          <Icons.ArrowUpRight className="w-4 h-4 animate-pulse" />
+                        </a>
+                      ) : (
+                        <a
+                          href="#contact"
+                          onClick={() => {
+                            setSelectedProject(null);
+                            const contactSec = document.getElementById('contact');
+                            if (contactSec) contactSec.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          className="flex-1 text-center py-3 bg-zinc-100 hover:bg-zinc-200 text-zinc-650 rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5"
+                        >
+                          <span>{currentLang === 'zh' ? '暂无线上系统' : 'No Online Trial'}</span>
+                        </a>
+                      )}
+                      
+                      <a
+                        href="#contact"
+                        onClick={() => {
+                          setSelectedProject(null);
+                          const chatArea = document.getElementById('assistant');
+                          if (chatArea) chatArea.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="px-5 py-3 border border-zinc-200 dark:border-zinc-700 hover:border-orange-500/20 text-zinc-700 dark:text-zinc-300 hover:text-orange-500 dark:hover:text-orange-400 rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center gap-1.5"
+                      >
+                        <Icons.Github className="w-4 h-4" />
+                        <span>{currentLang === 'zh' ? '探讨合作' : 'Discuss'}</span>
+                      </a>
+                    </div>
 
                     {/* Features checklist */}
                     <div className="mb-8">
@@ -444,46 +484,6 @@ export default function Projects({ currentLang }: ProjectsProps) {
                         ))}
                       </div>
                     </div>
-                  </div>
-
-                  {/* Call to Actions - trialUrl or contact discussions */}
-                  <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-zinc-150 dark:border-zinc-800 mt-auto">
-                    {selectedProject.trialUrl ? (
-                      <a
-                        href={selectedProject.trialUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 text-center py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md shadow-orange-500/10"
-                      >
-                        <span>{t.demoBtn}</span>
-                        <Icons.ArrowUpRight className="w-4 h-4 animate-pulse" />
-                      </a>
-                    ) : (
-                      <a
-                        href="#contact"
-                        onClick={() => {
-                          setSelectedProject(null);
-                          const contactSec = document.getElementById('contact');
-                          if (contactSec) contactSec.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="flex-1 text-center py-3 bg-zinc-100 hover:bg-zinc-200 text-zinc-650 rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5"
-                      >
-                        <span>{currentLang === 'zh' ? '暂无线上系统' : 'No Online Trial'}</span>
-                      </a>
-                    )}
-                    
-                    <a
-                      href="#contact"
-                      onClick={() => {
-                        setSelectedProject(null);
-                        const chatArea = document.getElementById('assistant');
-                        if (chatArea) chatArea.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="px-5 py-3 border border-zinc-200 dark:border-zinc-700 hover:border-orange-500/20 text-zinc-700 dark:text-zinc-300 hover:text-orange-500 dark:hover:text-orange-400 rounded-full font-sans text-xs font-bold transition-all duration-300 flex items-center gap-1.5"
-                    >
-                      <Icons.Github className="w-4 h-4" />
-                      <span>{currentLang === 'zh' ? '探讨合作' : 'Discuss'}</span>
-                    </a>
                   </div>
                 </div>
               </motion.div>

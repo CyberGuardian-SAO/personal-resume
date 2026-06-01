@@ -103,7 +103,7 @@ export default function Header({ currentLang, setLang, onScrollTo, theme, toggle
             className="flex items-center gap-2.5 group focus:outline-none shrink-0"
           >
             <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-md transition-all duration-300 group-hover:rotate-6 group-hover:scale-105 shrink-0">
-              <Terminal className="w-4.5 h-4.5" />
+              <Terminal className="w-4.5 h-4.5 animate-pulse" />
             </div>
             <span className={`font-sans font-bold text-lg sm:text-xl tracking-tight transition-colors duration-300 flex items-center justify-start select-none whitespace-nowrap overflow-hidden min-w-[120px] sm:min-w-[140px] text-left ${
               isScrolled ? 'text-zinc-800 dark:text-white' : 'text-white drop-shadow-md'
@@ -137,7 +137,7 @@ export default function Header({ currentLang, setLang, onScrollTo, theme, toggle
             onClick={() => {
               const url = currentLang === 'zh'
                 ? '/AI应用架构师_郭鑫_15323411996（微信同号）.pdf'
-                : '/Senior_Full-Stack_Engineer_Bill_Guo_guoxin@bitqai.com.pdf';
+                : '/AI Software Engineer_Bill Guo_guoxin@bitqai.com.pdf';
               window.open(url, '_blank');
             }}
             className={`hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full border text-xs sm:text-sm font-bold transition-all duration-300 focus:outline-none cursor-pointer hover:bg-white/10 ${
@@ -216,7 +216,7 @@ export default function Header({ currentLang, setLang, onScrollTo, theme, toggle
                 setMobileMenuOpen(false);
                 const url = currentLang === 'zh'
                   ? '/AI应用架构师_郭鑫_15323411996（微信同号）.pdf'
-                  : '/Senior_Full-Stack_Engineer_Bill_Guo_guoxin@bitqai.com.pdf';
+                  : '/AI Software Engineer_Bill Guo_guoxin@bitqai.com.pdf';
                 window.open(url, '_blank');
               }}
               className="w-full flex items-center justify-center gap-2 mt-2 py-3 px-4 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-white font-sans font-bold text-sm hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-all duration-300 cursor-pointer pointer-events-auto z-[9999]"

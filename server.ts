@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
+import compression from 'compression';
 import { createServer as createViteServer } from 'vite';
 import chatHandler from './api/chat';
 import contactHandler from './api/contact';
@@ -11,6 +12,9 @@ dotenv.config();
 
 const app = express();
 const PORT = 3000;
+
+// Enable gzip compression for better page load speed
+app.use(compression());
 
 // Force JSON body parsers
 app.use(express.json());

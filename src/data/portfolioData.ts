@@ -97,7 +97,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "跨平台移动端和桌面端开发架构，深耕底层渲染层优化与多端自适应布局，达成一套代码丝滑复用。",
         en: "Master of cross-device mobile/desktop rendering, ensuring performant write-once-run-anywhere deployments with fluid UI experiences."
-      }
+      },
+      relatedProjects: ["p7"],
+      relatedExperiences: ["exp1"]
     },
     { 
       name: { zh: "JavaScript / Vue.js", en: "JavaScript / Vue.js" }, 
@@ -107,7 +109,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "丰富的组合式 API 实战经验，熟练落地复杂单页面的状态抽象模块与高可用组件池体系。",
         en: "Deep expertise in Composition API, handling complex SPA state management and scalable reusable component ecosystems."
-      }
+      },
+      relatedProjects: ["p6", "p7"],
+      relatedExperiences: ["exp1"]
     },
     { 
       name: { zh: "React & Tailwind CSS", en: "React & Tailwind CSS" }, 
@@ -117,7 +121,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "精通函数式组件设计，结合原子级 CSS 工具库无门槛打造像素级且极高响应度的高奢数字交互。",
         en: "Crafting pixel-perfect, highly responsive interfaces utilizing functional components and utility-first CSS styling precision."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p5"],
+      relatedExperiences: ["exp0"]
     },
     { 
       name: { zh: "HTML5 / CSS3 / ES6+", en: "HTML5 / CSS3 / ES6+" }, 
@@ -127,7 +133,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "扎实的切图与语义化网页渲染底盘，熟练操刀脱离框架的极速自适应布局和跨浏览器兼容处理。",
         en: "Rock-solid foundations in responsive layouts, semantic document markups, and pure native styling strategies bypassing frameworks."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p6", "p7"],
+      relatedExperiences: ["exp0", "exp1"]
     },
     { 
       name: { zh: "WebSocket 实时全双工协议", en: "WebSocket (Real-time Duplex)" }, 
@@ -137,7 +145,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "打通前后端多通道毫秒级长连接，轻松承载直播协同数据并保证前端应用侧即时状态无损分发。",
         en: "Bridging bi-directional real-time data streams for milliseconds-latency collaborative or live-update features seamlessly."
-      }
+      },
+      relatedProjects: ["p1", "p5", "p6", "p7", "p8"],
+      relatedExperiences: ["exp0", "exp1", "exp2", "exp3"]
     },
     
     // Backend
@@ -149,7 +159,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "高并发无锁线程与指针安全设计，深入底层 STL 与极速响应的跨平台 QT 图形控制引擎架构研发。",
         en: "Concurrency and STL memory tuning, highly proficient in authoring multi-threaded cross-platform QT graphic control engines."
-      }
+      },
+      relatedProjects: ["p5", "p8", "p9"],
+      relatedExperiences: ["exp2", "exp3"]
     },
     { 
       name: { zh: "PHP (ThinkPHP / Yii 框架)", en: "PHP (ThinkPHP / Yii)" }, 
@@ -159,7 +171,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "极速输出商业中后台 CRUD 系统及电商复杂派单核销逻辑，驾驭海量单表存储及多表动态全连接查询。",
         en: "Efficient production of ERP and eCommerce backends, mastering huge-scale table associations and high-traffic order logic."
-      }
+      },
+      relatedProjects: ["p6", "p7"],
+      relatedExperiences: ["exp1"]
     },
     { 
       name: { zh: "TCP/IP & 高速套接字网络编程", en: "TCP/IP & High-Speed Sockets" }, 
@@ -169,7 +183,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "果断剥离臃肿的传统 HTTP 头部封装，采用 C++ 生套接字原语处理严苛的医疗及工业级数据链路稳定通信。",
         en: "Stripping overheads with raw customized Sockets to guarantee nano-second industrial/medical hardware telemetry stability."
-      }
+      },
+      relatedProjects: ["p5", "p8", "p9"],
+      relatedExperiences: ["exp2", "exp3", "exp7"]
     },
     { 
       name: { zh: "Node.js (Express / Koa API)", en: "Node.js (Express / Koa API)" }, 
@@ -179,7 +195,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "深拓中间件鉴权拦截机制，借助事件驱动与非阻塞 I/O 构建优异的高并发 BFF 微服务 API 代理网关。",
         en: "Designing event-driven, non-blocking microservices and robust API gateways scaling flexibly tailored for Frontend-centric requests."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p3"],
+      relatedExperiences: ["exp0"]
     },
     { 
       name: { zh: "MySQL, Redis & SQL 慢查询调优", en: "MySQL, Redis & Slow SQL Tuning" }, 
@@ -189,7 +207,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "精于分析大宽表的执行计划路径、设计并重构 B+ 树索引结构，运用 Redis 热点穿透技术大幅降级数据库压力。",
         en: "Profiling slow query execution plans, caching high-concurrency read layers, and fortifying transactional database index structures."
-      }
+      },
+      relatedProjects: ["p6", "p7", "p9"],
+      relatedExperiences: ["exp1", "exp3", "exp7"]
     },
     { 
       name: { zh: "Linux & LNMP 全套生产环境运维", en: "Linux & LNMP Environment Ops" }, 
@@ -199,7 +219,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "积淀多年的 CentOS/Ubuntu 实操配置部署经验，可单兵完成负载均衡隔离及一键式可扩展集群服务器上架搭建。",
         en: "Seasoned headless Ubuntu environment configuration, scripting fast automated deployments, and tuning clustered reverse proxy routings."
-      }
+      },
+      relatedProjects: ["p6", "p7"],
+      relatedExperiences: ["exp1", "exp3", "exp7"]
     },
     { 
       name: { zh: "Python / Data Scripting", en: "Python / Data Scripting" }, 
@@ -209,7 +231,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "灵活采用 Python 撰写多线程并行爬虫、定制数据切洗分类工作流，并在模型训练期进行多参实验与图谱输出。",
         en: "Employing robust automated extraction pipelines, data sanitation scripts, and executing parameter orchestrator batch processes."
-      }
+      },
+      relatedProjects: ["p3", "p4", "p9"],
+      relatedExperiences: ["exp6"]
     },
 
     // AI & Data
@@ -221,7 +245,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "熟练将大模型拆解为具身独立 Agent，结合知识图谱完成从自由上下文语境检索到最终外部应用功能准确投递流。",
         en: "Orchestrating autonomous LLMs into embodied Agents, closing the loop from logical NLP reasoning to real-world function calling validations."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p4"],
+      relatedExperiences: ["exp0"]
     },
     { 
       name: { zh: "Vibe Coding 协同人机交互与提示词优化", en: "Vibe Coding & Prompt Optimization" }, 
@@ -231,7 +257,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "紧追前沿的创新型人机交互编码范式，深度适配并极限利用当下生成引擎，跨栈极速完成高门槛系统交付。",
         en: "Pioneering Human-AI symbiosis and prompt contextual designs, dramatically amplifying engineering delivery capabilities transcending traditional limits."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p3"],
+      relatedExperiences: ["exp0"]
     },
     { 
       name: { zh: "OpenCV (工业图像检测与目标分类)", en: "OpenCV (Industrial Insp. & Class.)" }, 
@@ -241,7 +269,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "专研解决复杂工业环境打光盲拍缺陷，组合运用算子针对不规则目标做边缘抽离提取、色彩自动补偿校正与降噪。",
         en: "Formulating optical exposure adjustments, sub-pixel edge detection, and noise-filtering formulas to conquer extreme industrial lighting inconsistencies."
-      }
+      },
+      relatedProjects: ["p4", "p5", "p8", "p9"],
+      relatedExperiences: ["exp2", "exp3", "exp6"]
     },
     { 
       name: { zh: "PCL (三维工业点云拼接与法向计算)", en: "PCL (3D Point Cloud Processing)" }, 
@@ -251,7 +281,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "驾驭严苛结构的三维空间点群匹配算法，能够快速计算外轮廓法向参数在柔性抓取堆叠乱序场景下提供决定性锚定点。",
         en: "Registering complex 3D point clouds and normal parameter estimations for rapid spatial anchor matching in chaotic unstructured robotic picking modules."
-      }
+      },
+      relatedProjects: ["p8"],
+      relatedExperiences: ["exp2"]
     },
     { 
       name: { zh: "Gemini / OpenAI API 整合与中转", en: "Gemini / OpenAI API Integration" }, 
@@ -261,7 +293,21 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "精通各大原厂闭源及开源模型多模态通信集成，娴熟控制流式输出延时截断，并完美搭建结合私有数据的 RAG 链路增强机制。",
         en: "Expertly integrating cloud-hosted conversational endpoints, managing fast streaming sockets, and architecting RAG pipelines using specific vector database contexts."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p3"],
+      relatedExperiences: ["exp0"]
+    },
+    { 
+      name: { zh: "OpenClaw (AI Agent 框架)", en: "OpenClaw (AI Agent Framework)" }, 
+      level: 94, 
+      category: "AI / Data",
+      color: "#3B82F6",
+      description: {
+        zh: "利用 OpenClaw 高度模块化的智能体架构，实现零售巡检、视觉分析与企业工作流机器人的快速闭环研发与部署。",
+        en: "Leveraging OpenClaw's modular agent architecture to rapidly architect and deploy retail supervision, visual inspection, and enterprise automation bots."
+      },
+      relatedProjects: ["p4"],
+      relatedExperiences: ["exp0"]
     },
 
     // Tools & Design
@@ -273,7 +319,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "恪守多分支规范化开发基准线，熟练拆解并解决交叉冲突，保证团队长期项目维护期的无缝溯回和清爽代码审查流。",
         en: "Mastering rigorous branching paradigms across teams, managing conflict resolution gracefully, and assuring highly readable clean version tracebacks over iterations."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"],
+      relatedExperiences: ["exp0", "exp1", "exp2", "exp3"]
     },
     { 
       name: { zh: "Postman API 接口单元联调测试", en: "Postman API Unit Testing" }, 
@@ -283,7 +331,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "在前置开发周期高频采用 Mock 隔离模拟请求，进行并发压测分析，从而输出规范且可自解释的全栈交互接驳文档规范。",
         en: "Accelerating decoupled parallel team cycles via isolated Mock servers and comprehensive generation of self-explanatory interactive API docs."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p3", "p6", "p7"],
+      relatedExperiences: ["exp0", "exp1"]
     },
     { 
       name: { zh: "Jira / Wiki 敏捷开发流管理", en: "Jira / Wiki Agile Management" }, 
@@ -293,7 +343,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "强烈推崇并深度践行敏捷迭代准则，科学拆解并分发 Sprint 池权重颗粒，推动业务从原始概念至技术文档落地的极速固化。",
         en: "Championing cross-functional Scrum sprints, dividing tasks into granular backlog queues, and fostering centralized technical corporate-knowledge preservation."
-      }
+      },
+      relatedProjects: ["p0", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"],
+      relatedExperiences: ["exp0", "exp1", "exp2", "exp3"]
     },
     { 
       name: { zh: "CMake & Linux 编译底层构建工具", en: "CMake & Linux Build Tools" }, 
@@ -303,7 +355,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "游刃有余地管控重型 C++ 项目依赖地狱拓扑图，通过精密的底层脚本设计消除多系统的二次编译移植壁垒。",
         en: "Engineering intricate native cross-platform compilations, alleviating heavy dependency hell topological structures utilizing modular Makefile directives."
-      }
+      },
+      relatedProjects: ["p8"],
+      relatedExperiences: ["exp7", "exp2"]
     },
     { 
       name: { zh: "Linux网络与IO", en: "Linux Network & IO" }, 
@@ -313,7 +367,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "掌握Linux底层网络套接字编程、IO多路复用及定时器算法。",
         en: "Proficient in low-level Linux socket programming, IO multiplexing, and timer algorithm optimizations."
-      }
+      },
+      relatedProjects: ["p8"],
+      relatedExperiences: ["exp7", "exp2"]
     },
     { 
       name: { zh: "TensorFlow模型训练", en: "TensorFlow Model Training" }, 
@@ -323,7 +379,9 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "应用TensorFlow及Inception-v3模型进行图像特征提取与训练。",
         en: "Practical experience using TensorFlow and Inception-v3 models for image feature extraction and training."
-      }
+      },
+      relatedProjects: ["p4", "p9"],
+      relatedExperiences: ["exp6"]
     }
   ],
   experiences: [
@@ -633,16 +691,16 @@ export const portfolioData: PortfolioData = {
         en: "AI Retail Inspection & Quality Audit"
       },
       description: {
-        zh: "基于AI视觉实现巡店陈列货架数据自动审核、OCR价格校验与标准化定量分析。",
-        en: "Automates offline layout grading, SKU counting, and display standard shelf audits using edge-AI and OCR."
+        zh: "基于 AI 智能体框架 OpenClaw 与飞书机器人实现的智能巡店、陈列货架数据自动审核与多模态数据定量分析。",
+        en: "Intelligent store inspection & layout compliance audit bot built on OpenClaw AI Agent framework and Feishu enterprise integrations."
       },
       longDescription: {
-        zh: "该平台是针对现代化连锁新零售、便利门店设计的智能店面督导解决方案。店员或巡检顾问通过移动手机捕获陈列货架图像，云端 YOLO 识别引擎即可快速锚定各品牌商品的排布位置，计算陈列占比、核对缺货指数、识别吊牌文字错贴，并在后台一键生成多级加权客观考核表。颠覆以往人工抽样登记的冗长低效，为多店科学化零售标准打下扎实数字地基。",
-        en: "A robust SaaS helper improving store layout audit workflows. Taking simple mobile snapshots of store displays, it localizes SKUs, tracks facing ratios, matches printed pricing tags with corporate databases via OCR, and produces consistent, objective grade-cards within seconds, enabling large chains to maintain optimal standards."
+        zh: "该项目是基于 OpenClaw 智能体开源框架与飞书工作流机器人构建的企业级闭环督导解决方案。巡检顾问或店员只需在飞书聊天窗口中发送实体陈列货架的照片，后台的 OpenClaw Agent 即可实时调用多模态大模型进行智能图像分析。系统会自动定位并计数货架上的各类 SKU、提取 OCR 价格信息、自动判断陈列占比和堆头饱满度，并根据品牌规范即时核算合规分数，一键推送到飞书卡片，从而将传统繁重的线下人工督导流程彻底实现智能化、轻量化与实时闭环。",
+        en: "A cutting-edge retail supervision solution built on the OpenClaw AI Agent framework and integrated with Feishu (Lark) corporate workflows. Users simply take and send snapshots of store displays in a Feishu channel; the backend OpenClaw agent triggers multi-modal vision LLMs to identify specific SKUs, check price tags using high-performance OCR, judge spatial facing ratios, and compute real-time compliance scores. Feedback and corrective tasks are returned instantly via interactive Feishu cards, achieving seamless, fully integrated digital workflows."
       },
       tags: {
-        zh: ["视觉识别与OCR", "自动审核", "目标定位检测", "陈列合规评测"],
-        en: ["Vision & OCR", "Automated Audits", "Object Detection", "Shelf Compliance"]
+        zh: ["OpenClaw 智能体", "飞书机器人", "多模态大模型", "全自动陈列审核"],
+        en: ["OpenClaw Agent", "Feishu Chatbot", "Multimodal LLMs", "Automatic Audit"]
       },
       category: "ai",
       image: "https://files.bitqai.com/website/proj-openclawRobot-FrontCover.jpg",
@@ -658,16 +716,16 @@ export const portfolioData: PortfolioData = {
       logo: "Camera",
       keyFeatures: {
         zh: [
-          "📸 亚秒级多目标货架检测与重叠物品高精定位",
-          "🏷️ 集成高敏感 OCR 元件，避免活动陈设吊牌错漏贴",
-          "📊 融合陈列排布标准计算评分，告别督导主观打分",
-          "📱 弱网优化上行专线技术，实现极压缩无损文件上传"
+          "🤖 基于 OpenClaw 智能体框架，实现流式任务链编排与大模型灵活调用",
+          "💬 深度融合飞书集成，发送货架实拍照即可在飞书群或单聊即时获取审核卡片",
+          "👁️ 多模态视觉推理，全自动完成货架 SKU 检出、堆头饱满度以及价格吊牌 OCR 校验",
+          "📊 自动化数据闭环，异常陈列一键生成飞书待办事项并自动派单责令整改"
         ],
         en: [
-          "📸 Sub-second multi-object detection and SKU positioning.",
-          "🏷️ Cloud OCR verifying product discount tags with SQL databases.",
-          "📊 Formulated scoring metrics eradicating supervisor evaluation bias.",
-          "📱 Advanced adaptive asset compressor suited for cellular uplinks."
+          "🤖 Powered by OpenClaw Agent framework for dynamic LLM chaining and scheduling.",
+          "💬 Seamless Feishu chatbot integration rendering interactive audit cards inside chat rooms.",
+          "👁️ Advanced multi-modal visual inference detecting SKUs, facing ratios, and OCR tags.",
+          "📊 Closed-loop ticketing system converting audit failures into Feishu tasks for store leads."
         ]
       }
     },
@@ -715,6 +773,95 @@ export const portfolioData: PortfolioData = {
           "🩺 Structured medical records preventing prescription dosages conflict.",
           "🏥 Local geo-grid mappings enabling one-touch emergency dispatch.",
           "📊 Performance-driven veterinarian grading metrics."
+        ]
+      }
+    },
+    {
+      id: "p7",
+      title: {
+        zh: "策雄 POS/ERP 智慧宠物门店收银系统",
+        en: "Kejiulai POS/ERP Pet System"
+      },
+      description: {
+        zh: "基于 Flutter 跨平台的智慧宠物门店收银 SaaS 平台，涵盖多端 POS 销账与后台级距 ERP 盘点。",
+        en: "Cross-platform POS and ERP SaaS solutions handling massive multi-store orchestrations, inventory, and point-of-sale activities."
+      },
+      longDescription: {
+        zh: "全面统筹二次全周期开发设计的「智慧宠物门店收银管理系统」。利用 Flutter 开发高性能跨平台 PC 收银端，基于 uniapp 开发微信电商小程序及 Vue.js 支撑的 ERP 后台，实现多端长链数据同步。采用 ThinkPHP 框架提供高可靠、低延迟业务服务端逻辑及高内聚 API，利用 MySQL 和 Redis 保障超 20+ 个大中型连锁店同时平稳运行，单月营收流水超 200 万元。",
+        en: "Oversaw the full lifecycle redesign of the Smart Pet Chain POS/ERP platform. Built high-performance multi-platform checkout terminals utilizing Flutter alongside uniapp WeChat programs. Backed by ThinkPHP and Vue.js panels, the platform scaled across 20+ national franchise branches, reliably clearing $300K in monthly regional transaction volumes via robust MySQL & Redis caches."
+      },
+      tags: {
+        zh: ["SaaS门店系统", "多端同步", "Flutter 收银端", "全渠道订单"],
+        en: ["Retail SaaS", "Multi-platform Sync", "Flutter POS", "Omnichannel"]
+      },
+      category: "software",
+      image: "http://files.bitqai.com/website/proj-cexiong-FrontCover.png",
+      imageUrl: "http://files.bitqai.com/website/proj-cexiong-FrontCover.png",
+      trialUrl: "https://petpospal.com",
+      detailImages: [
+        "http://files.bitqai.com/website/proj-petpospal-4.png",
+        "http://files.bitqai.com/website/proj-petpospal-3.png",
+        "http://files.bitqai.com/website/proj-petpospal-2.png",
+        "http://files.bitqai.com/website/proj-petpospal-1.png",
+      ],
+      publishDate: "2025.11",
+      logo: "Store",
+      keyFeatures: {
+        zh: [
+          "💳 Flutter 驱动多端丝滑流畅结账及扫码收银硬件无缝对接",
+          "📦 ERP 层面高精度的跨门店进销存盘点与效期预警",
+          "🔄 WebSocket 实时监听多终端云端库存与本地挂单流水",
+          "📈 ThinkPHP 聚合支撑大量级并发报表运算与云端财务校对"
+        ],
+        en: [
+          "💳 Cross-OS Flutter POS checkout UI enabling scanning peripherals.",
+          "📦 Scalable ERP stock tracking coupled with shelf-life degradation monitors.",
+          "🔄 Real-time WebSocket syncing preventing concurrent multi-store conflicts.",
+          "📈 High-performance reporting ledgers backed by advanced MySQL aggregation."
+        ]
+      }
+    },
+    {
+      id: "p8",
+      title: {
+        zh: "大族 Elfin 6轴协作机械臂",
+        en: "Han's Elfin 6-Axis Robot"
+      },
+      description: {
+        zh: "融合 OpenCV 与 PCL 建立精密三维点云对齐提取框架，实现在高精工业环境下柔性物料的动态寻轨和动作纠偏。",
+        en: "Sub-millimeter algorithmic calibrations augmenting a 6-axis cooperative arm for heavy-duty industrial dynamic tracking."
+      },
+      longDescription: {
+        zh: "该项目主要针对高端工业自动化场景，研发大族 Elfin 系列协作工业机械臂的核心视觉寻源算法与 AGV 随动巡航机器人动作路径。系统依托 OpenCV 与 PCL，建立精密的三维空间点云对齐与边缘轮廓特征模型，将手眼视觉（Eye-in-Hand）的抓取精确度强效控制在亚毫米级，解决强反光等疑难金属材质标件辨认障碍。通过搭建的热插拔 ROS 插件极大地化解了产线停机换型困境，并通过底层 Boost.Asio 高并发网络池，使协作机器网关连通时延极速降至 100ms 之内。",
+        en: "Geared towards advanced automation manufacturing, this system developed core vision tracking integrations for the Han's Elfin 6-Axis bot. It implemented spatial OpenCV/PCL filters handling noisy 3D point cloud configurations, ensuring sub-millimeter precision for 'Eye-in-Hand' manipulation and overcoming shiny metal reflection interference. Enhanced hot-pluggable ROS components allow rapid debugging at factory deployment. Its deeply tuned C++ local queue reduces the gRPC & Websockets signaling wait strictly under 100ms."
+      },
+      tags: {
+        zh: ["工业软体控制", "3D定位校准 PCL", "高速Boost网关", "毫米级误差补偿"],
+        en: ["Industrial Control", "3D PCL Alignment", "Boost Network Gateway", "Sub-millimeter Calibration"]
+      },
+      category: "hardware",
+      image: "http://files.bitqai.com/website/proj-elfin-FrontCover.png",
+      imageUrl: "http://files.bitqai.com/website/proj-elfin-FrontCover.png",
+      detailImages: [
+        "http://files.bitqai.com/website/proj-elfin-4.png",
+        "http://files.bitqai.com/website/proj-elfin-3.png",
+        "http://files.bitqai.com/website/proj-elfin-2.png",
+        "http://files.bitqai.com/website/proj-elfin-1.png",
+      ],
+      publishDate: "2023.06",
+      logo: "Cpu",
+      keyFeatures: {
+        zh: [
+          "🦾 ROS 算法容器设计，完美规避调测时的流水线产线休克",
+          "👁️ OpenCV × PCL 双擎校准，突破高反光镜面抛光材质的扫描盲区",
+          "⚡ 高并发底层 C++ 异步 Socket 架构成倍减小微秒级发版时延",
+          "⚙️ 六自由度（6-DOF）全方位柔和平滑纠偏容错策略"
+        ],
+        en: [
+          "🦾 Hot-pluggable ROS architecture minimizing downtime.",
+          "👁️ Dual-engine PCL & OpenCV vision tracking escaping high-reflection limitations.",
+          "⚡ Extreme low-latency asynchronous socket structures powering robotic telemetry.",
+          "⚙️ Error tolerant 6-DOF precision compensations algorithms."
         ]
       }
     },
@@ -830,7 +977,7 @@ export const portfolioData: PortfolioData = {
         zh: ["医学超声检测", "AI智能诊断辅佐", "脑神经结构搜索", "BI-RADS分类度"],
         en: ["Ultrasound Scan", "AI Diagnostics", "Neural Arch Search", "BI-RADS Scoring"]
       },
-      category: "design",
+      category: "hardware",
       image: "https://files.bitqai.com/website/proj-ultrasound-FrontCover.jpg",
       imageUrl: "https://files.bitqai.com/website/proj-ultrasound-FrontCover.jpg",
       detailVideoUrl: "",
@@ -925,58 +1072,76 @@ export const portfolioData: PortfolioData = {
       id: "news1",
       date: "2026.05",
       title: {
-        zh: "🚀 Career AI 智能求职客户端 2.0 启动内测",
-        en: "🚀 Career AI Client 2.0 Private Beta Launched"
+        zh: "🚀 Career AI [智能求职客户端 2.0](https://career.bitqai.com) 正式发布",
+        en: "🚀 Career AI Client 2.0 Officially Released"
       },
       description: {
-        zh: "正在攻坚多智能体自适应拟真对战面试和实时音视频简历深度评级，极速提升求职实战通过率，支持全系列桌面终端。抢先体验请移步 career-ai.zangwei.dev",
-        en: "Currently designing multi-agent adaptive simulated interviews and live-audio resume evaluation. Early access available at career-ai.zangwei.dev"
-      },
-      status: "in_progress",
-      link: "https://career-ai.zangwei.dev"
-    },
-    {
-      id: "news2",
-      date: "2026.05",
-      title: {
-        zh: "🎉 Career AI 简历重构系统 1.0 正式版上线",
-        en: "🎉 Career AI 1.0 Resume Reconfiguration Live"
-      },
-      description: {
-        zh: "精准穿透企业级 ATS 关键词权重机制。本网站的 nextjs-portfolio-blog 模板已在 GitHub 全面开源，点击可一键前往查看部署文档。",
-        en: "Accurately parses corporate ATS filters. Our nextjs-portfolio-blog template is now fully open-sourced on GitHub, click to view guide."
+        zh: "合并简历重构与智能面试功能，通过多智能体自适应拟真技术极速提升通过率，并全面开源核心交互组件。",
+        en: "Integrated resume reconfiguration and AI-driven mock interviews using adaptive multi-agent technology. Core components now open-sourced."
       },
       status: "completed",
-      link: "https://github.com"
+      link: "https://career.bitqai.com",
+      relatedProjects: ["p0"]
+    },
+    {
+      id: "news13",
+      date: "2026.06",
+      title: {
+        zh: "🎯 高考志愿AI填报助手上线",
+        en: "🎯 AI-Powered Gaokao Volunteer Helper Launched"
+      },
+      description: {
+        zh: "接入全国高校历史录取数据，结合用户分数与倾向精准推荐[高概率录取方案](https://gaokao.bitqai.com)，大幅规避志愿填报偏差风险。",
+        en: "Integrated historic admission data to provide accurate recommendation [plans](https://gaokao.bitqai.com), minimizing risk in volunteer application."
+      },
+      status: "in_progress",
+      link: "https://gaokao.bitqai.com"
+    },
+    {
+      id: "news14",
+      date: "2026.06",
+      title: {
+        zh: "💰 个人负债清零记录小工具",
+        en: "💰 Personal Debt-Free Tracker Tool"
+      },
+      description: {
+        zh: "极简记账与智能策略规划工具，通过[债项拆解与进度可视化](https://debt.bitqai.com)，实时监控并加速财务自由进程。",
+        en: "A minimalist [finance tracking and smart debt-reduction](https://debt.bitqai.com) planner to visualize progress toward financial freedom."
+      },
+      status: "in_progress",
+      link: "https://debt.bitqai.com"
     },
     {
       id: "news3",
       date: "2026.04",
       title: {
-        zh: "🎓 EduCare AI 智能留学 PS/CV 助手联动院校库",
+        zh: "🎓 EduCare AI [智能留学](https://edu.bitqai.com) PS/CV 助手联动院校库",
         en: "🎓 EduCare AI Dynamic Academy CV Recommender Connected"
       },
       description: {
-        zh: "覆盖全球数千所高校招生档案库，支持个人陈述 & 简历深度对比并在数秒内输出定制化评级，欢迎在 educare.zangwei.dev 试用体验。",
-        en: "Covers admission profiles for global universities, micro-tuning Resume/PS feedback in seconds. Open pilot at educare.zangwei.dev"
+        zh: "覆盖全球数千所高校招生档案库，支持个人陈述 & 简历深度对比并在数秒内输出定制化评级。",
+        en: "Covers admission profiles for global universities, micro-tuning Resume/PS feedback in seconds."
       },
       status: "completed",
-      link: "https://educare.zangwei.dev"
+      link: "https://edu.bitqai.com",
+      relatedProjects: ["p2"]
     },
     {
       id: "news4",
       date: "2026.03",
       title: {
-        zh: "🤖 RPA 微信闭环机器人 GitHub 突破 150★",
-        en: "🤖 RPA WeChat Automation Bot Repo Hits 150+ Stars"
+        zh: "🤖 RPA 微信闭环机器人 [GitHub 开源](https://github.com/BitQAI/rpa-bot)",
+        en: "🤖 RPA WeChat Automation Bot Repo Open-Sourced"
       },
       description: {
-        zh: "支持微信消息流多路由调起网页，静默执行对账流程与异常安全预警，大幅拉升中小零售端对账效率。欢迎围观开源仓库。",
-        en: "Supports parsing secure WeChat signals to directly execute background booking and push safety alerts. View GitHub repository."
+        zh: "支持微信消息流多路由调起网页，静默执行对账流程与异常安全预警，大幅拉升中小零售端对账效率。",
+        en: "Supports parsing secure WeChat signals to directly execute background booking and push safety alerts."
       },
       status: "completed",
-      link: "https://github.com"
+      link: "https://github.com/BitQAI/rpa-bot",
+      relatedProjects: ["p3"]
     },
+
     {
       id: "news5",
       date: "2026.02",
@@ -1065,6 +1230,19 @@ export const portfolioData: PortfolioData = {
       description: {
         zh: "实现超声实时影像乳腺结节边缘自动搜寻，结合客户端图物一键拼接评判，协助影像科临床医生审片时数平均缩短约 25%。",
         en: "Achieved real-time ultrasound lump contour extraction algorithms alongside customized clinical reports, shaving 25% reading time."
+      },
+      status: "completed"
+    },
+    {
+      id: "news12",
+      date: "2020.06",
+      title: {
+        zh: "🎓 高校本科毕业，凭借优秀毕业论文开启研发之路",
+        en: "🎓 Undergraduate Graduation, Research Journey Commenced"
+      },
+      description: {
+        zh: "凭借森林景观识别标注研究论文，获得校级优秀毕业论文，开启了作为C++工程师在AI MedTech领域的系统研发实践。",
+        en: "Graduated with honors, thesis on DL-based landscape annotation receiving top-tier distinctions, formally entering C++ AI MedTech R&D."
       },
       status: "completed"
     }
