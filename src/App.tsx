@@ -146,7 +146,7 @@ export default function App() {
         />
 
         {/* Apple style Glassmorphism dynamic timeline */}
-        <LazySection id="latest-news" height="400px">
+        <LazySection id="latestnews" height="400px">
           <LatestNews currentLang={currentLang} />
         </LazySection>
         
