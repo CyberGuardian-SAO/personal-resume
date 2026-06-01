@@ -37,7 +37,14 @@ export default function App() {
       if ('scrollRestoration' in window.history) {
         window.history.scrollRestoration = 'manual';
       }
-      window.scrollTo(0, 0);
+      
+      // Scroll to component based on URL hash on load
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        setTimeout(() => handleScrollTo(hash), 500);
+      } else {
+        window.scrollTo(0, 0);
+      }
 
       // Theme init
       const savedTheme = localStorage.getItem('theme');
@@ -66,6 +73,8 @@ export default function App() {
     const target = document.getElementById(sectionId);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Update hash without triggering immediate scroll
+      window.history.pushState(null, '', `#${sectionId}`);
     }
   };
 
