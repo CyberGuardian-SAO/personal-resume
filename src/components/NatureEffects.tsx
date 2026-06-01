@@ -61,12 +61,17 @@ const rippleColors = [
 const getRandomColor = () => rippleColors[Math.floor(Math.random() * rippleColors.length)];
 
 export default function NatureEffects() {
+  const [isMobile, setIsMobile] = useState(true);
   const [ripples, setRipples] = useState<RippleDrop[]>([]);
   const [rainLines, setRainLines] = useState<{ id: number, left: number, delay: number, duration: number, height: number, opacity: number }[]>([]);
 
   useEffect(() => {
+    const mobileCheck = window.innerWidth < 768 || ('ontouchstart' in window);
+    setIsMobile(mobileCheck);
+    if (mobileCheck) return;
+
     // Generate static rain drops
-    const count = window.innerWidth < 768 ? 20 : 50;
+    const count = 50;
     const lines = Array.from({ length: count }).map((_, i) => ({
       id: i,
       left: Math.random() * 100, // percentage
@@ -162,6 +167,8 @@ export default function NatureEffects() {
       if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
+
+  if (isMobile) return null;
 
   return (
     <>

@@ -41,6 +41,17 @@ function Typewriter({ text }: { text: string; key?: string }) {
 }
 
 export default function Hero({ currentLang, onScrollTo }: HeroProps) {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || ('ontouchstart' in window));
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const nameText = portfolioData.name[currentLang];
   const titleText = portfolioData.title[currentLang];
   const subtitleText = portfolioData.subtitle[currentLang];
@@ -53,15 +64,17 @@ export default function Hero({ currentLang, onScrollTo }: HeroProps) {
       id="hero"
       className="relative w-full min-h-[100dvh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-black"
     >
-      <video
-        className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-        src="https://static.alibabagroup.com/static/da78a56f-a7c3-499d-bf10-239569640ff5.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-      />
+      {!isMobile && (
+        <video
+          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+          src="https://static.alibabagroup.com/static/da78a56f-a7c3-499d-bf10-239569640ff5.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
+      )}
       {/* Floating Interface directly over the abstract app background */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
         <div className="max-w-3xl mt-12">

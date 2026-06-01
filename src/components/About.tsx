@@ -24,6 +24,16 @@ export default function About({ currentLang }: AboutProps) {
     : `Bill Guo (${monthEn} ${year} Edition)`;
 
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (photos.length <= 1) return;
@@ -205,7 +215,7 @@ export default function About({ currentLang }: AboutProps) {
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={photoIndex}
-                      src={photos[photoIndex]}
+                      src={isMobile ? photos[photoIndex].replace('w=600&h=800', 'w=400&h=533&q=70') : photos[photoIndex]}
                       alt={`Guo Xin Photo ${photoIndex + 1}`}
                       initial={{ opacity: 0, scale: 1.05 }}
                       animate={{ opacity: 1, scale: 1 }}

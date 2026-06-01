@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import MouseFollower from './components/MouseFollower';
 import Footer from './components/Footer';
+import LazySection from './components/LazySection';
 import { portfolioData } from './data/portfolioData';
 
 // Lazy loading heavy non-critical components to improve initial load speed
@@ -21,11 +22,17 @@ export default function App() {
   const [currentLang, setCurrentLang] = useState<'zh' | 'en'>('zh');
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
+  const [showWeChat, setShowWeChat] = useState(false);
+
   useEffect(() => {
     document.documentElement.lang = currentLang;
   }, [currentLang]);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWeChat(true);
+    }, 1500);
+
     if (typeof window !== 'undefined') {
       if ('scrollRestoration' in window.history) {
         window.history.scrollRestoration = 'manual';
@@ -51,6 +58,8 @@ export default function App() {
         setCurrentLang('en');
       }
     }
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleScrollTo = (sectionId: string) => {
@@ -129,22 +138,34 @@ export default function App() {
 
         <Suspense fallback={<div className="h-40 w-full" />}>
           {/* Apple style Glassmorphism dynamic timeline */}
-          <LatestNews currentLang={currentLang} />
+          <LazySection id="latest-news" height="400px">
+            <LatestNews currentLang={currentLang} />
+          </LazySection>
           
           {/* Interactive Linear-style tech skill progress bars */}
-          <Skills currentLang={currentLang} />
+          <LazySection id="skills" height="400px">
+            <Skills currentLang={currentLang} />
+          </LazySection>
           
           {/* Notion Style Chronological Experience list */}
-          <Experience currentLang={currentLang} />
+          <LazySection id="experience" height="500px">
+            <Experience currentLang={currentLang} />
+          </LazySection>
           
           {/* Linear Style Product Galleries with overlays */}
-          <Projects currentLang={currentLang} />
+          <LazySection id="projects" height="600px">
+            <Projects currentLang={currentLang} />
+          </LazySection>
           
           {/* Interactive Gemini AI Twin assistant */}
-          <AIChatbot currentLang={currentLang} />
+          <LazySection id="assistant" height="550px">
+            <AIChatbot currentLang={currentLang} />
+          </LazySection>
           
           {/* Simple Coordinates Contact form */}
-          <Contact currentLang={currentLang} />
+          <LazySection id="contact" height="500px">
+            <Contact currentLang={currentLang} />
+          </LazySection>
         </Suspense>
       </main>
 
@@ -153,9 +174,11 @@ export default function App() {
         currentLang={currentLang}
         onScrollTo={handleScrollTo}
       />
-      <Suspense fallback={null}>
-        <WeChatWidget />
-      </Suspense>
+      {showWeChat && (
+        <Suspense fallback={null}>
+          <WeChatWidget />
+        </Suspense>
+      )}
     </div>
   );
 }
