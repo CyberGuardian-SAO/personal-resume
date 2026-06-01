@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, ReactNode } from 'react';
+import { useState, useEffect, useRef, ReactNode, Suspense } from 'react';
 
 interface LazySectionProps {
   children: ReactNode;
@@ -36,7 +36,13 @@ export default function LazySection({ children, height = '300px', id }: LazySect
 
   return (
     <div ref={containerRef} id={id} style={{ minHeight: isInView ? 'auto' : height }}>
-      {isInView ? children : <div className="w-full h-full" style={{ height }} />}
+      {isInView ? (
+        <Suspense fallback={<div className="w-full" style={{ height }} />}>
+          {children}
+        </Suspense>
+      ) : (
+        <div className="w-full h-full" style={{ height }} />
+      )}
     </div>
   );
 }

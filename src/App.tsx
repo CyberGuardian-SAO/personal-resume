@@ -136,37 +136,35 @@ export default function App() {
           currentLang={currentLang}
         />
 
-        <Suspense fallback={<div className="h-40 w-full" />}>
-          {/* Apple style Glassmorphism dynamic timeline */}
-          <LazySection id="latest-news" height="400px">
-            <LatestNews currentLang={currentLang} />
-          </LazySection>
-          
-          {/* Interactive Linear-style tech skill progress bars */}
-          <LazySection id="skills" height="400px">
-            <Skills currentLang={currentLang} />
-          </LazySection>
-          
-          {/* Notion Style Chronological Experience list */}
-          <LazySection id="experience" height="500px">
-            <Experience currentLang={currentLang} />
-          </LazySection>
-          
-          {/* Linear Style Product Galleries with overlays */}
-          <LazySection id="projects" height="600px">
-            <Projects currentLang={currentLang} />
-          </LazySection>
-          
-          {/* Interactive Gemini AI Twin assistant */}
-          <LazySection id="assistant" height="550px">
-            <AIChatbot currentLang={currentLang} />
-          </LazySection>
-          
-          {/* Simple Coordinates Contact form */}
-          <LazySection id="contact" height="500px">
-            <Contact currentLang={currentLang} />
-          </LazySection>
-        </Suspense>
+        {/* Apple style Glassmorphism dynamic timeline */}
+        <LazySection id="latest-news" height="400px">
+          <LatestNews currentLang={currentLang} />
+        </LazySection>
+        
+        {/* Interactive Linear-style tech skill progress bars */}
+        <LazySection id="skills" height="400px">
+          <Skills currentLang={currentLang} />
+        </LazySection>
+        
+        {/* Notion Style Chronological Experience list */}
+        <LazySection id="experience" height="500px">
+          <Experience currentLang={currentLang} />
+        </LazySection>
+        
+        {/* Linear Style Product Galleries with overlays */}
+        <LazySection id="projects" height="600px">
+          <Projects currentLang={currentLang} />
+        </LazySection>
+        
+        {/* Interactive Gemini AI Twin assistant */}
+        <LazySection id="assistant" height="550px">
+          <AIChatbot currentLang={currentLang} />
+        </LazySection>
+        
+        {/* Simple Coordinates Contact form */}
+        <LazySection id="contact" height="500px">
+          <Contact currentLang={currentLang} />
+        </LazySection>
       </main>
 
       {/* High-fidelity Footer Coordinates */}
