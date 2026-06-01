@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Software Engineer_Bill Guo_guoxin@bitqai.com</title>
+    <style>
+        /* A4 Page Setup for Standard US/EU Resume Style */
+        @page {
+            size: A4;
+            margin: 14mm 15mm;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #111111;
+            line-height: 1.5; 
+            letter-spacing: 0.1px;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Resume Sheet Container */
+        .resume-page {
+            width: 210mm;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 14mm 15mm;
+            box-sizing: border-box;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        /* Fixed Top Download Button */
+        .floating-download-btn {
+            position: fixed; 
+            top: 55px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #fa5a15; 
+            color: #ffffff;
+            border: none;
+            padding: 10px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(250, 90, 21, 0.4);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 9999; 
+            animation: pulse-orange 2s infinite; 
+        }
+
+        .floating-download-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .floating-download-btn:hover {
+            background-color: #ea580c;
+            transform: translateX(-50%) translateY(-2px) scale(1.03); 
+            box-shadow: 0 6px 18px rgba(234, 88, 12, 0.55);
+        }
+        .floating-download-btn:hover svg {
+            transform: translateY(1.5px); 
+        }
+        .floating-download-btn:active {
+            transform: translateX(-50%) translateY(0) scale(0.98);
+        }
+
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 4px 14px rgba(250, 90, 21, 0.4); }
+            50% { box-shadow: 0 4px 22px rgba(250, 90, 21, 0.65); }
+            100% { box-shadow: 0 4px 14px rgba(250, 90, 21, 0.4); }
+        }
+
+        /* Header Section */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+
+        .header-name {
+            font-size: 25pt;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #000000;
+            letter-spacing: -0.5px;
+        }
+        .header-info {
+            font-size: 10.5pt;
+            margin-bottom: 4px;
+            color: #222222;
+        }
+
+        .clickable-link {
+            color: #2563eb; 
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .clickable-link:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+
+        /* QR Code Container */
+        .qrcode-container {
+            text-align: center;
+            width: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2px; 
+        }
+        .qrcode-text {
+            font-size: 8pt;
+            font-weight: 600;
+            color: #4b5563; 
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+            margin-bottom: 5px; 
+            line-height: 1.2;
+        }
+        .qrcode-img {
+            width: 76px;
+            height: 76px;
+            border: 1px solid #e5e7eb;
+            padding: 2px;
+            background: #fff;
+            border-radius: 4px;
+        }
+        
+        .divider {
+            border-top: 2px solid #111111;
+            margin: 14px 0 10px 0;
+            width: 100%;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 13pt;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 3px;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Technical Skills */
+        .skill-item {
+            font-size: 10.5pt;
+            margin: 6px 0;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* Professional Experience */
+        .exp-section {
+            margin: 8px 0;
+        }
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10.5pt;
+            padding: 5px 0;
+            color: #111111;
+        }
+        .exp-row.header-row {
+            font-weight: 700;
+            color: #000000;
+            border-bottom: 1px dashed #e5e7eb;
+            margin-bottom: 4px;
+        }
+        .exp-company {
+            flex: 3.5; 
+            white-space: nowrap;
+        }
+        .exp-industry {
+            flex: 2.0;
+            white-space: nowrap;
+            padding-left: 10px;
+        }
+        .exp-role {
+            flex: 1.8;
+            white-space: nowrap;
+            padding-left: 10px;
+        }
+        .exp-period {
+            flex: 1.5;
+            text-align: right;
+            white-space: nowrap;
+            padding-left: 10px;
+        }
+
+        /* Education Layout */
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10.5pt;
+            padding: 5px 0;
+            color: #111111;
+        }
+        .edu-school {
+            flex: 3.5; 
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .edu-degree {
+            flex: 2.0;
+            padding-left: 10px;
+            white-space: nowrap;
+        }
+        .edu-major {
+            flex: 1.8;
+            padding-left: 10px;
+            white-space: nowrap;
+        }
+        .edu-period {
+            flex: 1.5;
+            text-align: right;
+            padding-left: 10px;
+            white-space: nowrap;
+        }
+
+        /* Project Blocks (Strict Line-Wrapping Defenses) */
+        .project-item {
+            margin-top: 14px;
+            margin-bottom: 14px;
+        }
+        .project-title-line {
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 3px;
+            white-space: nowrap; 
+        }
+        .project-sub-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 5px;
+            border-bottom: 1px dotted #e5e7eb;
+            padding-bottom: 3px;
+        }
+        .project-sub-meta span {
+            white-space: nowrap; /* 确保副文本元数据也绝对不换行 */
+        }
+        
+        .project-desc-line {
+            font-size: 10.5pt;
+            margin: 4px 0;
+            text-align: justify;
+        }
+        .project-tech-line {
+            font-size: 10pt;
+            margin: 4px 0;
+            color: #1f2937;
+            text-align: justify;
+        }
+
+        .bullet-list {
+            margin: 4px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .bullet-list li {
+            font-size: 10.5pt;
+            margin-bottom: 5px;
+            text-align: justify;
+            line-height: 1.5;
+            padding-left: 16px;
+            text-indent: -16px;
+        }
+        .bullet-list li::before {
+            content: "• ";
+            font-weight: bold;
+            color: #111111;
+        }
+
+        .keep-together {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* Print Override Layout styles - Adjustments to satisfy the 2nd page padding gap perfectly */
+        @media print {
+            body {
+                background-color: #ffffff;
+            }
+            .floating-download-btn {
+                display: none !important; 
+            }
+            .resume-page {
+                margin: 0 !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+            .clickable-link {
+                color: #111111 !important;
+                text-decoration: none !important;
+            }
+            
+            /* Responsive expansion system triggers for print preview only */
+            .header-name { font-size: 28pt; margin-bottom: 8px; }
+            .section-title { font-size: 14pt; margin-top: 32px; margin-bottom: 15px; padding-bottom: 5px; }
+            .skill-item { font-size: 11.5pt; line-height: 1.65; margin: 12px 0; letter-spacing: 0.2px; }
+            .exp-row { font-size: 11.5pt; padding: 8px 0; }
+            .edu-row { font-size: 11.5pt; padding: 8px 0; }
+            
+            .project-item { margin-top: 20px; margin-bottom: 20px; }
+            .project-title-line { font-size: 12.5pt; margin-bottom: 5px; }
+            .project-sub-meta { font-size: 10.5pt; margin-bottom: 8px; padding-bottom: 5px; }
+            .project-desc-line { font-size: 11.5pt; margin: 6px 0; line-height: 1.55; }
+            .project-tech-line { font-size: 11pt; margin: 6px 0; }
+            .bullet-list li { font-size: 11.5pt; line-height: 1.65; margin-bottom: 8px; letter-spacing: 0.15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="floating-download-btn" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download Resume
+    </button>
+
+    <div class="resume-page">
+        
+        <div class="header-container">
+            <div class="header-text">
+                <div class="header-name">Bill Guo</div>
+                <div class="header-info">(+86) 153-2341-1996 | guoxin@bitqai.com | Full-Stack Developer & AI Implementation Expert</div>
+                <div class="header-info">
+                    Portfolio: <a href="https://resume.bitqai.com" target="_blank" class="clickable-link">resume.bitqai.com</a> | 
+                    GitHub: <a href="https://github.com/BitQAI" target="_blank" class="clickable-link">github.com/BitQAI</a>
+                </div>
+            </div>
+            
+            <div class="qrcode-container">
+                <span class="qrcode-text">WeChat Contact</span>
+                <img class="qrcode-img" src="https://files.bitqai.com/website/wechat-qrcode.jpg" alt="WeChat QR Code">
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div>
+            <div class="section-title">Technical Skills</div>
+            <div class="skill-item"><b>AI Engineering & Large Language Models:</b> Production experience designing AI Agents, refining advanced Prompt Engineering, implementing Tool Use/Function Calling, and managing structured JSON outputs. Expert in multi-model collaboration, token stream orchestration, and building production-ready RAG (Retrieval-Augmented Generation) architectures within specialized medical and industrial verticals.</div>
+            <div class="skill-item"><b>Backend & Systems Engineering:</b> Advanced proficiency in C/C++ (STL, high-performance multi-threading, network programming, and Qt framework). Expert in PHP (ThinkPHP, Yii) for architecting high-concurrency enterprise RESTful APIs; proficient in Python for LLM development pipelines and data manipulation ecosystems.</div>
+            <div class="skill-item"><b>Frontend & Cross-Platform UI:</b> Expert in Flutter and uniapp for cross-platform mobile and desktop application single-codebase compilation. Highly skilled in JavaScript, Vue.js, and Element UI for engineering interactive enterprise-level real-time operations dashboards.</div>
+            <div class="skill-item"><b>Database & Infrastructure:</b> Advanced database design and query optimization in MySQL (deep indexing, execution plan tuning). Proficient in Redis for caching, state management, and pub/sub message brokers. Strong experience in LNMP stack deployment, Linux system administration, Nginx load balancing, Git workflows, and Postman API automation.</div>
+            <div class="skill-item"><b>Global Collaboration & Professional Attributes:</b> Extensive experience collaborating within cross-border teams. Native Mandarin speaker with professional English proficiency (CET-6), capable of seamlessly reading, researching, and implementing solutions from technical documentation and academic whitepapers.</div>
+        </div>
+
+        <div>
+            <div class="section-title">Professional Experience</div>
+            <div class="exp-section">
+                <div class="exp-row header-row">
+                    <div class="exp-company">Company</div>
+                    <div class="exp-industry">Industry</div>
+                    <div class="exp-role">Role</div>
+                    <div class="exp-period">Period</div>
+                </div>
+                <div class="exp-row">
+                    <div class="exp-company"><b>Beijing Infervision Technology Co., Ltd.</b></div>
+                    <div class="exp-industry">Medical AI / Computer Vision</div>
+                    <div class="exp-role">C++ Software Engineer</div>
+                    <div class="exp-period">June 2020 - Apr. 2022</div>
+                </div>
+                <div class="exp-row">
+                    <div class="exp-company"><b>Han's Robot Co., Ltd.</b></div>
+                    <div class="exp-industry">Automation / Robotics</div>
+                    <div class="exp-role">Machine Vision Engineer</div>
+                    <div class="exp-period">May 2022 - June 2023</div>
+                </div>
+                <div class="exp-row">
+                    <div class="exp-company"><b>Changsha Kejiulai Network Technology Co., Ltd.</b></div>
+                    <div class="exp-industry">Software Services / Retail Tech</div>
+                    <div class="exp-role">Head of Digital Transformation</div>
+                    <div class="exp-period">Dec. 2023 - Dec. 2025</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-title">Key Projects & Achievements</div>
+            
+            <div class="project-item keep-together">
+                <div class="project-title-line">Vertical AI Agent Product Suite (Architecture Design & Solo Development)</div>
+                <div class="project-sub-meta">
+                    <span>Core Modules: PetCare AI, RPA WeChat Engine, Intelligent AI Auditor</span>
+                    <span>Shenzhen | Nov. 2025 - Present</span>
+                </div>
+                <div class="project-desc-line"><b>Description:</b> Designed and deployed an automated suite of vertical AI Agents leveraging multimodal LLMs and deterministic business logic control flows to handle complex domain-specific tasks and end-to-end automation pipelines.</div>
+                <ul class="bullet-list">
+                    <li><b>PetCare AI (Vertical Medical Agent):</b> Engineered a multimodal veterinary pre-diagnosis agent combining automated prompt chains with custom skin-lesion image recognition via RAG medical knowledge bases. Developed a localized 3-color triage safety algorithm to enforce regulatory drug compliance and risk categorization, effectively slashing LLM hallucinations.</li>
+                    <li><b>RPA WeChat Operations Automation:</b> Built a robust runtime integration connecting desktop/mobile WeChat instances, multi-platform web scraping engines, and internal databases. Orchestrated a pipeline utilizing NLP intent parsing and Selenium-driven background automation to execute repetitive merchant tasks, boosting operational workflow efficiency by 80%.</li>
+                    <li><b>AI Store Inspection Assistant:</b> Implemented a multimodal auditing system utilizing OpenClaw for automated task-chain streaming orchestration. Integrated SKU defect detection models, industrial OCR, and shelf-compliance analysis; connected the system directly to the corporate Lark (Feishu) API to automatically generate trackable compliance orders from visual anomalies.</li>
+                </ul>
+            </div>
+
+            <div class="project-item keep-together">
+                <div class="project-title-line">Cexiong Smart Pet Retail ERP & Omnichannel POS System</div>
+                <div class="project-sub-meta">
+                    <span>Role: Full-Stack Architecture Design & Omnichannel System Deployment</span>
+                    <span>Changsha | Dec. 2023 - Dec. 2025</span>
+                </div>
+                <div class="project-desc-line"><b>Description:</b> Led the technical execution and full-stack development from 0 to 1 of an omnichannel digital retail platform, comprising a cross-platform POS application (Flutter), an e-commerce mini-program (uniapp), and a centralized enterprise ERP control center.</div>
+                <div class="project-tech-line"><b>Tech Stack:</b> Flutter, uniapp, Vue.js, Element UI, WebSocket, ThinkPHP, MySQL, Redis</div>
+                <ul class="bullet-list">
+                    <li><b>Omnichannel & Mid-Platform Architecture:</b> Designed and decoupled cross-platform POS client and e-commerce layers using Flutter and uniapp. Architected scalable RESTful microservices in ThinkPHP to manage e-commerce checkouts, digital veterinary records, grooming appointment bookings, automated procurement, and multi-warehouse inventory management.</li>
+                    <li><b>Data Visualization & Database Optimization:</b> Engineered an executive real-time financial reporting dashboard using Vue.js and Element UI. Optimized complex MySQL multi-table joins and compound indexing, combining it with a Redis cache layer to isolate high-frequency aggregations and eliminate database locks during peak sales events.</li>
+                    <li><b>Engineering Leadership:</b> Directed a development team implementing agile sprints, code quality gatekeeping, and cross-platform CI/CD deployments. Successfully onboarded over 20 retail chain outlets, supporting an ecosystem that scaled to a monthly GMV exceeding RMB 2,000,000.</li>
+                </ul>
+            </div>
+
+            <div class="project-item keep-together">
+                <div class="project-title-line">Elfin Series 6-Axis High-Precision Collaborative Robot Development</div>
+                <div class="project-sub-meta">
+                    <span>Role: Computer Vision Algorithms & Dynamic Modular Runtime Architecture</span>
+                    <span>Shenzhen | May 2022 - June 2023</span>
+                </div>
+                <div class="project-desc-line"><b>Description:</b> Headed the research and development of core machine vision algorithms, AGV localization controls, high-dimensional path planning, and modular C++ plugin bases to ensure ultra-reliable robotic assembly in high-noise industrial facilities.</div>
+                <div class="project-tech-line"><b>Tech Stack:</b> OpenCV, PCL (Point Cloud Library), ROS (Robot Operating System), CMake, WebSocket, JsonCpp</div>
+                <ul class="bullet-list">
+                    <li><b>Computer Vision & Spatial Pose Estimation:</b> Constructed a binocular spatial orientation framework using OpenCV and PCL to perform target object classification, real-time 3D pose tracking, and precision spatial coordinate generation under variable lighting and industrial noise environments.</li>
+                    <li><b>Decoupled Modular Architecture:</b> Designed a plugin-based runtime framework supporting dynamic hot-swapping and asynchronous scheduling of vision algorithms under ROS. Decoupled visual processing from hardware execution loops, reducing the hardware-software integration cycle by 50%.</li>
+                    <li><b>High-Throughput Communication Layer:</b> Rewrote internal TCP/UDP network communication modules utilizing Boost.Asio asynchronous event loops. Blended gRPC and WebSocket serialization pipelines to maintain massive data throughput between AGV units and the central server, constraining core network latency to under 100ms.</li>
+                </ul>
+            </div>
+
+            <div class="project-item keep-together">
+                <div class="project-title-line">Breast Ultrasound CAD (Computer-Aided Diagnosis) Assistive System</div>
+                <div class="project-sub-meta">
+                    <span>Role: Lossless Stream Capture Workflow & Real-Time Geometry Segmentation</span>
+                    <span>Beijing | June 2020 - Apr. 2022</span>
+                </div>
+                <div class="project-desc-line"><b>Description:</b> Developed a real-time medical imaging diagnosis system that captures high-frequency ultrasound signals, performs instant lesion segmentation, outlines tumor geometries, and computes quantitative benign/malignant metrics to assist radiologists.</div>
+                <div class="project-tech-line"><b>Tech Stack:</b> Qt, OpenCV, rapidjson, Convex Hull Algorithms, TcpSocket, log4qt, Base64/MD5 Security</div>
+                <ul class="bullet-list">
+                    <li><b>High-Fidelity Real-time Video Capture:</b> Engineered a low-level network streaming pipeline using raw TcpSocket protocols instead of high-overhead application layers. Mitigated handshake latencies and frame drops, ensuring high-speed, lossless transmission of ultrasound video feeds over local hospital networks.</li>
+                    <li><b>Asynchronous Rendering & Clinical UI:</b> Built an ergonomic clinician workstation UI using C++ and Qt, integrating OpenCV for seamless real-time playback, capture, and framespace analysis. Leveraged rapidjson to deserialize neural network convex hull data asynchronously, rendering real-time lesion overlays on active streams and reducing clinician diagnostic review times by 25%.</li>
+                    <li><b>Medical Data Compliance:</b> Enforced stringent healthcare data privacy standards by developing an end-to-end data security module using Base64 encoding paired with salted MD5 encryption, successfully passing rigorous security audits across multiple Class A hospitals.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="keep-together">
+            <div class="section-title">Education</div>
+            <div class="edu-row">
+                <div class="edu-school">Central South University of Forestry and Technology</div>
+                <div class="edu-degree">Full-Time Bachelor's Degree</div>
+                <div class="edu-major">Information Technology & Management</div>
+                <div class="edu-period">Sept. 2016 - June 2020</div>
+            </div>
+        </div>
+
+        <div class="project-item keep-together">
+            <div class="section-title">Professional Profile</div>
+            <div class="project-desc-line">
+                Multidisciplinary Full-Stack Engineer and AI Engineering expert. Offers a proven track record bridging low-level C++ high-performance system programming, computer vision, and modern generative AI orchestration (Agents, RAG, and automated LLM workflows). Combines deep technical proficiency in microservices and database optimization with product management experience, driving projects from conceptual architecture to high-revenue commercialization.
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AI应用架构师_郭鑫_15323411996（微信同号）</title>
+    <style>
+        /* A4 打印纸张标准配置：精确控制双页空间 */
+        @page {
+            size: A4;
+            margin: 14mm 14.5mm;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #111111;
+            line-height: 1.5; 
+            letter-spacing: 0.1px;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 简历主纸张容器 */
+        .resume-page {
+            width: 210mm;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 14mm 14.5mm;
+            box-sizing: border-box;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        /* 优化：重回顶端固定悬浮（Fixed），并向下平移安全距离，全屏严格居中 */
+        .floating-download-btn {
+            position: fixed; /* 在屏幕顶端保持固定，不随页面滚动消失 */
+            top: 55px; /* 至少下移一点，留出舒适安全的上方留白 */
+            left: 50%; /* 屏幕水平居中定位起点 */
+            transform: translateX(-50%); /* 完美实现横向绝对居中 */
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #fa5a15; /* 醒目高质感奶橙色 */
+            color: #ffffff;
+            border: none;
+            padding: 9px 20px;
+            font-size: 13.5px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(250, 90, 21, 0.4);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 9999; /* 确保悬浮在所有页面内容最上层 */
+            animation: pulse-orange 2s infinite; /* 奶橙色专属呼吸灯 */
+        }
+
+        .floating-download-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* 鼠标悬停交互动效 */
+        .floating-download-btn:hover {
+            background-color: #ea580c;
+            transform: translateX(-50%) translateY(-2px) scale(1.03); /* 保持居中的同时微上移 */
+            box-shadow: 0 6px 18px rgba(234, 88, 12, 0.55);
+        }
+        .floating-download-btn:hover svg {
+            transform: translateY(1.5px); /* 托盘里的箭头向下平滑微动 */
+        }
+        .floating-download-btn:active {
+            transform: translateX(-50%) translateY(0) scale(0.98);
+        }
+
+        /* 橙色呼吸灯特效定义 */
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 4px 14px rgba(250, 90, 21, 0.4); }
+            50% { box-shadow: 0 4px 22px rgba(250, 90, 21, 0.65); }
+            100% { box-shadow: 0 4px 14px rgba(250, 90, 21, 0.4); }
+        }
+
+        /* 个人信息头部区域：Flex弹性流布局，从底层彻底解决打印截断问题 */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+
+        .header-name {
+            font-size: 22pt;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #000000;
+        }
+        .header-info {
+            font-size: 9.5pt;
+            margin-bottom: 3px;
+            color: #222222;
+        }
+
+        /* 网页端超链接高亮提示样式 */
+        .clickable-link {
+            color: #2563eb; 
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .clickable-link:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+
+        /* 右侧微信二维码区域 */
+        .qrcode-container {
+            text-align: center;
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2px; 
+        }
+        .qrcode-text {
+            font-size: 8pt;
+            font-weight: 600;
+            color: #4b5563; 
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            margin-bottom: 5px; 
+            line-height: 1.2;
+        }
+        .qrcode-img {
+            width: 72px;
+            height: 72px;
+            border: 1px solid #e5e7eb;
+            padding: 2px;
+            background: #fff;
+            border-radius: 4px;
+        }
+        
+        .divider {
+            border-top: 1px solid #111111;
+            margin: 12px 0;
+            width: 100%;
+        }
+
+        /* 板块标题 */
+        .section-title {
+            font-size: 11.5pt;
+            font-weight: 700;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 3px;
+            color: #000000;
+        }
+
+        /* 专业技能列表 */
+        .skill-item {
+            font-size: 9.5pt;
+            margin: 5px 0;
+            text-align: justify;
+            padding-left: 12px;
+            text-indent: -12px;
+        }
+
+        /* 工作经历栅格 */
+        .exp-section {
+            margin: 8px 0;
+        }
+        .exp-row {
+            display: grid;
+            grid-template-columns: 2.3fr 1.8fr 1.4fr 1.1fr;
+            font-size: 9.5pt;
+            padding: 4px 0;
+            color: #222222;
+            align-items: center;
+        }
+        .exp-row.header-row {
+            font-weight: 700;
+            color: #000000;
+        }
+        .text-right {
+            text-align: right;
+        }
+
+        /* 项目模块精密布局 */
+        .project-item {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10pt;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #000000;
+        }
+        
+        .project-sub-title {
+            font-size: 9.5pt;
+            font-weight: 700;
+            margin: 3px 0;
+        }
+        
+        .project-desc-line {
+            font-size: 9.5pt;
+            margin: 3px 0;
+            text-align: justify;
+        }
+
+        /* 项目职责点号列表 */
+        .bullet-list {
+            margin: 3px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .bullet-list li {
+            font-size: 9.5pt;
+            margin-bottom: 4px;
+            text-align: justify;
+            line-height: 1.5;
+            padding-left: 18px;
+            text-indent: -18px;
+        }
+
+        /* 智能分页防断裂机制 */
+        .keep-together {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* 原生打印/另存PDF控制 */
+        @media print {
+            @page {
+                size: A4;
+                margin: 14mm 14.5mm;
+            }
+            body {
+                background-color: #ffffff;
+            }
+            .floating-download-btn {
+                display: none !important; /* 打印输出时100%完美隐藏悬浮按钮，不留痕迹 */
+            }
+            .resume-page {
+                margin: 0 !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+            .qrcode-container {
+                margin-top: 0 !important;
+            }
+            /* 打印时强行还原超链接样式，不留下网页端的蓝色痕迹 */
+            .clickable-link {
+                color: #222222 !important;
+                text-decoration: none !important;
+                background: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="floating-download-btn" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        下载简历
+    </button>
+
+    <div class="resume-page">
+        
+        <div class="header-container">
+            <div class="header-text">
+                <div class="header-name">郭鑫</div>
+                <div class="header-info">15323411996(微信同号) | guoxin@bitqai.com | 全栈开发 / 大模型落地专家</div>
+                <div class="header-info">
+                    个人网站: <a href="https://resume.bitqai.com" target="_blank" class="clickable-link">resume.bitqai.com</a> | 
+                    Github: <a href="https://github.com/BitQAI" target="_blank" class="clickable-link">github.com/BitQAI</a>
+                </div>
+            </div>
+            
+            <div class="qrcode-container">
+                <span class="qrcode-text">微信在线沟通</span>
+                <img class="qrcode-img" src="https://files.bitqai.com/website/wechat-qrcode.jpg" alt="微信二维码">
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div>
+            <div class="section-title">专业技能与经验</div>
+            <div class="skill-item">· <b>AI大模型与工程化落地:</b> 具备 <b>AI Agent 从设计、Prompt 调优、工具链调用（Function Calling）到产品化</b> 的全链路实战经验；熟练利用大模型能力进行业务逻辑解耦与敏捷产品重构；深谙 <b>Prompt Engineering、结构化输出、多模型协同、智能流式编排</b> 以及 <b>RAG 医疗/垂直知识库</b> 搭建。</div>
+            <div class="skill-item">· <b>后端与多模态开发:</b> 精通 <b>C/C++（含STL与QT工程架构）</b>，具备多线程、网络通信及高并发项目预研能力；熟练使用 <b>PHP（ThinkPHP、Yii 框架）</b> 构建高可用企业级服务接口，熟悉 <b>Python</b> 大模型常用生态库。</div>
+            <div class="skill-item">· <b>跨端前端与数据底座:</b> 熟悉 JavaScript、Vue.js 核心技术栈，能独立设计企业级交互看板；精通 <b>Flutter / uniapp 跨平台混合应用构建</b>；熟练进行 <b>MySQL 深度索引调优与查询优化</b>，熟悉 <b>Redis 缓存架构与发布订阅机制</b>。</div>
+            <div class="skill-item">· <b>运维部署与工程协同:</b> 具备 <b>LNMP（Linux + Nginx + MySQL + PHP）全栈部署与企业级生产环境日常运维</b> 能力，擅长日志监控及性能逆向负载调优；熟练掌握 Git 版本控制及 Postman 自动化接口测试流程。</div>
+            <div class="skill-item">· <b>综合素质与国际视野:</b> 拥有 <b>境外跨国团队协作与生活背景</b>，<b>英语六级（CET-6）</b> 且英文阅读能力优异，能无障碍、快速检索和啃读前沿英文开源技术方案与官方开发文档。</div>
+        </div>
+
+        <div>
+            <div class="section-title">工作经历</div>
+            <div class="exp-section">
+                <div class="exp-row header-row">
+                    <div>公司名称</div>
+                    <div>所属行业</div>
+                    <div>担任职位</div>
+                    <div class="text-right">在职时间</div>
+                </div>
+                <div class="exp-row">
+                    <div><b>北京医准智能科技有限公司</b></div>
+                    <div>智能医疗 / AI影像</div>
+                    <div>C++开发工程师</div>
+                    <div class="text-right">2020.06 - 2022.04</div>
+                </div>
+                <div class="exp-row">
+                    <div><b>深圳市大族机器人有限公司</b></div>
+                    <div>智能制造 / 机器人</div>
+                    <div>机器视觉工程师</div>
+                    <div class="text-right">2022.05 - 2023.06</div>
+                </div>
+                <div class="exp-row">
+                    <div><b>长沙客就来网络科技有限公司</b></div>
+                    <div>数字化转型 / 软件服务</div>
+                    <div>数字化转型负责人</div>
+                    <div class="text-right">2023.12 - 2025.12</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-title">项目经历</div>
+            
+            <div class="project-item keep-together">
+                <div class="project-meta">
+                    <span>AI Agent 垂直应用生态矩阵 (独立研发 / 架构设计)</span>
+                    <span>深圳 | 2025.11 - 至今</span>
+                </div>
+                <div class="project-sub-title">• <b>核心模块: PetCare AI（垂直问诊） | RPA微信自动化业务集成 | AI巡店智能审核系统</b></div>
+                <div class="project-desc-line">• <b>项目描述:</b> 基于多模态大语言模型与业务控制流，为垂直细分领域打造具有深度感知、决策和闭环执行能力的全天候自动化智能业务矩阵，解决传统场景长尾瓶颈。</div>
+                <div class="project-desc-line" style="font-weight: bold; margin-top: 2px;">核心职责与可量化成果:</div>
+                <ul class="bullet-list">
+                    <li>(1) <b>PetCare AI (宠物问诊智能 Agent):</b> 针对医疗多模态问诊场景，<b>主导开源大模型微调与 RAG 医疗知识库 (Redline Index) 的设计与构建</b>。通过“提示词链控制+皮损图像识别”方案实现秒级快速预诊；独创<b>三色分诊安全过滤算法</b>，提供高标准用药规范及就医分级指南，有效遏制了大模型在垂直领域的幻觉与误判。</li>
+                    <li>(2) <b>RPA 微信智能业务机器人:</b> 独立设计并交付了微信控制终端、多平台 RPA 网页引擎与底层数据库无缝闭环的实时数据链路。<b>集成 NLP 意图解析引擎与 Selenium 轻量级操作流</b>，实现跨平台全天候静默流转，<b>使商户高频高重复性工作（商品核批、多系统对账、企业巡查报警等）的综合效率飙升 80%</b>。</li>
+                    <li>(3) <b>AI巡店智能审核助手:</b> <b>基于 OpenClaw 任务链流式编排架构</b>，有机整合多模态模型（包含 SKU 缺陷检测、工业级 OCR、陈列合规分析）进行门店柜台秒级自动化审核；打通企业内部飞书工作流 API，<b>首创异常状态一键生成飞书待办并自动派单责令整改</b> 的管理闭环，将线下督导流程完全数字化、轻量化。</li>
+                </ul>
+            </div>
+
+            <div class="project-item keep-together">
+                <div class="project-meta">
+                    <span>策雄·智慧宠物门店全链路收银管理系统 (数字化中台)</span>
+                    <span>长沙 | 2023.12 - 2025.12</span>
+                </div>
+                <div class="project-desc-line">• <b>项目描述:</b> 统筹该系统从0到1及后续二次开发、核心业务中台构建与数字化技术落地。项目覆盖 PC 端跨平台收银系统（基于 Flutter）、移动端小程序商城与后台 ERP 管理系统，驱动线下门店全面转型数字化、智能化。</div>
+                <div class="project-desc-line">• <b>相关技术:</b> Flutter、uniapp、Vue.js、Element UI、WebSocket、ThinkPHP、MySQL、Redis</div>
+                <div class="project-desc-line" style="font-weight: bold; margin-top: 2px;">核心职责与可量化成果:</div>
+                <ul class="bullet-list">
+                    <li>(1) <b>多端同构与中台架构设计:</b> 采用 Flutter 及 uniapp 原生混合开发实现多端收银与商城组件解耦；基于 ThinkPHP <b>设计高性能标准 RESTful 后端接口</b>，深度支持 B2C 商城、医疗电子病历工作站、洗美预约、自动智能采购、多仓进销存及多店联动等业务模块。</li>
+                    <li>(2) <b>数据看板与高并发调优:</b> 利用 Vue.js + Element UI 搭建一站式核心财务数据可视化大屏；<b>精细化重构 MySQL 复杂组合索引与关联查询，配合 Redis 缓存层进行高频报表解耦</b>，避免大促期间慢查询拖垮线上数据库。</li>
+                    <li>(3) <b>工程效能与团队管理:</b> 负责整个研发团队的任务编排、多端协同和敏捷代码规范落地；<b>成功协助 20+ 连锁门店完成系统无缝升级与安全部署，核心研发团队支撑的项目月复合营业额突破 200 万元</b>。</li>
+                </ul>
+            </div>
+
+            <div class="project-item keep-together">
+                <div class="project-meta">
+                    <span>Elfin 系列 6 轴高精度协作机器人项目预研</span>
+                    <span>深圳 | 2022.05 - 2023.06</span>
+                </div>
+                <div class="project-desc-line">• <b>项目描述:</b> 负责 6 轴工业协作机器人的核心机器视觉算法预研、AGV 移动控制、高级路径规划及 C++ 模块化插件底座开发，为机器人在柔性装配及复杂工业环境下的高可靠安全作业提供底层支撑。</div>
+                <div class="project-desc-line">• <b>相关技术:</b> OpenCV、PCL (点云库)、ROS (机器人操作系统)、CMake、gRPC、WebSocket、JsonCpp</div>
+                <div class="project-desc-line" style="font-weight: bold; margin-top: 2px;">核心职责与可量化成果:</div>
+                <ul class="bullet-list">
+                    <li>(1) <b>机器视觉与空间姿态解算:</b> <b>构建基于 OpenCV 与 PCL 点云库的双目视觉定位框架</b>，在复杂多变和高噪声的工业产线环境中，完美实现对不规则物体的目标检测、高精度姿态估计与空间抓取坐标点解算。</li>
+                    <li>(2) <b>动态解耦插件底座架构:</b>设计协作机器人的核心插件式底座架构，<b>完美支持 ROS 环境下的算法动态热插拔、热加载与异步挂载</b>，使得视觉算法开发与控制流完全解耦，<b>将算法迭代联调周期缩短 50%</b>。</li>
+                    <li>(3) <b>高并发通信与延迟削减:</b> <b>使用 Boost.Asio 异步事件模型重构 TCP/UDP 通信模块</b>，深度融合 gRPC 与高性能 WebSocket，确保 AGV 控制终端与主控制系统的高吞吐率互联，<b>将整机核心通信延迟死死限制在 100ms 以内</b>。</li>
+                </ul>
+            </div>
+
+            <div class="project-item keep-together">
+                <div class="project-meta">
+                    <span>乳腺超声智能诊断 AI 辅助分析系统</span>
+                    <span>北京 | 2020.06 - 2022.04</span>
+                </div>
+                <div class="project-desc-line">• <b>项目描述:</b> 国内首批针对超声实时超高频设备打造的AI辅助诊疗系统，利用神经网络架构搜索算法对超声视频信号进行实时捕捉、智能分割、病灶轮廓描绘及良恶性量化分析，提高一线医院临床医生的诊断产出。</div>
+                <div class="project-desc-line">• <b>相关技术:</b> QT、OpenCV、rapidjson、凸包算法、TcpSocket、log4qt、Base64/MD5加密</div>
+                <div class="project-desc-line" style="font-weight: bold; margin-top: 2px;">核心职责与可量化成果:</div>
+                <ul class="bullet-list">
+                    <li>(1) <b>超轻量超声影像实时图传:</b> 采用底层 <b>TcpSocket 原始字节流机制监听视频信号，替代高开销的传统网络协议，避免握手耗时与丢帧</b>；显著提升超声视频流在局域网内的图传稳定性，保障影像的实时无损传输。</li>
+                    <li>(2) <b>高性能医学视图与渲染交互:</b> 使用 C++ / QT 构建极其平滑的动态医生工作台界面，结合 OpenCV 实现流媒体无缝播放、录制、瞬间截图；<b>利用 rapidjson 极速反序列化大模型输出的病灶凸包数据，并在 QT 界面上异步实时绘制病灶轮廓，使医生的平均操作时间骤减 25%</b>。</li>
+                    <li>(3) <b>医疗合规与数据防泄漏:</b> 严格落实医疗健康行业合规标准，<b>封装 Base64 + MD5 双层加盐加密安全模块</b>，对患者隐私数据 and 敏感医疗电子文件实施就地双层高强度保护，顺利通过国内甲等医院严苛的安全审计。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-item keep-together">
+            <div class="section-title">教育背景 · 自我评价</div>
+            <div class="project-desc-line">
+                • <b>教育背景:</b> <b>中南林业科技大学（全日制本科）</b> &emsp; 信息化技术与管理 &emsp; 2016.09 - 2020.06
+            </div>
+            <div class="project-desc-line" style="margin-top: 5px;">
+                • <b>自我评价:</b> <b>复合型全栈研发与 AI 落地专家。</b> 具备从底层机器视觉算法、C++ 异步高性能系统预研，到现代大模型工程化落地（Agent/RAG/工作流编排）的全链路研发实力。不仅具备扎实的系统级调优功底，更主导过连锁多端中台项目从0到1的落地与敏捷执行，是一位兼具项目控制力、大厂协同思维与敏锐商业转化视角的技术骨干。
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
