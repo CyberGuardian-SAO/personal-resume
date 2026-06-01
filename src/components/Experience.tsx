@@ -125,9 +125,10 @@ export default function Experience({ currentLang }: ExperienceProps) {
                 <div className={`absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-white border-4 transition-all duration-300 ${isExpanded ? 'border-orange-500 scale-110' : 'border-orange-450 group-hover:bg-orange-500 group-hover:scale-110'}`} />
 
                 {/* Box frame wrapper */}
-                <div
+                <button
                   onClick={() => setExpandedId(isExpanded ? null : exp.id)}
-                  className={`bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden ${
+                  aria-expanded={isExpanded}
+                  className={`w-full text-left bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden block focus:outline-none ${
                     isExpanded 
                       ? 'border-white/80 dark:border-zinc-700 shadow-lg ring-1 ring-orange-400/20 bg-gradient-to-br from-white/80 to-white/40 dark:from-zinc-800 dark:to-zinc-900' 
                       : 'border-white/50 dark:border-zinc-800 shadow-sm hover:shadow-lg hover:border-white/80 dark:hover:border-zinc-700 hover:bg-white/70 dark:hover:bg-zinc-800'
@@ -204,7 +205,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </button>
               </motion.div>
             );
           })}
@@ -265,9 +266,10 @@ export default function Experience({ currentLang }: ExperienceProps) {
                       <div className={`absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-white border-4 transition-all duration-300 ${isExpanded ? 'border-orange-500 scale-110' : 'border-orange-450 group-hover:bg-orange-500 group-hover:scale-110'}`} />
 
                       {/* Box frame wrapper */}
-                      <div
+                      <button
                         onClick={() => setExpandedId(isExpanded ? null : exp.id)}
-                        className={`bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden ${
+                        aria-expanded={isExpanded}
+                        className={`w-full text-left bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-4 md:p-5 rounded-2xl border transition-all duration-300 cursor-pointer select-none relative overflow-hidden block focus:outline-none ${
                           isExpanded 
                             ? 'border-white/80 dark:border-zinc-700 shadow-lg ring-1 ring-orange-400/20 bg-gradient-to-br from-white/80 to-white/40 dark:from-zinc-800 dark:to-zinc-900' 
                             : 'border-white/50 dark:border-zinc-800 shadow-sm hover:shadow-lg hover:border-white/80 dark:hover:border-zinc-700 hover:bg-white/70 dark:hover:bg-zinc-800'
@@ -344,7 +346,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
                             </motion.div>
                           )}
                         </AnimatePresence>
-                      </div>
+                      </button>
                     </motion.div>
                   );
                 })}

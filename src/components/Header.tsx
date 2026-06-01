@@ -148,6 +148,7 @@ export default function Header({ currentLang, setLang, onScrollTo, theme, toggle
 
           <button
             onClick={toggleTheme}
+            aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
             className={`clickable flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 pointer-events-auto focus:outline-none ${
               isScrolled
                 ? 'border-zinc-200 text-zinc-800 hover:bg-zinc-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10'
@@ -160,6 +161,7 @@ export default function Header({ currentLang, setLang, onScrollTo, theme, toggle
           {/* Language Switch */}
           <button
             onClick={() => setLang(currentLang === 'zh' ? 'en' : 'zh')}
+            aria-label={currentLang === 'zh' ? 'Switch language to English' : '切换语言为中文'}
             className={`clickable flex items-center gap-1.5 px-4 py-2 rounded-full border text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 pointer-events-auto focus:outline-none ${
               isScrolled
                 ? 'border-zinc-200 text-zinc-800 hover:bg-zinc-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10'
@@ -173,6 +175,8 @@ export default function Header({ currentLang, setLang, onScrollTo, theme, toggle
           {/* Mobile menu trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
             className={`md:hidden p-2 rounded-full border focus:outline-none transition-colors ${
               isScrolled
                 ? 'border-zinc-200 text-zinc-800 hover:bg-zinc-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10'

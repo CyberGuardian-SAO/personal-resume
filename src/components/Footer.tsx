@@ -136,6 +136,7 @@ export default function Footer({ currentLang, onScrollTo }: FooterProps) {
             href="mailto:guoxin@bitqai.com"
             className="w-10 h-10 rounded-full bg-white/80 dark:bg-zinc-800/80 border border-white dark:border-zinc-700 hover:border-orange-200 dark:hover:border-orange-500/50 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50/50 dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300"
             title={currentLang === 'zh' ? '直联邮箱' : 'Direct Email'}
+            aria-label={currentLang === 'zh' ? '直联邮箱' : 'Direct Email'}
           >
             <Mail className="w-5 h-5" />
           </a>
@@ -143,16 +144,18 @@ export default function Footer({ currentLang, onScrollTo }: FooterProps) {
             href="tel:15323411996"
             className="w-10 h-10 rounded-full bg-white/80 dark:bg-zinc-800/80 border border-white dark:border-zinc-700 hover:border-orange-200 dark:hover:border-orange-500/50 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50/50 dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300"
             title={currentLang === 'zh' ? '联系电话' : 'Telephone'}
+            aria-label={currentLang === 'zh' ? '联系电话' : 'Telephone'}
           >
             <Phone className="w-5 h-5" />
           </a>
-          <span 
-            className="w-10 h-10 rounded-full bg-white/80 dark:bg-zinc-800/80 border border-white dark:border-zinc-700 hover:border-orange-200 dark:hover:border-orange-500/50 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50/50 dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300 cursor-pointer"
+          <button 
+            className="w-10 h-10 rounded-full bg-white/80 dark:bg-zinc-800/80 border border-white dark:border-zinc-700 hover:border-orange-200 dark:hover:border-orange-500/50 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50/50 dark:hover:bg-zinc-800 hover:shadow-md transition-all duration-300 cursor-pointer focus:outline-none"
             onClick={() => onScrollTo('contact')}
             title={currentLang === 'zh' ? '合作探讨' : 'Contact'}
+            aria-label={currentLang === 'zh' ? '合作探讨' : 'Contact'}
           >
             <Globe className="w-5 h-5" />
-          </span>
+          </button>
         </div>
 
       </div>

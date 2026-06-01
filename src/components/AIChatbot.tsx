@@ -237,6 +237,7 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
                     const lastUserMsg = [...messages].reverse().find(m => m.sender === 'user');
                     if (lastUserMsg) handleSendMessage(lastUserMsg.text);
                   }}
+                  aria-label="Retry message dispatch"
                   className="p-1.5 bg-red-100 hover:bg-red-200 rounded-full transition-colors focus:outline-none"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
@@ -273,11 +274,13 @@ export default function AIChatbot({ currentLang }: AIChatbotProps) {
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
                 placeholder={t.placeholder}
+                aria-label={t.placeholder}
                 className="w-full pl-5 pr-14 py-3.5 bg-white/60 dark:bg-zinc-800/60 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-700/80 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-500 dark:placeholder-zinc-400 border border-white/60 dark:border-zinc-700/60 rounded-2xl outline-none focus:border-orange-500 dark:focus:border-orange-500/50 transition-all duration-300 font-sans font-medium text-sm text-shadow-none shadow-sm"
               />
               <button
                 type="submit"
                 disabled={!inputVal.trim() || loading}
+                aria-label="Send message"
                 className={`absolute right-2 px-3 py-2 rounded-xl text-white outline-none focus:outline-none transition-all duration-305 ${
                   inputVal.trim() && !loading
                     ? 'bg-orange-500 hover:bg-orange-600 cursor-pointer active:scale-95'

@@ -156,6 +156,7 @@ export default function Contact({ currentLang }: ContactProps) {
                         onClick={() => navigator.clipboard.writeText('guoxin@bitqai.com')}
                         className="p-1 text-zinc-400 hover:text-orange-500 transition-colors"
                         title={currentLang === 'zh' ? '复制邮箱' : 'Copy Email'}
+                        aria-label={currentLang === 'zh' ? '复制邮箱' : 'Copy Email'}
                       >
                         <Copy className="w-3.5 h-3.5" />
                       </button>
@@ -179,6 +180,7 @@ export default function Contact({ currentLang }: ContactProps) {
                         onClick={() => navigator.clipboard.writeText('15323411996')}
                         className="p-1 text-zinc-400 hover:text-orange-500 transition-colors"
                         title={currentLang === 'zh' ? '复制电话' : 'Copy Phone'}
+                        aria-label={currentLang === 'zh' ? '复制电话' : 'Copy Phone'}
                       >
                         <Copy className="w-3.5 h-3.5" />
                       </button>
@@ -277,10 +279,11 @@ export default function Contact({ currentLang }: ContactProps) {
                   {/* Form fields */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
+                      <label htmlFor="contact-name" className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
                         {t.name} <span className="text-orange-500">*</span>
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
                         required
                         value={formData.name}
@@ -290,10 +293,11 @@ export default function Contact({ currentLang }: ContactProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
+                      <label htmlFor="contact-email" className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
                         {t.email} <span className="text-orange-500">*</span>
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         required
                         value={formData.email}
@@ -303,10 +307,11 @@ export default function Contact({ currentLang }: ContactProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
+                      <label htmlFor="contact-phone" className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
                         {t.phone}
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -315,10 +320,11 @@ export default function Contact({ currentLang }: ContactProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
+                      <label htmlFor="contact-subject" className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
                         {t.type}
                       </label>
                       <select
+                        id="contact-subject"
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                         className="w-full px-4 py-3 bg-white/50 dark:bg-zinc-800/50 backdrop-blur hover:bg-white/80 dark:hover:bg-zinc-800 focus:bg-white dark:focus:bg-zinc-800 text-zinc-800 dark:text-zinc-100 font-sans border border-white/60 dark:border-zinc-700/60 shadow-sm rounded-xl outline-none focus:border-orange-500/15 transition-all duration-300"
@@ -332,10 +338,11 @@ export default function Contact({ currentLang }: ContactProps) {
 
                   {/* Message body */}
                   <div>
-                    <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
+                    <label htmlFor="contact-message" className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-sans">
                       {t.message} <span className="text-orange-500">*</span>
                     </label>
                     <textarea
+                      id="contact-message"
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}

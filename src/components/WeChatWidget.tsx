@@ -38,12 +38,15 @@ export default function WeChatWidget() {
           </button>
 
           {/* Main Floating Button */}
-          <div className="relative w-12 h-12 bg-gradient-to-br from-[#07C160] to-[#06ad56] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#07C160]/30 hover:scale-110 transition-transform cursor-pointer">
+          <button 
+            className="relative w-12 h-12 bg-gradient-to-br from-[#07C160] to-[#06ad56] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#07C160]/30 hover:scale-110 transition-transform cursor-pointer focus:outline-none"
+            aria-label="Open WeChat contact widget"
+          >
             <MessageCircle className="w-6 h-6" />
             
             {/* Ping animation behind */}
             <div className="absolute inset-0 rounded-full border border-[#07C160] animate-ping opacity-20 pointer-events-none" />
-          </div>
+          </button>
 
           {/* Floating pop-out content on hover (simulated QR code panel) */}
           <div className="absolute right-full bottom-0 mb-0 mr-4 w-52 bg-white shadow-2xl rounded-[1.5rem] p-5 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 origin-bottom-right translate-x-4 group-hover:translate-x-0">

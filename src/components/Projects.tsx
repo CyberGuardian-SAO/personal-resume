@@ -249,6 +249,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                 {/* Close Button top-right */}
                 <button
                   onClick={() => setSelectedProject(null)}
+                  aria-label="Close project modal"
                   className="absolute top-4 right-4 p-2 bg-black/40 hover:bg-orange-500 hover:text-white rounded-full text-white z-30 transition-all duration-300 outline-none"
                 >
                   <Icons.X className="w-4 h-4" />
@@ -349,6 +350,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                                     e.stopPropagation();
                                     setCurrentImgIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
                                   }}
+                                  aria-label="Previous screenshot"
                                   className="absolute left-3 p-2 bg-black/40 hover:bg-orange-500 text-white rounded-full transition-all backdrop-blur-sm z-10 shadow"
                                 >
                                   <Icons.ChevronLeft className="w-4 h-4" />
@@ -358,6 +360,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                                     e.stopPropagation();
                                     setCurrentImgIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
                                   }}
+                                  aria-label="Next screenshot"
                                   className="absolute right-3 p-2 bg-black/40 hover:bg-orange-500 text-white rounded-full transition-all backdrop-blur-sm z-10 shadow"
                                 >
                                   <Icons.ChevronRight className="w-4 h-4" />
@@ -372,6 +375,7 @@ export default function Projects({ currentLang }: ProjectsProps) {
                                   <button
                                     key={i}
                                     onClick={() => setCurrentImgIndex(i)}
+                                    aria-label={`Go to screenshot ${i + 1}`}
                                     className={`w-1.5 h-1.5 rounded-full transition-all ${
                                       currentImgIndex === i ? 'bg-orange-500 scale-125' : 'bg-white/50 hover:bg-white'
                                     }`}
