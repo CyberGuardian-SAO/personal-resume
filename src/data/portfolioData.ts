@@ -1069,6 +1069,20 @@ export const portfolioData: PortfolioData = {
   ],
   latestNews: [
     {
+      id: "news16",
+      date: "2026.05",
+      title: {
+        zh: "🌐 个人全栈数字名片站点 [resume.bitqai.com](https://resume.bitqai.com) 正式上线",
+        en: "🌐 Personal Full-Stack Digital Portfolio [resume.bitqai.com](https://resume.bitqai.com) is Live"
+      },
+      description: {
+        zh: "基于React + Vite全栈架构构建，全面整合个人项目积淀与AI Agent交互体验，打造极致响应的数字简历名片。",
+        en: "Built on React + Vite full-stack architecture, integrating personal project portfolios with seamless AI Agent interactions for an ultimate digital resume experience."
+      },
+      status: "completed",
+      link: "https://resume.bitqai.com"
+    },
+    {
       id: "news1",
       date: "2026.05",
       title: {

@@ -225,7 +225,7 @@ export default function Contact({ currentLang }: ContactProps) {
             {/* Social handles links & Resumes */}
             <div className="border-t border-zinc-100 dark:border-zinc-800/80 pt-8 mt-12 md:mt-0">
               <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-4">
-                {currentLang === 'zh' ? '社交媒体 & 简历' : 'SOCIAL & RESUMES'}
+                {currentLang === 'zh' ? '社交媒体' : 'SOCIAL MEDIA'}
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -243,22 +243,6 @@ export default function Contact({ currentLang }: ContactProps) {
                   className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-700 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 dark:text-zinc-400 transition-colors duration-300"
                 >
                   <Linkedin className="w-4 h-4" />
-                </a>
-                <a
-                  href="/AI_Application_Architect.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 h-10 rounded-full border border-zinc-200 dark:border-zinc-700 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 dark:text-zinc-400 transition-colors duration-300 text-xs font-bold"
-                >
-                  {currentLang === 'zh' ? '中文简历' : 'CN Resume'}
-                </a>
-                <a
-                  href="/AI_Software_Engineer.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 h-10 rounded-full border border-zinc-200 dark:border-zinc-700 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-zinc-600 dark:text-zinc-400 transition-colors duration-300 text-xs font-bold"
-                >
-                  {currentLang === 'zh' ? '英文简历' : 'EN Resume'}
                 </a>
               </div>
             </div>

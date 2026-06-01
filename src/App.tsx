@@ -88,8 +88,8 @@ export default function App() {
 
         {/* Dynamic Blobs */}
         <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-cyan-200/50 dark:bg-cyan-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 animate-blob" />
-        <div className="absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-fuchsia-200/50 dark:bg-fuchsia-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[120px] opacity-70 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-[-20%] left-[20%] w-[70vw] h-[70vw] rounded-full bg-amber-200/50 dark:bg-amber-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[140px] opacity-70 animate-blob animation-delay-4000" />
+        <div className="hidden md:block absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-fuchsia-200/50 dark:bg-fuchsia-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[120px] opacity-70 animate-blob animation-delay-2000" />
+        <div className="hidden md:block absolute bottom-[-20%] left-[20%] w-[70vw] h-[70vw] rounded-full bg-amber-200/50 dark:bg-amber-800/15 mix-blend-multiply dark:mix-blend-screen filter blur-[140px] opacity-70 animate-blob animation-delay-4000" />
 
         {/* Heavy Glass Overlay */}
         <div className="absolute inset-0 bg-white/20 dark:bg-[#030303]/40 backdrop-blur-[80px] transition-colors duration-500" style={{ backdropFilter: 'blur(80px)', WebkitBackdropFilter: 'blur(80px)' }} />

@@ -66,14 +66,14 @@ export default function NatureEffects() {
 
   useEffect(() => {
     // Generate static rain drops
-    const count = window.innerWidth < 768 ? 40 : 100;
+    const count = window.innerWidth < 768 ? 20 : 50;
     const lines = Array.from({ length: count }).map((_, i) => ({
       id: i,
       left: Math.random() * 100, // percentage
       delay: Math.random() * 2, // seconds
-      duration: 0.6 + Math.random() * 0.6, // seconds
+      duration: 0.8 + Math.random() * 0.8, // slower for aesthetic and less cpu
       height: 20 + Math.random() * 30, // px
-      opacity: 0.2 + Math.random() * 0.3
+      opacity: 0.2 + Math.random() * 0.2 // slightly more transparent for less distraction
     }));
     setRainLines(lines);
 
