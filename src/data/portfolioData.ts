@@ -544,6 +544,46 @@ export const portfolioData: PortfolioData = {
   ],
   projects: [
     {
+      id: "p10",
+      title: {
+        zh: "职面 AI",
+        en: "BitQAI Career Matcher"
+      },
+      description: {
+        zh: "为求职者打造的个人求职全流程管理 CRM，通过 AI 实现投递信息结构化与个性化话术优化。",
+        en: "CRM for job seekers, optimizing job applications with structured data & AI-personalized outreach."
+      },
+      longDescription: {
+        zh: "本系统是一款为求职者打造的个人求职全流程管理 CRM。它通过 AI 技术实现求职信息的结构化管理、个性化话术自动生成与简历投递跟踪，解决传统投递过程中信息碎片化、话术单一、跟进混乱的痛点，显著提升求职者的投递效率与面试转化率。",
+        en: "This system is a personal job search CRM. It uses AI to structure job application data, automatically generate personalized scripts, and track resume applications, solving pain points like information fragmentation and inefficient follow-ups to improve interview conversion rates."
+      },
+      tags: {
+        zh: ["求职管理", "CRM", "AI话术生成", "投递跟踪"],
+        en: ["Job Search CRM", "AI Outreach", "Application Tracking", "Career Management"]
+      },
+      category: "ai",
+      image: "https://files.bitqai.com/website/career_crm_cover.png",
+      imageUrl: "https://files.bitqai.com/website/career_crm_cover.png",
+      trialUrl: "https://sayhi.bitqai.com",
+      demoUrl: "https://sayhi.bitqai.com",
+      publishDate: "2026.06",
+      logo: "Briefcase",
+      keyFeatures: {
+        zh: [
+          "📊 求职投递管理 (CRM): 集成公司信息、状态、话术与面试记录",
+          "✨ AI 智能 outreach: 根据岗位 JD 自动生成个性化打招呼话术",
+          "🔄 智能化工作流: 手动录入，即时保存与云同步",
+          "🎨 现代化界面风格: 采用微型交互与玻璃拟态风格"
+        ],
+        en: [
+          "📊 Job Application CRM: Manage company info, status, notes, & interview records",
+          "✨ AI Outreach: Generate personalized outreach scripts based on JD",
+          "🔄 Smart Workflow: Immediate save & cloud sync",
+          "🎨 Modern Design: Micro-interactions & Glassmorphism UI"
+        ]
+      }
+    },
+    {
       id: "p0",
       title: {
         zh: "简历重构与跨行求职",
@@ -1068,6 +1108,21 @@ export const portfolioData: PortfolioData = {
     }
   ],
   latestNews: [
+    {
+      id: "news15",
+      date: "2026.06",
+      title: {
+        zh: "✨ 职面 AI [智能投递系统](https://sayhi.bitqai.com) 正式上线",
+        en: "✨ BitQAI Career Matcher Launched"
+      },
+      description: {
+        zh: "专为求职者打造的个人求职全流程管理 CRM，通过 AI 实现投递信息结构化与个性化话术优化，显著提升面试转化率。",
+        en: "CRM for job seekers, optimizing job applications with structured data & AI-personalized outreach to boost interview rates."
+      },
+      status: "completed",
+      link: "https://sayhi.bitqai.com",
+      relatedProjects: ["p10"]
+    },
     {
       id: "news16",
       date: "2026.05",
