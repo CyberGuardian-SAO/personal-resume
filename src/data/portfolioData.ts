@@ -1107,6 +1107,95 @@ export const portfolioData: PortfolioData = {
       }
     }
   ],
+  experiencesHeader: {
+    title: {
+      zh: "职业生涯履历",
+      en: "Technical Chronicle"
+    },
+    subtitle: {
+      zh: "在海量业务淬炼中锤炼的成长图景",
+      en: "A timeline of growth refined through large scale business demands"
+    },
+    clickHint: {
+      zh: "提示：点击下方任一高亮履历卡片，即可展开/折叠详细的业绩成就与技术栈",
+      en: "Tip: Click any credential card below to expand/collapse detailed achievements & tech stack"
+    }
+  },
+  education: {
+    header: {
+      zh: "教育及通用学术底座",
+      en: "Education & Foundations"
+    },
+    degree: {
+      zh: "全日制本科 · 信息化技术与管理",
+      en: "Full-time Bachelor's in Information Tech & Management"
+    },
+    school: {
+      zh: "中南林业科技大学 (国内一流大学建设高校)",
+      en: "Central South University of Forestry and Tech (CSUFT)"
+    },
+    period: "2016.09 - 2020.06",
+    languageHeader: {
+      zh: "语言能力 (CET-6)",
+      en: "Language Capability (CET-6)"
+    },
+    languageLevel: {
+      zh: "具有境外旅居跨国协作沟通经验。英文技术文档阅读与学习能力出众。",
+      en: "Overseas living/collaboration experience. Superb English technical reading and learning proficiency."
+    }
+  },
+  contact: {
+    header: {
+      title: { zh: "联系我", en: "Get in Touch" },
+      subtitle: { zh: "期待交流，探讨合作并探索更多技术可能", en: "Let's connect and explore potential technical collaborations." }
+    },
+    labels: {
+      coordinates: { zh: "联系方式", en: "COORDINATES" },
+      location: { zh: "地点", en: "LOCATION" },
+      email: { zh: "邮箱", en: "DIRECT EMAIL" },
+      phone: { zh: "联系电话", en: "TELEPHONE" },
+      wechatQr: { zh: "添加微信", en: "WECHAT QR CODE" },
+      socialMedia: { zh: "社交媒体", en: "SOCIAL MEDIA" }
+    },
+    actions: {
+      copyEmail: { zh: "复制邮箱", en: "Copy Email" },
+      copyPhone: { zh: "复制电话", en: "Copy Phone" },
+      wechatSync: { zh: "微信同号", en: "WeChat Sync" },
+      wechatSameNumber: "微信同号码"
+    },
+    details: {
+      location: { zh: "中国 广东省深圳市 / 云南省普洱市", en: "Shenzhen, Guangdong / Pu'er, Yunnan, China" },
+      email: "guoxin@bitqai.com",
+      phoneLabel: "15323411996",
+      wechatQrUrl: "https://files.bitqai.com/website/wechat-qrcode.jpg",
+      githubUrl: "https://github.com/BitQAI",
+      linkedinUrl: "https://linkedin.com"
+    },
+    form: {
+      name: { zh: "您的尊称", en: "Full Name" },
+      namePlaceholder: { zh: "例如：埃隆 · 马斯克", en: "e.g. Elon Musk" },
+      email: { zh: "电子邮箱", en: "Email Address" },
+      emailPlaceholder: { zh: "例如: guoxin@bitqai.com", en: "e.g. guoxin@bitqai.com" },
+      phone: { zh: "联系电话 (可选)", en: "Phone Number (Optional)" },
+      phonePlaceholder: { zh: "例如：153 2341 1996", en: "e.g. +1 (555) 000-0000" },
+      type: { zh: "合作意向", en: "Collaboration Intent" },
+      typeConsulting: { zh: "项目顾问 / 咨询", en: "Consulting / Contract" },
+      typeFulltime: { zh: "全职契机", en: "Full-time Opportunities" },
+      typeSaaS: { zh: "AI Agent 定制开发", en: "AI Agent Solutions" },
+      message: { zh: "留言内容", en: "Message" },
+      messagePlaceholder: {
+        zh: "写下您的项目大纲或合作意向，我会尽快回复您。",
+        en: "Please briefly describe your requirements or intent, and I will get back to you soon."
+      },
+      submit: { zh: "发送消息", en: "Send Message" },
+      sending: { zh: "发送中...", en: "Sending..." },
+      successTitle: { zh: "发送成功！", en: "Message Sent!" },
+      successDesc: {
+        zh: "感谢您的联络，您的信息已成功发出，我将尽快回复。",
+        en: "Thank you for reaching out. Your message has been sent successfully, and I will get back to you soon."
+      }
+    }
+  },
   latestNews: [
     {
       id: "news15",

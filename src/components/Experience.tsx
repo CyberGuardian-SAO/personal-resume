@@ -51,20 +51,20 @@ export default function Experience({ currentLang }: ExperienceProps) {
     }
   }
 
-  const t = {
-    title: currentLang === 'zh' ? '职业生涯履历' : 'Technical Chronicle',
-    subtitle: currentLang === 'zh' ? '在海量业务淬炼中锤炼的成长图景' : 'A timeline of growth refined through large scale business demands',
-    educationHeader: currentLang === 'zh' ? '教育及通用学术底座' : 'Education & Foundations',
-    degree: currentLang === 'zh' ? '全日制本科 · 信息化技术与管理' : 'Full-time Bachelor\'s in Information Tech & Management',
-    college: currentLang === 'zh' ? '中南林业科技大学 (国内一流大学建设高校)' : 'Central South University of Forestry and Tech (CSUFT)',
-    collegePeriod: "2016.09 - 2020.06",
-    languageCapability: currentLang === 'zh' ? '语言能力 (CET-6)' : 'Language Capability (CET-6)',
-    languageLevel: currentLang === 'zh' ? '具有境外旅居跨国协作沟通经验。英文技术文档阅读与学习能力出众。' : 'Overseas living/collaboration experience. Superb English technical reading and learning proficiency.',
+  const expHeader = portfolioData.experiencesHeader || {
+    title: { zh: '职业生涯履历', en: 'Technical Chronicle' },
+    subtitle: { zh: '在海量业务淬炼中锤炼的成长图景', en: 'A timeline of growth refined through large scale business demands' },
+    clickHint: { zh: '提示：点击下方任一高亮履历卡片，即可展开/折叠详细的业绩成就与技术栈', en: 'Tip: Click any credential card below to expand/collapse detailed achievements & tech stack' }
   };
 
-  const clickHint = currentLang === 'zh'
-    ? '提示：点击下方任一高亮履历卡片，即可展开/折叠详细的业绩成就与技术栈'
-    : 'Tip: Click any credential card below to expand/collapse detailed achievements & tech stack';
+  const eduData = portfolioData.education || {
+    header: { zh: '教育及通用学术底座', en: 'Education & Foundations' },
+    degree: { zh: '全日制本科 · 信息化技术与管理', en: "Full-time Bachelor's in Information Tech & Management" },
+    school: { zh: '中南林业科技大学 (国内一流大学建设高校)', en: 'Central South University of Forestry and Tech (CSUFT)' },
+    period: '2016.09 - 2020.06',
+    languageHeader: { zh: '语言能力 (CET-6)', en: 'Language Capability (CET-6)' },
+    languageLevel: { zh: '具有境外旅居跨国协作沟通经验。英文技术文档阅读与学习能力出众。', en: 'Overseas living/collaboration experience. Superb English technical reading and learning proficiency.' }
+  };
 
   return (
     <section id="experience" className="py-24 border-b border-white/20 select-none relative z-10">
@@ -79,7 +79,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             className="flex items-center gap-2 text-xs font-bold text-orange-500 uppercase tracking-widest mb-3"
           >
             <Briefcase className="w-4 h-4" />
-            <span>{t.title}</span>
+            <span>{expHeader.title[currentLang]}</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-sans font-extrabold text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100 tracking-tight"
           >
-            {t.subtitle}
+            {expHeader.subtitle[currentLang]}
           </motion.h2>
 
           {/* Interactive clicking hint reminder banner */}
@@ -103,7 +103,7 @@ export default function Experience({ currentLang }: ExperienceProps) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-550"></span>
             </span>
-            <span className="font-sans font-medium text-zinc-600">{clickHint}</span>
+            <span className="font-sans font-medium text-zinc-600">{expHeader.clickHint[currentLang]}</span>
           </motion.div>
         </div>
 
@@ -369,27 +369,27 @@ export default function Experience({ currentLang }: ExperienceProps) {
                 <div>
                   <h4 className="font-sans font-bold text-xs text-orange-500 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                     <GraduationCap className="w-4 h-4" />
-                    <span>{t.educationHeader}</span>
+                    <span>{eduData.header[currentLang]}</span>
                   </h4>
                   <p className="font-sans font-extrabold text-base text-zinc-800 dark:text-zinc-100">
-                    {t.degree}
+                    {eduData.degree[currentLang]}
                   </p>
                   <p className="font-sans font-medium text-sm text-zinc-500 dark:text-zinc-400 mt-1 mb-4">
-                    {t.college}
+                    {eduData.school[currentLang]}
                   </p>
                   <div className="inline-block mt-1 p-3 bg-orange-50/50 dark:bg-orange-500/10 rounded-xl border border-orange-100/50 dark:border-orange-500/20">
                     <p className="font-sans font-bold text-sm text-zinc-800 dark:text-zinc-200 flex items-center gap-1.5 mb-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                      {t.languageCapability}
+                      {eduData.languageHeader[currentLang]}
                     </p>
                     <p className="font-sans text-xs md:text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed max-w-xl">
-                      {t.languageLevel}
+                      {eduData.languageLevel[currentLang]}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-400 dark:text-zinc-500 tracking-wider bg-zinc-100/40 dark:bg-zinc-800/40 px-3 py-1.5 rounded-full border border-zinc-100 dark:border-zinc-800 self-start md:self-auto select-none">
                   <Calendar className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
-                  <span>{t.collegePeriod}</span>
+                  <span>{eduData.period}</span>
                 </div>
               </div>
             </div>

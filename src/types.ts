@@ -59,6 +59,68 @@ export interface NewsItem {
   relatedProjects?: string[];
 }
 
+export interface ExperiencesHeader {
+  title: Record<'zh' | 'en', string>;
+  subtitle: Record<'zh' | 'en', string>;
+  clickHint: Record<'zh' | 'en', string>;
+}
+
+export interface EducationInfo {
+  header: Record<'zh' | 'en', string>;
+  degree: Record<'zh' | 'en', string>;
+  school: Record<'zh' | 'en', string>;
+  period: string;
+  languageHeader: Record<'zh' | 'en', string>;
+  languageLevel: Record<'zh' | 'en', string>;
+}
+
+export interface ContactInfo {
+  header: {
+    title: Record<'zh' | 'en', string>;
+    subtitle: Record<'zh' | 'en', string>;
+  };
+  labels: {
+    coordinates: Record<'zh' | 'en', string>;
+    location: Record<'zh' | 'en', string>;
+    email: Record<'zh' | 'en', string>;
+    phone: Record<'zh' | 'en', string>;
+    wechatQr: Record<'zh' | 'en', string>;
+    socialMedia: Record<'zh' | 'en', string>;
+  };
+  actions: {
+    copyEmail: Record<'zh' | 'en', string>;
+    copyPhone: Record<'zh' | 'en', string>;
+    wechatSync: Record<'zh' | 'en', string>;
+    wechatSameNumber: string;
+  };
+  details: {
+    location: Record<'zh' | 'en', string>;
+    email: string;
+    phoneLabel: string;
+    wechatQrUrl: string;
+    githubUrl: string;
+    linkedinUrl: string;
+  };
+  form: {
+    name: Record<'zh' | 'en', string>;
+    namePlaceholder: Record<'zh' | 'en', string>;
+    email: Record<'zh' | 'en', string>;
+    emailPlaceholder: Record<'zh' | 'en', string>;
+    phone: Record<'zh' | 'en', string>;
+    phonePlaceholder: Record<'zh' | 'en', string>;
+    type: Record<'zh' | 'en', string>;
+    typeConsulting: Record<'zh' | 'en', string>;
+    typeFulltime: Record<'zh' | 'en', string>;
+    typeSaaS: Record<'zh' | 'en', string>;
+    message: Record<'zh' | 'en', string>;
+    messagePlaceholder: Record<'zh' | 'en', string>;
+    submit: Record<'zh' | 'en', string>;
+    sending: Record<'zh' | 'en', string>;
+    successTitle: Record<'zh' | 'en', string>;
+    successDesc: Record<'zh' | 'en', string>;
+  };
+}
+
 export interface PortfolioData {
   name: Record<'zh' | 'en', string>;
   title: Record<'zh' | 'en', string>;
@@ -73,6 +135,9 @@ export interface PortfolioData {
   experiences: Experience[];
   projects: Project[];
   diverseExperiences?: DiverseExperience[];
+  experiencesHeader?: ExperiencesHeader;
+  education?: EducationInfo;
+  contact?: ContactInfo;
   awards?: Award[];
   photos?: string[];
   latestNews?: NewsItem[];
