@@ -1201,7 +1201,7 @@ export const portfolioData: PortfolioData = {
       id: "news15",
       date: "2026.06",
       title: {
-        zh: "✨ 职面 AI [智能投递系统](https://sayhi.bitqai.com) 正式上线",
+        zh: "✨ 职面 AI [智能投递话术生成与求职流程管理](https://sayhi.bitqai.com) 正式上线",
         en: "✨ BitQAI Career Matcher Launched"
       },
       description: {
@@ -1288,7 +1288,7 @@ export const portfolioData: PortfolioData = {
       id: "news4",
       date: "2026.03",
       title: {
-        zh: "🤖 RPA 微信闭环机器人 [GitHub 开源](https://github.com/BitQAI/rpa-bot)",
+        zh: "🤖 RPA 微信闭环机器人 [上线🔥](https://files.bitqai.com/website/bitqai_rpa_demo.mp4)",
         en: "🤖 RPA WeChat Automation Bot Repo Open-Sourced"
       },
       description: {
@@ -1296,7 +1296,7 @@ export const portfolioData: PortfolioData = {
         en: "Supports parsing secure WeChat signals to directly execute background booking and push safety alerts."
       },
       status: "completed",
-      link: "https://github.com/BitQAI/rpa-bot",
+      link: "https://files.bitqai.com/website/bitqai_rpa_demo.mp4",
       relatedProjects: ["p3"]
     },
 
